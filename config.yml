@@ -1,8 +1,8 @@
 freeproxy_list:
-  - USS:
-      country: US
-      speed: 2500
-      type: https
+  # - USS:
+  #     country: US
+  #     speed: 2500
+  #     type: https
   - US4:
       country: US
       # speed: 2500

@@ -34,7 +34,7 @@ def filter_chinese_proxies(proxy_list, max_threads=20):
     return valid_proxies
 
 
-def fetch_proxyscrape():
+def fetch_proxyscrape1():
     """
     从 ProxyScrape 获取中国代理节点列表
     请求两个不同的数据源，按行分割、清洗、去重后返回数组
@@ -47,7 +47,7 @@ def fetch_proxyscrape():
     try:
         print(f"[ProxyScrape] 正在请求数据源")
         response = requests.get(
-            "https://raw.githubusercontent.com/ProxyScrape/free-proxy-list/refs/heads/main/proxies/all/data.json",
+            "https://raw.githubusercontent.com/ProxyScrape/free-proxy-list/refs/heads/main/proxies/countries/us/socks5/data.json",
             headers=headers, timeout=15)
         
         if response.status_code != 200:
@@ -85,6 +85,58 @@ def fetch_proxyscrape():
     # 利用 set 去除两个源可能重复的节点
     return proxy_list
 
+
+
+def fetch_proxyscrape2():
+    """
+    从 ProxyScrape 获取中国代理节点列表
+    请求两个不同的数据源，按行分割、清洗、去重后返回数组
+    """
+    proxy_list = set()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+
+    try:
+        print(f"[ProxyScrape] 正在请求数据源")
+        response = requests.get(
+            "https://raw.githubusercontent.com/ProxyScrape/free-proxy-list/refs/heads/main/proxies/countries/us/socks4/data.json",
+            headers=headers, timeout=15)
+        
+        if response.status_code != 200:
+            print(f"[ProxyScrape] 请求失败，状态码: {response.status_code}，停止抓取。")
+            return []
+
+        data_items = response.json()
+        if not data_items:
+            print("[ProxyScrape] 检测到 data 为空，数据已全部抓取完毕。")
+            return []
+        
+        
+        for item in data_items:
+            # if item.get("uptime_percent") < 60:
+            #     pass
+            if item.get(item.get("responseTime"), 10000) > 5000:
+                pass
+            proxy_data = {
+                "ip": item.get("ip"),
+                "port": item.get("port"),
+                "type": item.get("protocol"),
+                "type_list": [item.get("protocol")],
+                "country": item.get("country"),
+                "country_code": item.get("country_code"),
+                "city": item.get("city"),
+                "delay": item.get("responseTime"),
+                "anonymity": item.get("latency_ms"),
+            }
+            
+            proxy_list.add(ProxyNode(proxy_data))
+
+    except requests.RequestException as e:
+        print(f"[ProxyScrape] 请求网络异常: {e}")
+
+    # 利用 set 去除两个源可能重复的节点
+    return proxy_list
 
 def fetch_geonode():
     """
@@ -151,9 +203,11 @@ def fetch_geonode():
 
 def get_other():
     results = set()
-    print("正在抓取 ProxyScrape 节点")
-    results.update(fetch_proxyscrape())
-    print("正在抓取 GeoNode 节点")
-    results.update(fetch_geonode())
+    print("正在抓取 ProxyScrape 1 节点")
+    results.update(fetch_proxyscrape1())
+    print("正在抓取 ProxyScrape 2 节点")
+    results.update(fetch_proxyscrape2())
+    # print("正在抓取 GeoNode 节点")
+    # results.update(fetch_geonode())
     print(f"抓到 {len(results)} 个其他节点")
     return results
