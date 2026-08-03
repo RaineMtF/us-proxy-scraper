@@ -74,43 +74,43 @@ jobs:
           fi
 
 
-  checker:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    needs: scraper
-    if: ${{ always() && (needs.scraper.result == 'success' || needs.scraper.result == 'skipped') }}
-    steps:
-      - name: actions-workflow-metrics
-        uses: dev-hato/actions-workflow-metrics@v0.0.7
+  # checker:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 30
+  #   needs: scraper
+  #   if: ${{ always() && (needs.scraper.result == 'success' || needs.scraper.result == 'skipped') }}
+  #   steps:
+  #     - name: actions-workflow-metrics
+  #       uses: dev-hato/actions-workflow-metrics@v0.0.7
       
-      - name: Checkout Repository
-        uses: actions/checkout@v6
-      - run: |
-          git fetch --all
-          git reset --hard origin/${{ github.ref_name }}
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v6
+  #     - run: |
+  #         git fetch --all
+  #         git reset --hard origin/${{ github.ref_name }}
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+  #     - name: Setup Bun
+  #       uses: oven-sh/setup-bun@v2
 
-      - name: Install bun dependencies
-        working-directory: ./checker
-        run: bun install
+  #     - name: Install bun dependencies
+  #       working-directory: ./checker
+  #       run: bun install
 
-      - name: Build Bun Executable
-        working-directory: ./checker
-        run: bun build --compile --minify --sourcemap --bytecode index.js --outfile ../index-bin
+  #     - name: Build Bun Executable
+  #       working-directory: ./checker
+  #       run: bun build --compile --minify --sourcemap --bytecode index.js --outfile ../index-bin
       
-      - name: Bun Post-processing
-        run: ./index-bin
+  #     - name: Bun Post-processing
+  #       run: ./index-bin
 
-      - name: Commit Changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update configs $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
-            git push origin main
-          fi
+  #     - name: Commit Changes
+  #       run: |
+  #         git config user.name "github-actions[bot]"
+  #         git config user.email "github-actions[bot]@users.noreply.github.com"
+  #         git add data/
+  #         if git diff --cached --quiet; then
+  #           echo "No changes to commit"
+  #         else
+  #           git commit -m "Update configs $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
+  #           git push origin main
+  #         fi

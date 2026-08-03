@@ -1,63 +1,6 @@
 freeproxy_list:
-# For most areas
-  - SOCKS4:
-      type: socks4
+  - US:
+      country: US
       speed: 5000
-  - SOCKS5:
-      type: socks5
-      speed: 5000
-  - HTTPS:
-      type: https
-      speed: 5000
-  - HTTP:
-      type: http
-      speed: 5000
-# For East Asia and its surrounding regions
-  - CN:
-      country: CN
-      speed: 10000
-  - HK:
-      country: HK
-      speed: 10000
-  - JP:
-      country: JP
-      speed: 10000
-  - KR:
-      country: KR
-      speed: 10000
-  - SG:
-      country: SG
-      speed: 10000
-  - MY:
-      country: MY
-      speed: 10000
-  - TW:
-      country: TW
-      speed: 10000
-  - BD:
-      country: BD
-      speed: 10000
-  - VN:
-      country: VN
-      speed: 10000
-# For good regions
-  - RO:
-      country: RO
-      speed: 7500
-  - DE:
-      country: DE
-      speed: 7500
-  - FR:
-      country: FR
-      speed: 7500
-  - FI:
-      country: FI
-      speed: 7500
-  - AU:
-      country: AU
-      speed: 7500
-  - NL:
-      country: NL
-      speed: 7500
 
 # https://www.freeproxy.world/?type={.type}&anonymity={.anonymity}&country={.country}&speed={.speed}&port={.port}

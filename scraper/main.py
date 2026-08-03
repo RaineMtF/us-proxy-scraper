@@ -3,18 +3,20 @@ import os
 import yaml
 import time
 
-from fetch_cn import get_cn
-from fetch_other import get_other
+# from fetch_cn import get_cn
+# from fetch_other import get_other
 from freeproxy_world_scraper import *
 
 def main():
-    get_cn()
+    # get_cn()
 
-    with open("../config.yml", "r", encoding="utf-8") as f:
-        config_data = yaml.safe_load(f)
+    # with open("../config.yml", "r", encoding="utf-8") as f:
+    #     config_data = yaml.safe_load(f)
 
-    configs = config_data["freeproxy_list"]
-    all_results = get_other()
+    # configs = config_data["freeproxy_list"]
+    # all_results = get_other()
+    
+    all_results = set()
     
     for item in configs:
         name, config = next(iter(item.items()))
