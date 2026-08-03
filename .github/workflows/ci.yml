@@ -1,17 +1,17 @@
 name: Auto Update
 
 on:
-  # push:
+  push:
   #   branches:
   #     - main
   schedule:
     - cron: '0 */8 * * *'
   workflow_dispatch: # Allow manual trigger
-    inputs:
-      skip_scraper:
-        description: 'Skip scraper, run checker only'
-        type: boolean
-        default: false
+    # inputs:
+    #   skip_scraper:
+    #     description: 'Skip scraper, run checker only'
+    #     type: boolean
+    #     default: false
 
 permissions:
   contents: write
@@ -20,7 +20,7 @@ jobs:
   scraper:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_scraper == 'true') }}
+    # if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_scraper == 'true') }}
     steps:
       - name: actions-workflow-metrics
         uses: dev-hato/actions-workflow-metrics@v0.0.7

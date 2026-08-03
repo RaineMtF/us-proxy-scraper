@@ -10,10 +10,10 @@ from freeproxy_world_scraper import *
 def main():
     # get_cn()
 
-    # with open("../config.yml", "r", encoding="utf-8") as f:
-    #     config_data = yaml.safe_load(f)
+    with open("../config.yml", "r", encoding="utf-8") as f:
+        config_data = yaml.safe_load(f)
 
-    # configs = config_data["freeproxy_list"]
+    configs = config_data["freeproxy_list"]
     # all_results = get_other()
     
     all_results = set()
