@@ -1,6 +1,11 @@
 freeproxy_list:
-  - US:
+  - US4:
       country: US
-      speed: 5000
+      speed: 2500
+      type: socks4
+  - US5:
+      country: US
+      speed: 2500
+      type: socks5
 
 # https://www.freeproxy.world/?type={.type}&anonymity={.anonymity}&country={.country}&speed={.speed}&port={.port}
