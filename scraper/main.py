@@ -22,7 +22,7 @@ def main():
         name, config = next(iter(item.items()))
         print(f"[{name}] 正在抓取配置：{config}")
         try:
-            results = fetch_freeproxy_work_pagerandom(config, 200)
+            results = fetch_freeproxy_work_pagerandom(config, 100)
             all_results.update(results)
             print(f"[{name}] 抓取成功，当前共 {len(all_results)} 个不同的节点。")
         except Exception as e:
