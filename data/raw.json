@@ -1,293 +1,33 @@
 [
     {
-        "ip": "72.195.114.169",
-        "port": 4145,
+        "ip": "192.73.242.77",
+        "port": 9050,
         "type": "socks5",
         "type_list": [
             "socks5"
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "Irvine",
+        "city": "Denver",
         "delay": null,
-        "anonymity": 8109.38
+        "anonymity": 13369.7
     },
     {
-        "ip": "98.188.47.150",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 8174.94
-    },
-    {
-        "ip": "184.178.172.3",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 941.24
-    },
-    {
-        "ip": "67.201.39.14",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "El Segundo",
-        "delay": null,
-        "anonymity": 812.82
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49418,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 2242.13
-    },
-    {
-        "ip": "24.249.199.12",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "El Cajon",
-        "delay": null,
-        "anonymity": 939.49
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49178,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1221.03
-    },
-    {
-        "ip": "192.252.220.89",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 1011.17
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49222,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 7891.5
-    },
-    {
-        "ip": "72.18.53.189",
-        "port": 9119,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Hornell",
-        "delay": null,
-        "anonymity": 16856.13
-    },
-    {
-        "ip": "184.178.172.25",
-        "port": 15291,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 1834.2
-    },
-    {
-        "ip": "184.178.172.17",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 3991.71
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49399,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 4504.9
-    },
-    {
-        "ip": "147.45.60.136",
-        "port": 1082,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 7816.26
-    },
-    {
-        "ip": "69.61.200.104",
-        "port": 36181,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 3404.88
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49203,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3759.29
-    },
-    {
-        "ip": "199.66.183.251",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Stockbridge",
-        "delay": null,
-        "anonymity": 880.15
-    },
-    {
-        "ip": "147.45.60.139",
-        "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 514.07
-    },
-    {
-        "ip": "129.151.9.55",
-        "port": 10808,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Phoenix",
-        "delay": null,
-        "anonymity": 739.71
-    },
-    {
-        "ip": "208.102.51.6",
-        "port": 58208,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Alexandria",
-        "delay": null,
-        "anonymity": 1476.83
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49216,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3693.9
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49326,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3613.63
-    },
-    {
-        "ip": "43.162.94.99",
+        "ip": "47.88.94.79",
         "port": 1080,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 17939.19
+    },
+    {
+        "ip": "149.28.222.169",
+        "port": 1088,
         "type": "socks5",
         "type_list": [
             "socks5"
@@ -296,114 +36,10 @@
         "country_code": "US",
         "city": "Santa Clara",
         "delay": null,
-        "anonymity": 2384.89
+        "anonymity": 7312.09
     },
     {
-        "ip": "216.68.128.121",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 1465.93
-    },
-    {
-        "ip": "184.178.172.14",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 1796.02
-    },
-    {
-        "ip": "107.152.98.5",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 969.91
-    },
-    {
-        "ip": "98.191.0.47",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Mesa",
-        "delay": null,
-        "anonymity": 1975.63
-    },
-    {
-        "ip": "98.188.47.150",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 792.21
-    },
-    {
-        "ip": "98.188.47.132",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 1957.68
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49463,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3824.13
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 8443,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 15116.73
-    },
-    {
-        "ip": "104.207.139.62",
+        "ip": "80.209.242.189",
         "port": 1080,
         "type": "socks5",
         "type_list": [
@@ -411,143 +47,39 @@
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "Elk Grove Village",
+        "city": "New York",
         "delay": null,
-        "anonymity": 660.11
+        "anonymity": 812.8
     },
     {
-        "ip": "69.55.49.177",
-        "port": 38182,
+        "ip": "104.194.132.112",
+        "port": 9052,
         "type": "socks4",
         "type_list": [
             "socks4"
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "North Bergen",
+        "city": "Las Vegas",
         "delay": null,
-        "anonymity": 1724.74
+        "anonymity": 10417.17
     },
     {
-        "ip": "192.111.137.35",
-        "port": 4145,
+        "ip": "47.252.11.233",
+        "port": 443,
         "type": "socks4",
         "type_list": [
             "socks4"
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "Atlanta",
+        "city": "Charlottesville",
         "delay": null,
-        "anonymity": 739.19
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49222,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 7785.44
-    },
-    {
-        "ip": "142.54.237.38",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 816.6
-    },
-    {
-        "ip": "72.49.49.11",
-        "port": 31034,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 2478.03
+        "anonymity": 6204.45
     },
     {
         "ip": "147.45.60.136",
         "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 1520.48
-    },
-    {
-        "ip": "98.170.57.249",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 1805.21
-    },
-    {
-        "ip": "70.166.167.55",
-        "port": 57745,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 817.91
-    },
-    {
-        "ip": "67.207.92.87",
-        "port": 1088,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "North Bergen",
-        "delay": null,
-        "anonymity": 6580.55
-    },
-    {
-        "ip": "199.66.183.251",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Stockbridge",
-        "delay": null,
-        "anonymity": 726.55
-    },
-    {
-        "ip": "147.45.60.110",
-        "port": 1082,
         "type": "socks5",
         "type_list": [
             "socks5"
@@ -556,36 +88,10 @@
         "country_code": "US",
         "city": "Atlanta",
         "delay": null,
-        "anonymity": 3643.83
+        "anonymity": 1638.87
     },
     {
-        "ip": "147.45.60.124",
-        "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 507.68
-    },
-    {
-        "ip": "129.153.194.16",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Phoenix",
-        "delay": null,
-        "anonymity": 10691.99
-    },
-    {
-        "ip": "68.1.210.189",
+        "ip": "68.71.249.158",
         "port": 4145,
         "type": "socks5",
         "type_list": [
@@ -593,48 +99,9 @@
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "San Diego",
+        "city": "Los Angeles",
         "delay": null,
-        "anonymity": 956.35
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49319,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 11670.77
-    },
-    {
-        "ip": "72.195.34.42",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Irvine",
-        "delay": null,
-        "anonymity": 8175.72
-    },
-    {
-        "ip": "199.58.185.9",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 885.86
+        "anonymity": 1040.08
     },
     {
         "ip": "216.106.179.216",
@@ -647,115 +114,37 @@
         "country_code": "US",
         "city": "Dallas",
         "delay": null,
-        "anonymity": 3520.3
+        "anonymity": 519.93
+    },
+    {
+        "ip": "142.54.226.214",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Beverly Hills",
+        "delay": null,
+        "anonymity": 979.23
+    },
+    {
+        "ip": "95.182.93.171",
+        "port": 8080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Kansas City",
+        "delay": null,
+        "anonymity": 13396.64
     },
     {
         "ip": "216.106.179.216",
-        "port": 49340,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 2003.92
-    },
-    {
-        "ip": "43.162.94.99",
-        "port": 1080,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Santa Clara",
-        "delay": null,
-        "anonymity": 795.0
-    },
-    {
-        "ip": "66.42.224.229",
-        "port": 41679,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 1684.77
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 9098,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 8810.29
-    },
-    {
-        "ip": "184.178.172.28",
-        "port": 15294,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 3981.1
-    },
-    {
-        "ip": "193.25.215.182",
-        "port": 22222,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 1002.83
-    },
-    {
-        "ip": "98.191.0.47",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Mesa",
-        "delay": null,
-        "anonymity": 777.17
-    },
-    {
-        "ip": "3.128.83.74",
-        "port": 17000,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dublin",
-        "delay": null,
-        "anonymity": 7888.74
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49453,
+        "port": 49451,
         "type": "socks5",
         "type_list": [
             "socks5"
@@ -764,384 +153,7 @@
         "country_code": "US",
         "city": "Dallas",
         "delay": null,
-        "anonymity": 3605.68
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49463,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1656.12
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 64,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 4790.2
-    },
-    {
-        "ip": "138.2.216.186",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Ashburn",
-        "delay": null,
-        "anonymity": 5826.85
-    },
-    {
-        "ip": "96.36.50.99",
-        "port": 39593,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Bay City",
-        "delay": null,
-        "anonymity": 680.07
-    },
-    {
-        "ip": "174.77.111.197",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 1984.93
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49327,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3751.43
-    },
-    {
-        "ip": "144.24.15.246",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Phoenix",
-        "delay": null,
-        "anonymity": 5013.61
-    },
-    {
-        "ip": "43.153.79.124",
-        "port": 47783,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Santa Clara",
-        "delay": null,
-        "anonymity": 6110.39
-    },
-    {
-        "ip": "142.54.231.38",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 979.02
-    },
-    {
-        "ip": "184.181.217.194",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 1800.5
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49153,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3513.91
-    },
-    {
-        "ip": "184.170.249.65",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 723.34
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49229,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3675.5
-    },
-    {
-        "ip": "72.207.109.5",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 793.57
-    },
-    {
-        "ip": "192.111.135.18",
-        "port": 18301,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 900.5
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 3128,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 8854.31
-    },
-    {
-        "ip": "174.75.211.193",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 8057.61
-    },
-    {
-        "ip": "66.42.224.229",
-        "port": 41679,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 1368.62
-    },
-    {
-        "ip": "184.181.217.220",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 928.62
-    },
-    {
-        "ip": "72.223.188.92",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 953.91
-    },
-    {
-        "ip": "184.185.2.12",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 2063.25
-    },
-    {
-        "ip": "199.58.184.97",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 910.95
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49300,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 2012.59
-    },
-    {
-        "ip": "23.95.106.31",
-        "port": 9150,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 11674.35
-    },
-    {
-        "ip": "47.88.94.79",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 9571.79
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49487,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 740.29
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49497,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1574.15
-    },
-    {
-        "ip": "72.195.34.35",
-        "port": 27360,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Irvine",
-        "delay": null,
-        "anonymity": 1959.31
-    },
-    {
-        "ip": "184.181.217.201",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 1813.84
+        "anonymity": 8612.26
     },
     {
         "ip": "158.101.8.92",
@@ -1154,687 +166,11 @@
         "country_code": "US",
         "city": "Phoenix",
         "delay": null,
-        "anonymity": 11479.84
+        "anonymity": 15258.34
     },
     {
-        "ip": "74.119.147.209",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 740.15
-    },
-    {
-        "ip": "72.195.34.59",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Irvine",
-        "delay": null,
-        "anonymity": 980.25
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49434,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1929.67
-    },
-    {
-        "ip": "23.27.141.23",
-        "port": 3080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "New York",
-        "delay": null,
-        "anonymity": 15101.51
-    },
-    {
-        "ip": "199.66.182.243",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Stockbridge",
-        "delay": null,
-        "anonymity": 865.84
-    },
-    {
-        "ip": "184.178.172.13",
-        "port": 15311,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 1952.24
-    },
-    {
-        "ip": "98.178.72.21",
-        "port": 10919,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Tulsa",
-        "delay": null,
-        "anonymity": 991.55
-    },
-    {
-        "ip": "162.253.68.97",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 967.28
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49153,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 2084.69
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 50,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 8675.42
-    },
-    {
-        "ip": "184.178.172.11",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 951.58
-    },
-    {
-        "ip": "184.170.251.30",
-        "port": 11288,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 729.57
-    },
-    {
-        "ip": "98.190.239.3",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Tulsa",
-        "delay": null,
-        "anonymity": 1940.3
-    },
-    {
-        "ip": "184.178.172.18",
-        "port": 15280,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Roanoke",
-        "delay": null,
-        "anonymity": 1995.93
-    },
-    {
-        "ip": "98.175.31.222",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Norfolk",
-        "delay": null,
-        "anonymity": 2003.73
-    },
-    {
-        "ip": "45.10.70.166",
+        "ip": "43.135.164.115",
         "port": 9050,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 2578.54
-    },
-    {
-        "ip": "45.76.13.121",
-        "port": 49995,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Piscataway",
-        "delay": null,
-        "anonymity": 15972.02
-    },
-    {
-        "ip": "174.75.211.193",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 791.17
-    },
-    {
-        "ip": "184.181.217.220",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 787.81
-    },
-    {
-        "ip": "174.77.111.196",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 1957.28
-    },
-    {
-        "ip": "45.76.164.255",
-        "port": 1085,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Piscataway",
-        "delay": null,
-        "anonymity": 3611.08
-    },
-    {
-        "ip": "192.252.208.67",
-        "port": 14287,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 731.87
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 20000,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 11719.91
-    },
-    {
-        "ip": "47.88.94.79",
-        "port": 1080,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 10986.58
-    },
-    {
-        "ip": "184.182.240.211",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Macon",
-        "delay": null,
-        "anonymity": 1090.4
-    },
-    {
-        "ip": "174.75.211.222",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 949.82
-    },
-    {
-        "ip": "72.195.34.59",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Irvine",
-        "delay": null,
-        "anonymity": 795.94
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49434,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3762.86
-    },
-    {
-        "ip": "199.66.182.243",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Stockbridge",
-        "delay": null,
-        "anonymity": 731.67
-    },
-    {
-        "ip": "47.251.127.154",
-        "port": 1080,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 21068.5
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49304,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 9936.16
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49383,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1970.63
-    },
-    {
-        "ip": "147.45.60.250",
-        "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 1517.74
-    },
-    {
-        "ip": "154.64.219.4",
-        "port": 5555,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Jacksonville",
-        "delay": null,
-        "anonymity": 1685.98
-    },
-    {
-        "ip": "72.207.113.97",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Pensacola",
-        "delay": null,
-        "anonymity": 8034.74
-    },
-    {
-        "ip": "178.130.47.21",
-        "port": 1082,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Phoenix",
-        "delay": null,
-        "anonymity": 818.85
-    },
-    {
-        "ip": "98.190.239.3",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Tulsa",
-        "delay": null,
-        "anonymity": 772.82
-    },
-    {
-        "ip": "174.64.199.82",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Lafayette",
-        "delay": null,
-        "anonymity": 1948.83
-    },
-    {
-        "ip": "76.144.40.133",
-        "port": 9050,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "West Linn",
-        "delay": null,
-        "anonymity": 13469.3
-    },
-    {
-        "ip": "50.250.205.21",
-        "port": 32100,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "San Francisco",
-        "delay": null,
-        "anonymity": 839.74
-    },
-    {
-        "ip": "47.85.9.228",
-        "port": 10800,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Charlottesville",
-        "delay": null,
-        "anonymity": 14074.61
-    },
-    {
-        "ip": "147.45.60.246",
-        "port": 1082,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 599.66
-    },
-    {
-        "ip": "184.182.240.12",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Macon",
-        "delay": null,
-        "anonymity": 1059.07
-    },
-    {
-        "ip": "192.111.137.34",
-        "port": 18765,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 888.22
-    },
-    {
-        "ip": "184.182.240.211",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Macon",
-        "delay": null,
-        "anonymity": 911.96
-    },
-    {
-        "ip": "154.29.153.164",
-        "port": 35554,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 18244.36
-    },
-    {
-        "ip": "72.205.0.67",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Herndon",
-        "delay": null,
-        "anonymity": 8185.67
-    },
-    {
-        "ip": "173.208.243.148",
-        "port": 9050,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Kansas City",
-        "delay": null,
-        "anonymity": 16336.36
-    },
-    {
-        "ip": "72.195.114.184",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Irvine",
-        "delay": null,
-        "anonymity": 943.34
-    },
-    {
-        "ip": "192.252.215.5",
-        "port": 16137,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 727.79
-    },
-    {
-        "ip": "198.8.94.170",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 878.08
-    },
-    {
-        "ip": "43.130.38.45",
-        "port": 51029,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Santa Clara",
-        "delay": null,
-        "anonymity": 24734.99
-    },
-    {
-        "ip": "149.28.222.169",
-        "port": 1088,
         "type": "socks4",
         "type_list": [
             "socks4"
@@ -1843,202 +179,7 @@
         "country_code": "US",
         "city": "Santa Clara",
         "delay": null,
-        "anonymity": 11754.01
-    },
-    {
-        "ip": "69.55.49.177",
-        "port": 38182,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "North Bergen",
-        "delay": null,
-        "anonymity": 2503.47
-    },
-    {
-        "ip": "216.22.13.244",
-        "port": 1084,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Manassas",
-        "delay": null,
-        "anonymity": 11691.62
-    },
-    {
-        "ip": "174.64.199.82",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Lafayette",
-        "delay": null,
-        "anonymity": 3839.44
-    },
-    {
-        "ip": "72.49.49.11",
-        "port": 31034,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 1785.77
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49464,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 2377.15
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49475,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 1951.11
-    },
-    {
-        "ip": "104.200.135.46",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 1016.27
-    },
-    {
-        "ip": "47.85.9.228",
-        "port": 10800,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Charlottesville",
-        "delay": null,
-        "anonymity": 22521.09
-    },
-    {
-        "ip": "147.45.60.246",
-        "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 505.39
-    },
-    {
-        "ip": "47.85.37.60",
-        "port": 1080,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Charlottesville",
-        "delay": null,
-        "anonymity": 455.43
-    },
-    {
-        "ip": "184.182.240.12",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Macon",
-        "delay": null,
-        "anonymity": 847.99
-    },
-    {
-        "ip": "147.45.60.124",
-        "port": 1082,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Atlanta",
-        "delay": null,
-        "anonymity": 625.24
-    },
-    {
-        "ip": "178.130.47.50",
-        "port": 1082,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Phoenix",
-        "delay": null,
-        "anonymity": 1716.76
-    },
-    {
-        "ip": "72.205.0.67",
-        "port": 4145,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Herndon",
-        "delay": null,
-        "anonymity": 811.28
-    },
-    {
-        "ip": "47.251.74.38",
-        "port": 8008,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Minkler",
-        "delay": null,
-        "anonymity": 10246.5
+        "anonymity": 1577.5
     },
     {
         "ip": "107.191.44.214",
@@ -2051,10 +192,23 @@
         "country_code": "US",
         "city": "Dallas",
         "delay": null,
-        "anonymity": 12028.84
+        "anonymity": 4216.87
     },
     {
-        "ip": "184.181.217.210",
+        "ip": "162.255.110.52",
+        "port": 5678,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Richland",
+        "delay": null,
+        "anonymity": 3770.5
+    },
+    {
+        "ip": "98.190.239.3",
         "port": 4145,
         "type": "socks4",
         "type_list": [
@@ -2062,126 +216,22 @@
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "Pensacola",
+        "city": "Tulsa",
         "delay": null,
-        "anonymity": 3832.23
+        "anonymity": 3824.32
     },
     {
-        "ip": "137.184.58.163",
-        "port": 9050,
+        "ip": "163.192.14.135",
+        "port": 50161,
         "type": "socks5",
         "type_list": [
             "socks5"
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "North Bergen",
+        "city": "San Jose",
         "delay": null,
-        "anonymity": 7985.85
-    },
-    {
-        "ip": "198.252.108.20",
-        "port": 9050,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 6560.39
-    },
-    {
-        "ip": "199.66.183.226",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Stockbridge",
-        "delay": null,
-        "anonymity": 974.05
-    },
-    {
-        "ip": "64.83.12.6",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 1317.01
-    },
-    {
-        "ip": "216.106.179.216",
-        "port": 49571,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 4248.88
-    },
-    {
-        "ip": "199.102.104.70",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Beverly Hills",
-        "delay": null,
-        "anonymity": 983.86
-    },
-    {
-        "ip": "156.245.246.51",
-        "port": 7890,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 25421.69
-    },
-    {
-        "ip": "34.229.113.62",
-        "port": 1080,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Ashburn",
-        "delay": null,
-        "anonymity": 2210.14
-    },
-    {
-        "ip": "142.54.232.6",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Los Angeles",
-        "delay": null,
-        "anonymity": 980.1
+        "anonymity": 897.33
     },
     {
         "ip": "184.178.172.25",
@@ -2194,11 +244,63 @@
         "country_code": "US",
         "city": "Roanoke",
         "delay": null,
-        "anonymity": 8033.55
+        "anonymity": 8089.83
+    },
+    {
+        "ip": "72.49.49.11",
+        "port": 31034,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 2171.49
+    },
+    {
+        "ip": "98.182.147.97",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 3961.61
+    },
+    {
+        "ip": "69.61.200.104",
+        "port": 36181,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 2748.24
+    },
+    {
+        "ip": "178.130.47.50",
+        "port": 1082,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 1836.38
     },
     {
         "ip": "216.106.179.216",
-        "port": 49388,
+        "port": 49226,
         "type": "socks5",
         "type_list": [
             "socks5"
@@ -2207,10 +309,140 @@
         "country_code": "US",
         "city": "Dallas",
         "delay": null,
-        "anonymity": 1454.49
+        "anonymity": 975.73
     },
     {
-        "ip": "67.201.59.70",
+        "ip": "192.111.139.163",
+        "port": 19404,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 959.25
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49292,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 7998.56
+    },
+    {
+        "ip": "192.111.137.37",
+        "port": 18762,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 735.47
+    },
+    {
+        "ip": "47.254.36.213",
+        "port": 45,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 7123.43
+    },
+    {
+        "ip": "104.194.132.112",
+        "port": 9052,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 4400.25
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49292,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 4408.06
+    },
+    {
+        "ip": "199.116.114.11",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 1046.92
+    },
+    {
+        "ip": "72.195.114.184",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Irvine",
+        "delay": null,
+        "anonymity": 2120.36
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49229,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 7773.02
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49571,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 1147.02
+    },
+    {
+        "ip": "68.71.252.38",
         "port": 4145,
         "type": "socks4",
         "type_list": [
@@ -2218,9 +450,113 @@
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "El Segundo",
+        "city": "Santa Monica",
         "delay": null,
-        "anonymity": 819.85
+        "anonymity": 813.89
+    },
+    {
+        "ip": "137.131.12.103",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 1938.34
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49178,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 956.28
+    },
+    {
+        "ip": "198.8.94.174",
+        "port": 39078,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 893.92
+    },
+    {
+        "ip": "68.71.240.210",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Beverly Hills",
+        "delay": null,
+        "anonymity": 1119.03
+    },
+    {
+        "ip": "184.182.240.12",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Macon",
+        "delay": null,
+        "anonymity": 4365.41
+    },
+    {
+        "ip": "142.54.231.38",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 932.88
+    },
+    {
+        "ip": "193.32.177.152",
+        "port": 1080,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Secaucus",
+        "delay": null,
+        "anonymity": 3302.09
+    },
+    {
+        "ip": "43.153.71.188",
+        "port": 9050,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 2976.83
     },
     {
         "ip": "69.61.200.104",
@@ -2233,24 +569,11 @@
         "country_code": "US",
         "city": "Cincinnati",
         "delay": null,
-        "anonymity": 2113.18
+        "anonymity": 1204.48
     },
     {
-        "ip": "216.106.179.216",
-        "port": 49398,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 3900.66
-    },
-    {
-        "ip": "184.181.217.194",
-        "port": 4145,
+        "ip": "70.166.167.38",
+        "port": 57728,
         "type": "socks5",
         "type_list": [
             "socks5"
@@ -2259,46 +582,20 @@
         "country_code": "US",
         "city": "Pensacola",
         "delay": null,
-        "anonymity": 1948.95
+        "anonymity": 957.47
     },
     {
-        "ip": "198.252.108.20",
-        "port": 9050,
-        "type": "socks4",
-        "type_list": [
-            "socks4"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Dallas",
-        "delay": null,
-        "anonymity": 7646.64
-    },
-    {
-        "ip": "174.64.199.79",
-        "port": 4145,
+        "ip": "216.22.13.244",
+        "port": 1084,
         "type": "socks5",
         "type_list": [
             "socks5"
         ],
         "country": "United States",
         "country_code": "US",
-        "city": "Lafayette",
+        "city": "Manassas",
         "delay": null,
-        "anonymity": 937.79
-    },
-    {
-        "ip": "216.68.128.121",
-        "port": 4145,
-        "type": "socks5",
-        "type_list": [
-            "socks5"
-        ],
-        "country": "United States",
-        "country_code": "US",
-        "city": "Cincinnati",
-        "delay": null,
-        "anonymity": 1634.63
+        "anonymity": 1245.21
     },
     {
         "ip": "199.66.183.226",
@@ -2311,10 +608,322 @@
         "country_code": "US",
         "city": "Stockbridge",
         "delay": null,
-        "anonymity": 720.96
+        "anonymity": 724.44
     },
     {
-        "ip": "184.178.172.14",
+        "ip": "192.111.137.37",
+        "port": 18762,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 939.57
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49216,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 7933.63
+    },
+    {
+        "ip": "64.83.12.6",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 1757.25
+    },
+    {
+        "ip": "192.252.208.70",
+        "port": 14282,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 921.34
+    },
+    {
+        "ip": "45.76.13.121",
+        "port": 49995,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Piscataway",
+        "delay": null,
+        "anonymity": 15185.15
+    },
+    {
+        "ip": "147.45.60.124",
+        "port": 1082,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 506.74
+    },
+    {
+        "ip": "104.194.132.112",
+        "port": 9054,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 1700.36
+    },
+    {
+        "ip": "208.102.51.6",
+        "port": 58208,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Alexandria",
+        "delay": null,
+        "anonymity": 1362.67
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49193,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 8463.02
+    },
+    {
+        "ip": "43.153.84.220",
+        "port": 9050,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 5486.77
+    },
+    {
+        "ip": "184.178.172.18",
+        "port": 15280,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 8203.4
+    },
+    {
+        "ip": "199.66.183.226",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Stockbridge",
+        "delay": null,
+        "anonymity": 878.15
+    },
+    {
+        "ip": "47.85.9.228",
+        "port": 10800,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Charlottesville",
+        "delay": null,
+        "anonymity": 10169.51
+    },
+    {
+        "ip": "24.249.199.12",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Cajon",
+        "delay": null,
+        "anonymity": 784.25
+    },
+    {
+        "ip": "150.136.58.221",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Ashburn",
+        "delay": null,
+        "anonymity": 2605.14
+    },
+    {
+        "ip": "68.71.254.6",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Beverly Hills",
+        "delay": null,
+        "anonymity": 991.89
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49171,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 8235.86
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49327,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 6915.46
+    },
+    {
+        "ip": "45.61.129.165",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 1760.09
+    },
+    {
+        "ip": "3.128.83.74",
+        "port": 17000,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dublin",
+        "delay": null,
+        "anonymity": 645.3
+    },
+    {
+        "ip": "104.194.132.112",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 787.8
+    },
+    {
+        "ip": "147.45.60.250",
+        "port": 1082,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 1503.64
+    },
+    {
+        "ip": "164.152.122.199",
+        "port": 19100,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 5267.11
+    },
+    {
+        "ip": "147.45.60.110",
+        "port": 1082,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 7754.75
+    },
+    {
+        "ip": "184.178.172.11",
         "port": 4145,
         "type": "socks5",
         "type_list": [
@@ -2324,10 +933,75 @@
         "country_code": "US",
         "city": "Roanoke",
         "delay": null,
-        "anonymity": 1006.07
+        "anonymity": 2976.58
     },
     {
-        "ip": "192.111.129.150",
+        "ip": "147.45.60.124",
+        "port": 1082,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 7767.9
+    },
+    {
+        "ip": "104.194.132.112",
+        "port": 9054,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 2397.1
+    },
+    {
+        "ip": "43.130.38.45",
+        "port": 51029,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 17262.59
+    },
+    {
+        "ip": "70.166.167.55",
+        "port": 57745,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 784.57
+    },
+    {
+        "ip": "173.208.243.148",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Kansas City",
+        "delay": null,
+        "anonymity": 6403.45
+    },
+    {
+        "ip": "192.252.211.193",
         "port": 4145,
         "type": "socks5",
         "type_list": [
@@ -2337,10 +1011,621 @@
         "country_code": "US",
         "city": "Atlanta",
         "delay": null,
-        "anonymity": 946.58
+        "anonymity": 885.88
     },
     {
-        "ip": "199.102.104.70",
+        "ip": "66.42.224.229",
+        "port": 41679,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 990.08
+    },
+    {
+        "ip": "206.220.175.2",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 1095.91
+    },
+    {
+        "ip": "77.110.114.114",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Charlotte",
+        "delay": null,
+        "anonymity": 590.02
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49319,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 1443.36
+    },
+    {
+        "ip": "43.153.84.220",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 4218.16
+    },
+    {
+        "ip": "47.85.9.228",
+        "port": 10800,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Charlottesville",
+        "delay": null,
+        "anonymity": 22081.53
+    },
+    {
+        "ip": "24.249.199.12",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Cajon",
+        "delay": null,
+        "anonymity": 4007.29
+    },
+    {
+        "ip": "5.249.165.195",
+        "port": 20000,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Reston",
+        "delay": null,
+        "anonymity": 2177.65
+    },
+    {
+        "ip": "184.181.217.210",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 776.59
+    },
+    {
+        "ip": "184.178.172.14",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 3822.34
+    },
+    {
+        "ip": "129.151.9.55",
+        "port": 10808,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 1770.28
+    },
+    {
+        "ip": "174.77.111.197",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 1945.38
+    },
+    {
+        "ip": "199.66.183.251",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Stockbridge",
+        "delay": null,
+        "anonymity": 729.89
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49180,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 589.93
+    },
+    {
+        "ip": "164.152.122.199",
+        "port": 19100,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 9764.64
+    },
+    {
+        "ip": "147.45.60.110",
+        "port": 1082,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 1636.45
+    },
+    {
+        "ip": "208.87.128.239",
+        "port": 9150,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "New York",
+        "delay": null,
+        "anonymity": 12595.41
+    },
+    {
+        "ip": "152.53.194.105",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Manassas",
+        "delay": null,
+        "anonymity": 576.39
+    },
+    {
+        "ip": "45.10.70.166",
+        "port": 9050,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 8514.62
+    },
+    {
+        "ip": "192.163.200.82",
+        "port": 17071,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Provo",
+        "delay": null,
+        "anonymity": 5953.07
+    },
+    {
+        "ip": "66.42.224.229",
+        "port": 41679,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 1179.22
+    },
+    {
+        "ip": "47.251.73.54",
+        "port": 8834,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 6306.29
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49453,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 593.12
+    },
+    {
+        "ip": "147.45.60.246",
+        "port": 1082,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 598.08
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49178,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 8276.6
+    },
+    {
+        "ip": "43.110.40.117",
+        "port": 8888,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 13791.07
+    },
+    {
+        "ip": "72.195.34.59",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Irvine",
+        "delay": null,
+        "anonymity": 8039.3
+    },
+    {
+        "ip": "74.119.147.209",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 746.12
+    },
+    {
+        "ip": "192.252.209.158",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 749.7
+    },
+    {
+        "ip": "129.151.9.55",
+        "port": 10808,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 8127.88
+    },
+    {
+        "ip": "67.207.92.87",
+        "port": 1088,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "North Bergen",
+        "delay": null,
+        "anonymity": 2591.05
+    },
+    {
+        "ip": "174.75.211.193",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 1812.88
+    },
+    {
+        "ip": "67.201.59.70",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Segundo",
+        "delay": null,
+        "anonymity": 807.75
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49497,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 4279.89
+    },
+    {
+        "ip": "199.66.183.251",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Stockbridge",
+        "delay": null,
+        "anonymity": 880.71
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49180,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 3727.48
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49204,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 8248.64
+    },
+    {
+        "ip": "72.214.108.67",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "East Irvine",
+        "delay": null,
+        "anonymity": 938.09
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49191,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 5622.65
+    },
+    {
+        "ip": "98.178.72.21",
+        "port": 10919,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Tulsa",
+        "delay": null,
+        "anonymity": 3807.34
+    },
+    {
+        "ip": "72.36.32.222",
+        "port": 9050,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pine Bluffs",
+        "delay": null,
+        "anonymity": 13284.67
+    },
+    {
+        "ip": "192.111.137.34",
+        "port": 18765,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 880.71
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49260,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 1739.82
+    },
+    {
+        "ip": "192.111.129.145",
+        "port": 16894,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 974.95
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49304,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 3745.35
+    },
+    {
+        "ip": "50.250.205.21",
+        "port": 32100,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "San Francisco",
+        "delay": null,
+        "anonymity": 824.52
+    },
+    {
+        "ip": "77.73.14.147",
+        "port": 1080,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 13114.22
+    },
+    {
+        "ip": "68.71.243.14",
         "port": 4145,
         "type": "socks4",
         "type_list": [
@@ -2350,6 +1635,1059 @@
         "country_code": "US",
         "city": "Beverly Hills",
         "delay": null,
-        "anonymity": 821.53
+        "anonymity": 808.74
+    },
+    {
+        "ip": "184.181.217.201",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 3820.94
+    },
+    {
+        "ip": "129.153.194.16",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 4427.52
+    },
+    {
+        "ip": "216.68.128.121",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 3126.13
+    },
+    {
+        "ip": "174.77.111.198",
+        "port": 49547,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 3996.15
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49383,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 507.65
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49372,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 739.26
+    },
+    {
+        "ip": "184.178.172.3",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 1967.09
+    },
+    {
+        "ip": "147.45.60.139",
+        "port": 1082,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 1525.46
+    },
+    {
+        "ip": "72.195.101.99",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Irvine",
+        "delay": null,
+        "anonymity": 775.24
+    },
+    {
+        "ip": "47.254.36.213",
+        "port": 808,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 6354.43
+    },
+    {
+        "ip": "72.207.33.64",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "San Diego",
+        "delay": null,
+        "anonymity": 1796.82
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49398,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 14867.45
+    },
+    {
+        "ip": "24.249.199.4",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Cajon",
+        "delay": null,
+        "anonymity": 1800.82
+    },
+    {
+        "ip": "72.207.109.5",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 789.26
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49300,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 11226.82
+    },
+    {
+        "ip": "98.178.72.21",
+        "port": 10919,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Tulsa",
+        "delay": null,
+        "anonymity": 1946.62
+    },
+    {
+        "ip": "72.36.32.222",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pine Bluffs",
+        "delay": null,
+        "anonymity": 23728.44
+    },
+    {
+        "ip": "199.66.182.243",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Stockbridge",
+        "delay": null,
+        "anonymity": 721.47
+    },
+    {
+        "ip": "198.252.108.20",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 2924.12
+    },
+    {
+        "ip": "184.182.240.211",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Macon",
+        "delay": null,
+        "anonymity": 2006.67
+    },
+    {
+        "ip": "67.201.39.14",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Segundo",
+        "delay": null,
+        "anonymity": 852.75
+    },
+    {
+        "ip": "3.129.27.9",
+        "port": 17000,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dublin",
+        "delay": null,
+        "anonymity": 655.37
+    },
+    {
+        "ip": "23.27.141.23",
+        "port": 3080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "New York",
+        "delay": null,
+        "anonymity": 2027.39
+    },
+    {
+        "ip": "184.181.217.194",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 773.81
+    },
+    {
+        "ip": "77.73.14.147",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Las Vegas",
+        "delay": null,
+        "anonymity": 20480.24
+    },
+    {
+        "ip": "207.246.98.83",
+        "port": 40001,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 1885.01
+    },
+    {
+        "ip": "43.162.94.99",
+        "port": 1080,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 8975.75
+    },
+    {
+        "ip": "98.170.57.241",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 936.25
+    },
+    {
+        "ip": "69.55.49.177",
+        "port": 38182,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "North Bergen",
+        "delay": null,
+        "anonymity": 558.93
+    },
+    {
+        "ip": "184.181.217.201",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 8279.31
+    },
+    {
+        "ip": "98.188.47.150",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 3962.46
+    },
+    {
+        "ip": "216.68.128.121",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 1218.97
+    },
+    {
+        "ip": "47.254.36.213",
+        "port": 8000,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Minkler",
+        "delay": null,
+        "anonymity": 11082.1
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49372,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 9358.97
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49473,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 7989.85
+    },
+    {
+        "ip": "96.60.107.30",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Madison",
+        "delay": null,
+        "anonymity": 10327.03
+    },
+    {
+        "ip": "67.201.35.145",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "El Segundo",
+        "delay": null,
+        "anonymity": 1191.12
+    },
+    {
+        "ip": "199.58.184.97",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 737.41
+    },
+    {
+        "ip": "72.195.101.99",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Irvine",
+        "delay": null,
+        "anonymity": 1969.39
+    },
+    {
+        "ip": "72.207.33.64",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "San Diego",
+        "delay": null,
+        "anonymity": 946.63
+    },
+    {
+        "ip": "192.111.129.150",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 733.2
+    },
+    {
+        "ip": "142.93.21.46",
+        "port": 61616,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 10199.29
+    },
+    {
+        "ip": "72.205.0.67",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Herndon",
+        "delay": null,
+        "anonymity": 787.34
+    },
+    {
+        "ip": "193.25.215.182",
+        "port": 22222,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 2324.7
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49377,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 4405.24
+    },
+    {
+        "ip": "216.106.179.216",
+        "port": 49366,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Dallas",
+        "delay": null,
+        "anonymity": 9349.07
+    },
+    {
+        "ip": "104.200.152.30",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 843.35
+    },
+    {
+        "ip": "199.66.182.243",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Stockbridge",
+        "delay": null,
+        "anonymity": 869.92
+    },
+    {
+        "ip": "184.178.172.17",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 1957.5
+    },
+    {
+        "ip": "70.166.65.160",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 2442.57
+    },
+    {
+        "ip": "184.182.240.211",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Macon",
+        "delay": null,
+        "anonymity": 1407.55
+    },
+    {
+        "ip": "216.22.13.244",
+        "port": 1083,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Manassas",
+        "delay": null,
+        "anonymity": 2424.24
+    },
+    {
+        "ip": "104.200.135.46",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 1036.36
+    },
+    {
+        "ip": "207.246.98.83",
+        "port": 40001,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 939.69
+    },
+    {
+        "ip": "142.54.236.97",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 808.72
+    },
+    {
+        "ip": "43.162.94.99",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 899.99
+    },
+    {
+        "ip": "184.182.240.12",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Macon",
+        "delay": null,
+        "anonymity": 874.09
+    },
+    {
+        "ip": "69.55.49.177",
+        "port": 38182,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "North Bergen",
+        "delay": null,
+        "anonymity": 567.69
+    },
+    {
+        "ip": "149.28.222.169",
+        "port": 1088,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 2155.38
+    },
+    {
+        "ip": "199.58.184.97",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 954.41
+    },
+    {
+        "ip": "141.148.158.143",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 6041.09
+    },
+    {
+        "ip": "184.181.217.220",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 7901.12
+    },
+    {
+        "ip": "184.178.172.28",
+        "port": 15294,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 929.95
+    },
+    {
+        "ip": "142.93.21.46",
+        "port": 61616,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Santa Clara",
+        "delay": null,
+        "anonymity": 5369.18
+    },
+    {
+        "ip": "72.205.0.67",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Herndon",
+        "delay": null,
+        "anonymity": 3993.25
+    },
+    {
+        "ip": "35.223.220.43",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Council Bluffs",
+        "delay": null,
+        "anonymity": 23936.61
+    },
+    {
+        "ip": "199.187.210.54",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Los Angeles",
+        "delay": null,
+        "anonymity": 968.75
+    },
+    {
+        "ip": "192.111.137.35",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 762.68
+    },
+    {
+        "ip": "72.206.74.126",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Fairfax",
+        "delay": null,
+        "anonymity": 8009.93
+    },
+    {
+        "ip": "137.184.58.163",
+        "port": 9050,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "North Bergen",
+        "delay": null,
+        "anonymity": 12396.75
+    },
+    {
+        "ip": "163.192.14.135",
+        "port": 50161,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "San Jose",
+        "delay": null,
+        "anonymity": 739.82
+    },
+    {
+        "ip": "184.185.2.12",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 2089.33
+    },
+    {
+        "ip": "184.178.172.26",
+        "port": 4145,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 967.82
+    },
+    {
+        "ip": "184.178.172.25",
+        "port": 15291,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Roanoke",
+        "delay": null,
+        "anonymity": 1798.69
+    },
+    {
+        "ip": "72.49.49.11",
+        "port": 31034,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Cincinnati",
+        "delay": null,
+        "anonymity": 996.99
+    },
+    {
+        "ip": "34.229.113.62",
+        "port": 1080,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Ashburn",
+        "delay": null,
+        "anonymity": 970.91
+    },
+    {
+        "ip": "45.76.164.255",
+        "port": 1085,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Piscataway",
+        "delay": null,
+        "anonymity": 4561.24
+    },
+    {
+        "ip": "98.182.147.97",
+        "port": 4145,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Pensacola",
+        "delay": null,
+        "anonymity": 792.95
+    },
+    {
+        "ip": "178.130.47.50",
+        "port": 1082,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Phoenix",
+        "delay": null,
+        "anonymity": 684.86
+    },
+    {
+        "ip": "72.195.34.60",
+        "port": 27391,
+        "type": "socks5",
+        "type_list": [
+            "socks5"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Irvine",
+        "delay": null,
+        "anonymity": 8156.44
+    },
+    {
+        "ip": "192.111.139.163",
+        "port": 19404,
+        "type": "socks4",
+        "type_list": [
+            "socks4"
+        ],
+        "country": "United States",
+        "country_code": "US",
+        "city": "Atlanta",
+        "delay": null,
+        "anonymity": 797.5
     }
 ]
