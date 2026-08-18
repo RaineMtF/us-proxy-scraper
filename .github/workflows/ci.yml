@@ -19,7 +19,7 @@ permissions:
 jobs:
   scraper:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     # if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_scraper == 'true') }}
     steps:
       - name: actions-workflow-metrics
