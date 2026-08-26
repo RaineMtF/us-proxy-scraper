@@ -317,3 +317,4 @@ scraper/data.json
 index-bin.exe
 index.js.map
 *.xdb
+*.mmdb.gz

@@ -1,14 +1,17 @@
 import builtins
+import gzip
 import json
 import os
 import queue
 import random
 import re
+import shutil
 import sys
 import threading
 import time
 import urllib.parse
 
+import geoip2.database
 import ip2region.searcher as xdb
 import ip2region.util as util
 import requests
@@ -56,7 +59,18 @@ class ProxyNode:
         self.ip = str(data.get("ip", "")).strip()
         self.port = str(data.get("port", "")).strip()
         self.type = str(data.get("type", "")).strip().lower()
-        self.all = data
+        self.all = {
+            "ip": self.ip,
+            "port": self.port,
+            "type": self.type,
+            "type_list": data.get("type_list", [self.type]),
+            "country": str(data.get("country", "")).strip(),
+            "country_code": str(data.get("country_code", "")).strip().upper(),
+            "city": str(data.get("city", "")).strip(),
+            "delay": str(data.get("delay", "")).strip(),
+            "anonymity": str(data.get("anonymity", "")).strip(),
+        }
+        self.all.update(data)
 
     def __hash__(self):
         return hash((self.ip, self.port, self.type))
@@ -363,7 +377,6 @@ def run_cdp_task_queue(tasks, process_task_fn, max_workers=8):
                 timer.cancel()
                 with counter_lock:
                     completed_counter[0] += 1
-                    done = completed_counter[0]
                 task_queue.task_done()
 
         if sb:
@@ -527,14 +540,28 @@ def batch_fetch_proxies(urls, max_workers=8):
 
 
 # ------------------------------
-# IP 归属地复核与过滤模块 (ip2region)
+# 多源 IP 归属地三重交叉复核与过滤模块
+# (GeoLite2-City + DbIP-City-lite + ip2region)
 # ------------------------------
 def review_and_filter_proxies(
-    proxy_nodes, allowed_countries, blacklist=None, db_path="ip2region_v4.xdb"
+    proxy_nodes,
+    allowed_countries,
+    blacklist=None,
+    geolite_path="GeoLite2-City.mmdb",
+    dbip_path="dbip-city-lite.mmdb",
+    ip2region_path="ip2region_v4.xdb",
 ):
     """
-    使用 ip2region 数据库复核代理节点的真实归属地，覆盖 country, city, country_code，
-    过滤掉不在 allowed_countries 中的节点以及 blacklist 中的 IP，并汇总去重输出被删除节点的国家代码。
+    使用三大数据库进行多重交叉验证：
+    1. GeoLite2-City（主数据源：决定最终写入的 country name, country_code, city）
+    2. DbIP-City-lite（交叉验证 1）
+    3. ip2region_v4.xdb（交叉验证 2）
+
+    规则：
+    - 优先检查 IP 黑名单；
+    - 三大数据库各自解析出 country_code，必须全部非空且都位于 allowed_countries 白名单中；
+    - 任意一个数据库不符合即视为不合格并剔除；
+    - 最终节点属性按照 GeoLite2-City 的数据格式化储存。
     """
     blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
@@ -544,19 +571,38 @@ def review_and_filter_proxies(
     dropped_count = 0
     blacklisted_count = 0
 
-    print(
-        f"[阶段 3/3] 开始对 {total_count} 个节点进行归属地复核 (国家白名单: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
-    )
-
-    searcher = None
-    if os.path.exists(db_path):
+    # 初始化 Readers
+    geo_reader = None
+    if os.path.exists(geolite_path):
         try:
-            c_buffer = util.load_content_from_file(db_path)
-            searcher = xdb.new_with_buffer(util.IPv4, c_buffer)
+            geo_reader = geoip2.database.Reader(geolite_path)
         except Exception as e:
-            print(f"[ip2region] 初始化全内存查询对象失败: {e}，跳过归属地复核。")
+            print(f"[GeoLite2] 初始化失败: {e}")
     else:
-        print(f"[ip2region] 提示：未找到本地数据库文件 {db_path}，跳过归属地复核。")
+        print(f"[GeoLite2] 警告: 未找到 {geolite_path}")
+
+    dbip_reader = None
+    if os.path.exists(dbip_path):
+        try:
+            dbip_reader = geoip2.database.Reader(dbip_path)
+        except Exception as e:
+            print(f"[DbIP] 初始化失败: {e}")
+    else:
+        print(f"[DbIP] 警告: 未找到 {dbip_path}")
+
+    ip2reg_searcher = None
+    if os.path.exists(ip2region_path):
+        try:
+            c_buffer = util.load_content_from_file(ip2region_path)
+            ip2reg_searcher = xdb.new_with_buffer(util.IPv4, c_buffer)
+        except Exception as e:
+            print(f"[ip2region] 初始化失败: {e}")
+    else:
+        print(f"[ip2region] 警告: 未找到 {ip2region_path}")
+
+    print(
+        f"[阶段 3/3] 开始对 {total_count} 个节点执行三重数据库交叉复核 (白名单国家: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
+    )
 
     for node in proxy_nodes:
         ip = node.ip
@@ -566,48 +612,105 @@ def review_and_filter_proxies(
             blacklisted_count += 1
             continue
 
-        region = ""
-        if searcher:
+        # 2. GeoLite2-City 查询（主库）
+        geo_code = ""
+        geo_country = ""
+        geo_city = ""
+        if geo_reader:
             try:
-                region = searcher.search(ip)
+                g_res = geo_reader.city(ip)
+                geo_code = str(g_res.country.iso_code or "").strip().upper()
+                geo_country = str(g_res.country.names.get("en") or g_res.country.name or "").strip()
+                # city 优先 city.names['en']，无则降级取一级行政区 (州/省)
+                geo_city = str(g_res.city.names.get("en") or g_res.city.name or "").strip()
+                if not geo_city and g_res.subdivisions and g_res.subdivisions.most_specific:
+                    sub = g_res.subdivisions.most_specific
+                    geo_city = str(sub.names.get("en") or sub.name or "").strip()
             except Exception:
                 pass
 
-        if region:
-            parts = region.split("|")
-            # ip2region 格式: 国家|省份|城市|ISP|国家代码
-            r_country = parts[0] if len(parts) > 0 and parts[0] != "0" else ""
-            r_province = parts[1] if len(parts) > 1 and parts[1] != "0" else ""
-            r_code = parts[4].upper() if len(parts) > 4 and parts[4] != "0" else ""
+        # 3. DbIP-City-lite 查询（交叉验证 1）
+        dbip_code = ""
+        if dbip_reader:
+            try:
+                d_res = dbip_reader.city(ip)
+                dbip_code = str(d_res.country.iso_code or "").strip().upper()
+            except Exception:
+                pass
 
-            target_code = r_code if r_code else node.all.get("country_code", "").upper()
-            if allowed_set and target_code and target_code not in allowed_set:
-                dropped_count += 1
-                dropped_country_codes.add(target_code)
-                continue
+        # 4. ip2region 查询（交叉验证 2）
+        ip2reg_code = ""
+        if ip2reg_searcher:
+            try:
+                reg_str = ip2reg_searcher.search(ip)
+                parts = reg_str.split("|")
+                # 格式: 国家|省份|城市|ISP|国家代码
+                if len(parts) > 4 and parts[4] != "0":
+                    ip2reg_code = str(parts[4]).strip().upper()
+            except Exception:
+                pass
 
-            # 覆盖字段（用省份代替 city）
-            if r_country:
-                node.all["country"] = r_country
-            if r_code:
-                node.all["country_code"] = r_code
-            node.all["city"] = r_province
+        # 5. 三重交叉验证判定：
+        # 如果某个库存在，则其解析出的国家代码必须命中白名单。
+        # 同时 GeoLite2 主库必须解析出国家代码。
+        codes_to_check = []
+        if geo_reader:
+            codes_to_check.append(geo_code)
+        if dbip_reader:
+            codes_to_check.append(dbip_code)
+        if ip2reg_searcher:
+            codes_to_check.append(ip2reg_code)
+
+        valid_codes = [c for c in codes_to_check if c]
+
+        if codes_to_check:
+            # 必须所有已启用的数据库都查出了非空代码，且每个库的代码都属于 allowed_set 白名单
+            is_all_passed = (
+                len(valid_codes) == len(codes_to_check)
+                and all(c in allowed_set for c in valid_codes)
+            )
         else:
             orig_code = node.all.get("country_code", "").upper()
-            if allowed_set and orig_code and orig_code not in allowed_set:
-                dropped_count += 1
+            is_all_passed = bool(not allowed_set or (orig_code and orig_code in allowed_set))
+            if not is_all_passed and orig_code:
                 dropped_country_codes.add(orig_code)
-                continue
+
+        if not is_all_passed:
+            dropped_count += 1
+            for c in valid_codes:
+                if c not in allowed_set:
+                    dropped_country_codes.add(c)
+            continue
+
+        # 6. 全部验证通过：按 GeoLite2-City 数据覆盖写入
+        if geo_country:
+            node.all["country"] = geo_country
+        if geo_code:
+            node.all["country_code"] = geo_code
+        if geo_city or geo_country:
+            node.all["city"] = geo_city
 
         filtered_nodes.add(node)
 
+    # 关闭 readers
+    if geo_reader:
+        try:
+            geo_reader.close()
+        except Exception:
+            pass
+    if dbip_reader:
+        try:
+            dbip_reader.close()
+        except Exception:
+            pass
+
     print(
-        f"[阶段 3/3 完成] 复核处理完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个非白名单节点，最终保留 {len(filtered_nodes)} 个节点。"
+        f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点。"
     )
     if dropped_country_codes:
-        print(f"[ip2region] 剔除节点的国家代码汇总 (共 {len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n")
+        print(f"[GeoDB] 剔除节点的国家代码汇总 (共 {len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n")
     else:
-        print(f"[ip2region] 未剔除任何国家节点。\n")
+        print(f"[GeoDB] 未剔除任何国家节点。\n")
 
     return filtered_nodes
 
@@ -624,7 +727,7 @@ def main():
     freeproxy_only = config_data.get("freeproxy_only", False)
     maxpages = config_data.get("maxpages", 150)
     blacklist = config_data.get("blacklist", [])
-    
+
     # 解析配置矩阵
     configs, allowed_countries = load_scraper_configs(config_data)
 
@@ -671,7 +774,7 @@ def main():
         freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=8)
         all_results.update(freeproxy_results)
 
-    # 阶段 3：ip2region 内存归属地复核、黑名单过滤与白名单过滤
+    # 阶段 3：多源 IP 归属地三重交叉复核与过滤
     all_results = review_and_filter_proxies(all_results, allowed_countries, blacklist=blacklist)
 
     # 导出保存

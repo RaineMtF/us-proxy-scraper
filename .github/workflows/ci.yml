@@ -30,10 +30,14 @@ jobs:
           uv sync --no-dev
           chmod -R 777 .venv
 
-      - name: Download ip2region database
+      - name: Download Geolocation Databases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          gh api -H "Accept: application/vnd.github.raw" /repos/wp-statistics/GeoLite2-City/contents/GeoLite2-City.mmdb.gz > GeoLite2-City.mmdb.gz
+          gzip -df GeoLite2-City.mmdb.gz
+          gh api -H "Accept: application/vnd.github.raw" /repos/wp-statistics/DbIP-City-lite/contents/dbip-city-lite.mmdb.gz > dbip-city-lite.mmdb.gz
+          gzip -df dbip-city-lite.mmdb.gz
           gh api -H "Accept: application/vnd.github.raw" /repos/lionsoul2014/ip2region/contents/data/ip2region_v4.xdb > ip2region_v4.xdb
 
       - name: Configure hosts
