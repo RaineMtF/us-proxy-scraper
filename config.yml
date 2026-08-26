@@ -1,233 +1,67 @@
 freeproxy_only: true
 maxpages: 150
-freeproxy_list:
-  - US1:
-      country: US
-      speed: 2500
-      type: https
-  - US2:
-      country: US
-      speed: 2500
-      type: socks4
-  - USS:
-      country: US
-      speed: 2500
-      type: socks5
-  - DE1:
-      country: DE
-      speed: 2500
-      type: https
-  - DE2:
-      country: DE
-      speed: 2500
-      type: socks4
-  - DE3:
-      country: DE
-      speed: 2500
-      type: socks5
-  - GB1:
-      country: GB
-      speed: 2500
-      type: https
-  - GB2:
-      country: GB
-      speed: 2500
-      type: socks4
-  - GB3:
-      country: GB
-      speed: 2500
-      type: socks5
-  - FR1:
-      country: FR
-      speed: 2500
-      type: https
-  - FR2:
-      country: FR
-      speed: 2500
-      type: socks4
-  - FR3:
-      country: FR
-      speed: 2500
-      type: socks5
-  - CA1:
-      country: CA
-      speed: 2500
-      type: https
-  - CA2:
-      country: CA
-      speed: 2500
-      type: socks4
-  - CA3:
-      country: CA
-      speed: 2500
-      type: socks5
-  - NL1:
-      country: NL
-      speed: 2500
-      type: https
-  - NL2:
-      country: NL
-      speed: 2500
-      type: socks4
-  - NL3:
-      country: NL
-      speed: 2500
-      type: socks5
-  - CH1:
-      country: CH
-      speed: 2500
-      type: https
-  - CH2:
-      country: CH
-      speed: 2500
-      type: socks4
-  - CH3:
-      country: CH
-      speed: 2500
-      type: socks5
-  - SE1:
-      country: SE
-      speed: 2500
-      type: https
-  - SE2:
-      country: SE
-      speed: 2500
-      type: socks4
-  - SE3:
-      country: SE
-      speed: 2500
-      type: socks5
-  - BE1:
-      country: BE
-      speed: 2500
-      type: https
-  - BE2:
-      country: BE
-      speed: 2500
-      type: socks4
-  - BE3:
-      country: BE
-      speed: 2500
-      type: socks5
-  - NO1:
-      country: NO
-      speed: 2500
-      type: https
-  - NO2:
-      country: NO
-      speed: 2500
-      type: socks4
-  - NO3:
-      country: NO
-      speed: 2500
-      type: socks5
-  - AT1:
-      country: AT
-      speed: 2500
-      type: https
-  - AT2:
-      country: AT
-      speed: 2500
-      type: socks4
-  - AT3:
-      country: AT
-      speed: 2500
-      type: socks5
-  - DK1:
-      country: DK
-      speed: 2500
-      type: https
-  - DK2:
-      country: DK
-      speed: 2500
-      type: socks4
-  - DK3:
-      country: DK
-      speed: 2500
-      type: socks5
-  - IE1:
-      country: IE
-      speed: 2500
-      type: https
-  - IE2:
-      country: IE
-      speed: 2500
-      type: socks4
-  - IE3:
-      country: IE
-      speed: 2500
-      type: socks5
-  - FI1:
-      country: FI
-      speed: 2500
-      type: https
-  - FI2:
-      country: FI
-      speed: 2500
-      type: socks4
-  - FI3:
-      country: FI
-      speed: 2500
-      type: socks5
-  - LU1:
-      country: LU
-      speed: 2500
-      type: https
-  - LU2:
-      country: LU
-      speed: 2500
-      type: socks4
-  - LU3:
-      country: LU
-      speed: 2500
-      type: socks5
-  - IS1:
-      country: IS
-      speed: 2500
-      type: https
-  - IS2:
-      country: IS
-      speed: 2500
-      type: socks4
-  - IS3:
-      country: IS
-      speed: 2500
-      type: socks5
-  - MC1:
-      country: MC
-      speed: 2500
-      type: https
-  - MC2:
-      country: MC
-      speed: 2500
-      type: socks4
-  - MC3:
-      country: MC
-      speed: 2500
-      type: socks5
-  - LI1:
-      country: LI
-      speed: 2500
-      type: https
-  - LI2:
-      country: LI
-      speed: 2500
-      type: socks4
-  - LI3:
-      country: LI
-      speed: 2500
-      type: socks5
-  - MX1:
-      country: MX
-      speed: 2500
-      type: https
-  - MX2:
-      country: MX
-      speed: 2500
-      type: socks4
-  - MX3:
-      country: MX
-      speed: 2500
-      type: socks5
 
-# https://www.freeproxy.world/?type={.type}&anonymity={.anonymity}&country={.country}&speed={.speed}&port={.port}
+# 目标国家列表（ISO 2字母代码）
+countries:
+  - US # 美国 (United States)
+  - DE # 德国 (Germany)
+  - GB # 英国 (United Kingdom)
+  - FR # 法国 (France)
+  - CA # 加拿大 (Canada)
+  - IT # 意大利 (Italy)
+  - AU # 澳大利亚 (Australia)
+  - MX # 墨西哥 (Mexico)
+  - ES # 西班牙 (Spain)
+  - NL # 荷兰 (Netherlands)
+  - PL # 波兰 (Poland)
+  - CH # 瑞士 (Switzerland)
+  - SE # 瑞典 (Sweden)
+  - BE # 比利时 (Belgium)
+  - NO # 挪威 (Norway)
+  - AT # 奥地利 (Austria)
+  - DK # 丹麦 (Denmark)
+  - IE # 爱尔兰 (Ireland)
+  - NZ # 新西兰 (New Zealand)
+  - FI # 芬兰 (Finland)
+  - PT # 葡萄牙 (Portugal)
+  - GR # 希腊 (Greece)
+  - CZ # 捷克 (Czechia)
+  - RO # 罗马尼亚 (Romania)
+  - SK # 斯洛伐克 (Slovakia)
+  - BG # 保加利亚 (Bulgaria)
+  - HR # 克罗地亚 (Croatia)
+  - LT # 立陶宛 (Lithuania)
+  - SI # 斯洛文尼亚 (Slovenia)
+  - LV # 拉脱维亚 (Latvia)
+  - EE # 爱沙尼亚 (Estonia)
+  - CY # 塞浦路斯 (Cyprus)
+  - LU # 卢森堡 (Luxembourg)
+  - MT # 马耳他 (Malta)
+  - IS # 冰岛 (Iceland)
+  - AL # 阿尔巴尼亚 (Albania)
+  - MK # 北马其顿 (North Macedonia)
+  - ME # 黑山 (Montenegro)
+  - MC # 摩纳哥 (Monaco)
+  - LI # 列支敦士登 (Liechtenstein)
+  - AD # 安道尔 (Andorra)
+  - SM # 圣马力诺 (San Marino)
+  - VA # 梵蒂冈 (Vatican City)
+  - TR # 土耳其 (Türkiye / Turkey)
+  - UA # 乌克兰 (Ukraine)
+  - HU # 匈牙利 (Hungary)
+  - RS # 塞尔维亚 (Serbia)
+  - BA # 波斯尼亚和黑塞哥维那 (Bosnia and Herzegovina)
+  - GE # 格鲁吉亚 (Georgia)
+  - MD # 摩尔多瓦 (Moldova)
+
+# 通用协议配置（自动应用到上述每一个国家）
+common_configs:
+  - https:
+      speed: 2500
+      type: https
+  - socks4:
+      speed: 2500
+      type: socks4
+  - socks5:
+      speed: 2500
+      type: socks5

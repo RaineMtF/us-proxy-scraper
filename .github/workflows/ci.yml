@@ -48,6 +48,8 @@ jobs:
           EOF
 
       - name: Run Scraper
+        env:
+          PYTHONUNBUFFERED: "1"
         run: uv run main.py
 
       - name: Commit Changes
