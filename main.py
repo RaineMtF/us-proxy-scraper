@@ -88,7 +88,7 @@ class ProxyNode:
         country_code = str(self.all.get("country_code", "")).strip().upper()
         city = str(self.all.get("city", "")).strip()
         url = f"{self.type}://{self.ip}:{self.port}"
-        return f"{country_code} | {city} | {url}"
+        return f"{country_code} {city} {url}"
 
 
 # ------------------------------

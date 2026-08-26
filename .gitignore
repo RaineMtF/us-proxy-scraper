@@ -318,3 +318,4 @@ index-bin.exe
 index.js.map
 *.xdb
 *.mmdb.gz
+*.mmdb
