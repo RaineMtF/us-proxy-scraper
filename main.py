@@ -576,7 +576,7 @@ def batch_fetch_proxies(urls, max_workers=8):
 
 # ------------------------------
 # 多源 IP 归属地三重交叉复核与过滤模块
-# (GeoLite2-City + DbIP-City-lite + ip2region)
+# (ip2region + GeoLite2-City + DbIP-City-lite)
 # ------------------------------
 def review_and_filter_proxies(
     proxy_nodes,
@@ -588,15 +588,15 @@ def review_and_filter_proxies(
 ):
     """
     使用三大数据库进行多重交叉验证：
-    1. GeoLite2-City（主数据源：决定最终写入的 country name, country_code, city）
-    2. DbIP-City-lite（交叉验证 1）
-    3. ip2region_v4.xdb（交叉验证 2）
+    1. ip2region_v4.xdb（主数据源：决定最终写入的 country, country_code, city）
+    2. GeoLite2-City（交叉验证 1：仅取 country_code 做白名单校验）
+    3. DbIP-City-lite（交叉验证 2：仅取 country_code 做白名单校验）
 
     规则：
     - 优先检查 IP 黑名单；
-    - 三大数据库各自解析出 country_code，必须全部非空且都位于 allowed_countries 白名单中；
+    - 所有已启用的数据库解析出的 country_code 必须全部非空且都位于 allowed_countries 白名单中；
     - 任意一个数据库不符合即视为不合格并剔除；
-    - 最终节点属性按照 GeoLite2-City 的数据格式化储存。
+    - 最终节点属性按照 ip2region 的数据格式化储存（country / country_code / city）。
     """
     blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
@@ -635,6 +635,10 @@ def review_and_filter_proxies(
     else:
         print(f"[ip2region] 警告: 未找到 {ip2region_path}")
 
+    if not ip2reg_searcher:
+        print("[ip2region] 错误: 主库 ip2region 不可用，无法执行归属地复核流程。")
+        return filtered_nodes
+
     print(
         f"[阶段 3/3] 开始对 {total_count} 个节点执行三重数据库交叉复核 (白名单国家: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
     )
@@ -647,32 +651,34 @@ def review_and_filter_proxies(
             blacklisted_count += 1
             continue
 
-        # 2. GeoLite2-City 查询（主库）
+        # 2. ip2region 查询（主库）
+        ip2reg_code = ""
+        ip2reg_country = ""
+        ip2reg_city = ""
+        try:
+            reg_str = ip2reg_searcher.search(ip)
+            parts = reg_str.split("|")
+            # 格式: 国家|省份|城市|ISP|国家代码
+            if len(parts) >= 5 and parts[4] not in ("", "0"):
+                ip2reg_code = str(parts[4]).strip().upper()
+            ip2reg_country = str(parts[0]).strip() if len(parts) > 0 else ""
+            # city 优先城市 (parts[2])，无则降级取省份 (parts[1])
+            ip2reg_city = str(parts[2]).strip() if len(parts) > 2 and parts[2] else ""
+            if not ip2reg_city and len(parts) > 1:
+                ip2reg_city = str(parts[1]).strip()
+        except Exception:
+            pass
+
+        # 3. GeoLite2-City 查询（交叉验证 1：仅取 country_code）
         geo_code = ""
-        geo_country = ""
-        geo_city = ""
         if geo_reader:
             try:
                 g_res = geo_reader.city(ip)
                 geo_code = str(g_res.country.iso_code or "").strip().upper()
-                geo_country = str(
-                    g_res.country.names.get("en") or g_res.country.name or ""
-                ).strip()
-                # city 优先 city.names['en']，无则降级取一级行政区 (州/省)
-                geo_city = str(
-                    g_res.city.names.get("en") or g_res.city.name or ""
-                ).strip()
-                if (
-                    not geo_city
-                    and g_res.subdivisions
-                    and g_res.subdivisions.most_specific
-                ):
-                    sub = g_res.subdivisions.most_specific
-                    geo_city = str(sub.names.get("en") or sub.name or "").strip()
             except Exception:
                 pass
 
-        # 3. DbIP-City-lite 查询（交叉验证 1）
+        # 4. DbIP-City-lite 查询（交叉验证 2：仅取 country_code）
         dbip_code = ""
         if dbip_reader:
             try:
@@ -681,43 +687,21 @@ def review_and_filter_proxies(
             except Exception:
                 pass
 
-        # 4. ip2region 查询（交叉验证 2）
-        ip2reg_code = ""
-        if ip2reg_searcher:
-            try:
-                reg_str = ip2reg_searcher.search(ip)
-                parts = reg_str.split("|")
-                # 格式: 国家|省份|城市|ISP|国家代码
-                if len(parts) > 4 and parts[4] != "0":
-                    ip2reg_code = str(parts[4]).strip().upper()
-            except Exception:
-                pass
-
         # 5. 三重交叉验证判定：
         # 如果某个库存在，则其解析出的国家代码必须命中白名单。
-        # 同时 GeoLite2 主库必须解析出国家代码。
-        codes_to_check = []
+        # 同时 ip2region 主库必须解析出非空的国家代码。
+        codes_to_check = [ip2reg_code]
         if geo_reader:
             codes_to_check.append(geo_code)
         if dbip_reader:
             codes_to_check.append(dbip_code)
-        if ip2reg_searcher:
-            codes_to_check.append(ip2reg_code)
 
         valid_codes = [c for c in codes_to_check if c]
 
-        if codes_to_check:
-            # 必须所有已启用的数据库都查出了非空代码，且每个库的代码都属于 allowed_set 白名单
-            is_all_passed = len(valid_codes) == len(codes_to_check) and all(
-                c in allowed_set for c in valid_codes
-            )
-        else:
-            orig_code = node.all.get("country_code", "").upper()
-            is_all_passed = bool(
-                not allowed_set or (orig_code and orig_code in allowed_set)
-            )
-            if not is_all_passed and orig_code:
-                dropped_country_codes.add(orig_code)
+        # 必须所有已启用的数据库都查出了非空代码，且每个库的代码都属于 allowed_set 白名单
+        is_all_passed = len(valid_codes) == len(codes_to_check) and all(
+            c in allowed_set for c in valid_codes
+        )
 
         if not is_all_passed:
             dropped_count += 1
@@ -726,13 +710,13 @@ def review_and_filter_proxies(
                     dropped_country_codes.add(c)
             continue
 
-        # 6. 全部验证通过：按 GeoLite2-City 数据覆盖写入
-        if geo_country:
-            node.all["country"] = geo_country
-        if geo_code:
-            node.all["country_code"] = geo_code
-        if geo_city or geo_country:
-            node.all["city"] = geo_city
+        # 6. 全部验证通过：按 ip2region 数据覆盖写入
+        if ip2reg_country:
+            node.all["country"] = ip2reg_country
+        if ip2reg_code:
+            node.all["country_code"] = ip2reg_code
+        if ip2reg_city or ip2reg_country:
+            node.all["city"] = ip2reg_city
 
         filtered_nodes.add(node)
 
