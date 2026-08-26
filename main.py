@@ -317,7 +317,7 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
     return parser_fn(bs4_data)
 
 
-def run_cdp_task_queue(tasks, process_task_fn, max_workers=16):
+def run_cdp_task_queue(tasks, process_task_fn, max_workers=8):
     """
     通用 CDP 线程池任务调度器。
     """
@@ -500,7 +500,7 @@ def _fetch_proxies_task(sb, url, thread_id):
         return []
 
 
-def batch_fetch_pagemax(configs, max_workers=16):
+def batch_fetch_pagemax(configs, max_workers=8):
     """多线程并发探测所有配置的最大页码数，支持重试 1 次"""
     tasks = []
     for item in configs:
@@ -527,7 +527,7 @@ def batch_fetch_pagemax(configs, max_workers=16):
     return list(successful.values())
 
 
-def batch_fetch_proxies(urls, max_workers=16):
+def batch_fetch_proxies(urls, max_workers=8):
     """多线程并发抓取所有目标页面"""
     worker_count = min(max_workers, len(urls))
     print(f"\n[阶段 2/2] 启动 {worker_count} 个并发 Worker 抓取全部 {len(urls)} 个目标页面...")
@@ -749,7 +749,7 @@ def main():
         all_results.update(fetch_proxyscrape())
 
     # 阶段 1：并发探测最大页码
-    pagemax_results = batch_fetch_pagemax(configs, max_workers=16)
+    pagemax_results = batch_fetch_pagemax(configs, max_workers=8)
 
     # 聚合生成待抓取 URL
     collected_urls = []
@@ -771,7 +771,7 @@ def main():
 
     # 阶段 2：多线程全局并发抓取
     if all_target_urls:
-        freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=16)
+        freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=8)
         all_results.update(freeproxy_results)
 
     # 阶段 3：多源 IP 归属地三重交叉复核与过滤
