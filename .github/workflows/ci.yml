@@ -30,6 +30,12 @@ jobs:
           uv sync --no-dev
           chmod -R 777 .venv
 
+      - name: Download ip2region database
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -H "Accept: application/vnd.github.raw" /repos/lionsoul2014/ip2region/contents/data/ip2region_v4.xdb > ip2region_v4.xdb
+
       - name: Configure hosts
         run: |
           sudo tee -a /etc/hosts <<EOF

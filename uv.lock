@@ -593,6 +593,15 @@ wheels = [
 ]
 
 [[package]]
+name = "py-ip2region"
+version = "3.0.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/60/b8/c8b934effe827e5d159b51912dc8366f5a490d7383943e982a801f5c3591/py_ip2region-3.0.4.tar.gz", hash = "sha256:a8b818ed502a17feb998bdcf7c7748466aff368bcc75592c443aedf4eb6987f7", size = 16794, upload-time = "2026-03-03T05:27:03.73Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/86/04/ef28263025ef08ec581875468f7ba08df6803fc729a0d464c3ad2161c1c7/py_ip2region-3.0.4-py3-none-any.whl", hash = "sha256:7668e3756bc941045cf317a2116fe8359b0a70d88cee326decb836caa14bd77d", size = 13287, upload-time = "2026-03-03T05:27:01.994Z" },
+]
+
+[[package]]
 name = "pyautogui"
 version = "0.9.54"
 source = { registry = "https://pypi.org/simple" }
@@ -1087,6 +1096,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "lxml" },
+    { name = "py-ip2region" },
     { name = "pyyaml" },
     { name = "requests", extra = ["socks"] },
     { name = "seleniumbase" },
@@ -1096,6 +1106,7 @@ dependencies = [
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.14.3" },
     { name = "lxml", specifier = ">=6.1.1" },
+    { name = "py-ip2region", specifier = ">=3.0.4" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "requests", extras = ["socks"], specifier = ">=2.34.2" },
     { name = "seleniumbase", specifier = ">=4.49.7" },

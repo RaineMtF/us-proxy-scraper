@@ -7,6 +7,8 @@ import threading
 import time
 import urllib.parse
 
+import ip2region.searcher as xdb
+import ip2region.util as util
 import requests
 import yaml
 from bs4 import BeautifulSoup
@@ -387,6 +389,74 @@ def _fetch_htmls(urls, max_workers=8):
 
 
 # ------------------------------
+# IP 归属地复核与过滤模块 (ip2region)
+# ------------------------------
+def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region_v4.xdb"):
+    """
+    使用 ip2region 数据库复核代理节点的真实归属地，覆盖 country, city, country_code，
+    并过滤掉不在 allowed_countries 中的节点。
+    """
+    if not os.path.exists(db_path):
+        print(f"[ip2region] 提示：未找到本地数据库文件 {db_path}，跳过归属地复核。")
+        return proxy_nodes
+
+    try:
+        c_buffer = util.load_content_from_file(db_path)
+        searcher = xdb.new_with_buffer(util.IPv4, c_buffer)
+    except Exception as e:
+        print(f"[ip2region] 初始化内存查询对象失败: {e}，跳过归属地复核。")
+        return proxy_nodes
+
+    allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
+    filtered_nodes = set()
+    total_count = len(proxy_nodes)
+    dropped_count = 0
+
+    print(f"\n[ip2region] 开始对 {total_count} 个节点进行归属地复核 (允许国家: {sorted(allowed_set)})...")
+
+    for node in proxy_nodes:
+        ip = node.ip
+        region = ""
+        try:
+            region = searcher.search(ip)
+        except Exception:
+            pass
+
+        if region:
+            parts = region.split("|")
+            # ip2region 格式: 国家|省份|城市|ISP|国家代码
+            r_country = parts[0] if len(parts) > 0 and parts[0] != "0" else ""
+            r_province = parts[1] if len(parts) > 1 and parts[1] != "0" else ""
+            r_code = parts[4].upper() if len(parts) > 4 and parts[4] != "0" else ""
+
+            # 获取复核后的国家代码进行过滤判断
+            target_code = r_code if r_code else node.all.get("country_code", "").upper()
+            if allowed_set and target_code and target_code not in allowed_set:
+                dropped_count += 1
+                continue
+
+            # 覆盖字段信息（省份代替 city）
+            if r_country:
+                node.all["country"] = r_country
+            if r_code:
+                node.all["country_code"] = r_code
+            node.all["city"] = r_province
+        else:
+            # 查无结果时，基于原有国家代码做白名单检测
+            orig_code = node.all.get("country_code", "").upper()
+            if allowed_set and orig_code and orig_code not in allowed_set:
+                dropped_count += 1
+                continue
+
+        filtered_nodes.add(node)
+
+    print(
+        f"[ip2region] 复核完成：共处理 {total_count} 个节点，剔除 {dropped_count} 个未在配置列表中的节点，保留 {len(filtered_nodes)} 个节点。\n"
+    )
+    return filtered_nodes
+
+
+# ------------------------------
 # 主执行流程
 # ------------------------------
 def main():
@@ -397,6 +467,13 @@ def main():
     freeproxy_only = config_data.get("freeproxy_only", False)
     maxpages = config_data.get("maxpages", 150)
     configs = config_data.get("freeproxy_list", [])
+
+    # 提取配置中所有允许的国家代码
+    allowed_countries = set()
+    for item in configs:
+        for _, cfg in item.items():
+            if isinstance(cfg, dict) and "country" in cfg and cfg["country"]:
+                allowed_countries.add(str(cfg["country"]).strip().upper())
 
     all_results = set()
 
@@ -436,6 +513,9 @@ def main():
         freeproxy_results = _fetch_htmls(all_target_urls, max_workers=8)
         all_results.update(freeproxy_results)
 
+    # 阶段 3：使用 ip2region 复核真实归属地并按配置国家过滤
+    all_results = review_and_filter_proxies(all_results, allowed_countries)
+
     # 导出保存
     os.makedirs("data", exist_ok=True)
 
@@ -447,8 +527,8 @@ def main():
         for result in all_results:
             f.write(repr(result) + "\n")
 
-    print(f"\n==========================================")
-    print(f"抓取完成！共获取 {len(output)} 个有效代理节点。")
+    print(f"==========================================")
+    print(f"全部任务完成！最终共导出 {len(output)} 个有效代理节点。")
     print(f"已保存至 data/raw.json 和 data/raw.txt")
     print(f"==========================================")
 

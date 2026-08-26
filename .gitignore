@@ -316,3 +316,4 @@ pyrightconfig.json
 scraper/data.json
 index-bin.exe
 index.js.map
+*.xdb
