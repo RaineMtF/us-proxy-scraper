@@ -1,6 +1,10 @@
 freeproxy_only: true
 maxpages: 150
 
+# IP 黑名单（直接强制剔除）
+blacklist:
+  - 38.55.125.67
+
 # 目标国家列表（ISO 2字母代码）
 countries:
   - US # 美国 (United States)

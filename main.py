@@ -71,13 +71,10 @@ class ProxyNode:
         )
 
     def __repr__(self):
-        country_code = self.all.get("country_code", "")
-        country = self.all.get("country", "")
-        city = self.all.get("city", "")
-        name = urllib.parse.quote(
-            f"{country_code} {self.type.upper()} ({city}, {country}) {self.ip}:{self.port}"
-        )
-        return f"{self.type}://{self.ip}:{self.port}#{name}"
+        country_code = str(self.all.get("country_code", "")).strip().upper()
+        city = str(self.all.get("city", "")).strip()
+        url = f"{self.type}://{self.ip}:{self.port}"
+        return f"{country_code} | {city} | {url}"
 
 
 # ------------------------------
@@ -532,37 +529,49 @@ def batch_fetch_proxies(urls, max_workers=8):
 # ------------------------------
 # IP 归属地复核与过滤模块 (ip2region)
 # ------------------------------
-def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region_v4.xdb"):
+def review_and_filter_proxies(
+    proxy_nodes, allowed_countries, blacklist=None, db_path="ip2region_v4.xdb"
+):
     """
     使用 ip2region 数据库复核代理节点的真实归属地，覆盖 country, city, country_code，
-    过滤掉不在 allowed_countries 中的节点，并汇总去重输出被删除节点的国家代码。
+    过滤掉不在 allowed_countries 中的节点以及 blacklist 中的 IP，并汇总去重输出被删除节点的国家代码。
     """
-    if not os.path.exists(db_path):
-        print(f"[ip2region] 提示：未找到本地数据库文件 {db_path}，跳过归属地复核。")
-        return proxy_nodes
-
-    try:
-        c_buffer = util.load_content_from_file(db_path)
-        searcher = xdb.new_with_buffer(util.IPv4, c_buffer)
-    except Exception as e:
-        print(f"[ip2region] 初始化全内存查询对象失败: {e}，跳过归属地复核。")
-        return proxy_nodes
-
+    blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
     filtered_nodes = set()
     dropped_country_codes = set()
     total_count = len(proxy_nodes)
     dropped_count = 0
+    blacklisted_count = 0
 
-    print(f"[阶段 3/3] 开始对 {total_count} 个节点进行归属地复核 (国家白名单: {sorted(allowed_set)})...")
+    print(
+        f"[阶段 3/3] 开始对 {total_count} 个节点进行归属地复核 (国家白名单: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
+    )
+
+    searcher = None
+    if os.path.exists(db_path):
+        try:
+            c_buffer = util.load_content_from_file(db_path)
+            searcher = xdb.new_with_buffer(util.IPv4, c_buffer)
+        except Exception as e:
+            print(f"[ip2region] 初始化全内存查询对象失败: {e}，跳过归属地复核。")
+    else:
+        print(f"[ip2region] 提示：未找到本地数据库文件 {db_path}，跳过归属地复核。")
 
     for node in proxy_nodes:
         ip = node.ip
+
+        # 1. 优先黑名单拦截
+        if blacklist_set and ip in blacklist_set:
+            blacklisted_count += 1
+            continue
+
         region = ""
-        try:
-            region = searcher.search(ip)
-        except Exception:
-            pass
+        if searcher:
+            try:
+                region = searcher.search(ip)
+            except Exception:
+                pass
 
         if region:
             parts = region.split("|")
@@ -593,7 +602,7 @@ def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region
         filtered_nodes.add(node)
 
     print(
-        f"[阶段 3/3 完成] 复核处理完毕：共检验 {total_count} 个节点，剔除 {dropped_count} 个非白名单节点，最终保留 {len(filtered_nodes)} 个节点。"
+        f"[阶段 3/3 完成] 复核处理完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个非白名单节点，最终保留 {len(filtered_nodes)} 个节点。"
     )
     if dropped_country_codes:
         print(f"[ip2region] 剔除节点的国家代码汇总 (共 {len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n")
@@ -614,6 +623,7 @@ def main():
 
     freeproxy_only = config_data.get("freeproxy_only", False)
     maxpages = config_data.get("maxpages", 150)
+    blacklist = config_data.get("blacklist", [])
     
     # 解析配置矩阵
     configs, allowed_countries = load_scraper_configs(config_data)
@@ -622,6 +632,7 @@ def main():
     print(f" US-Proxy-Scraper 自动化抓取任务启动")
     print(f" - freeproxy_only: {freeproxy_only}")
     print(f" - maxpages: {maxpages}")
+    print(f" - 黑名单 IP 数量: {len(blacklist)} 个")
     print(f" - 目标国家数: {len(allowed_countries)} 个 ({sorted(allowed_countries)})")
     print(f" - 生成抓取配置数: {len(configs)} 个")
     print(f"==================================================\n")
@@ -647,7 +658,6 @@ def main():
 
         pages_to_fetch = min(valid_pagemax, maxpages)
         pagelist = random.sample(range(1, valid_pagemax + 1), pages_to_fetch)
-        print(f"[{name}] 总页数: {valid_pagemax}，计划抽样抓取 {len(pagelist)} 页。")
 
         for page in pagelist:
             collected_urls.append(f"{base_url}&page={page}")
@@ -661,8 +671,8 @@ def main():
         freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=8)
         all_results.update(freeproxy_results)
 
-    # 阶段 3：ip2region 内存归属地复核与过滤
-    all_results = review_and_filter_proxies(all_results, allowed_countries)
+    # 阶段 3：ip2region 内存归属地复核、黑名单过滤与白名单过滤
+    all_results = review_and_filter_proxies(all_results, allowed_countries, blacklist=blacklist)
 
     # 导出保存
     os.makedirs("data", exist_ok=True)
