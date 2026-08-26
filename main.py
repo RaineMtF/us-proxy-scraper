@@ -464,7 +464,12 @@ def extract_proxies(soup):
 
 
 def get_total_pages(soup):
-    """从分页栏获取最大页码"""
+    """从分页栏获取最大页码；若页面提示 Found 0 proxies 则返回 0"""
+    if soup:
+        body_text = soup.get_text()
+        if re.search(r"Found\s+0\s+proxies?", body_text, re.I):
+            return 0
+
     pagination_div = soup.find("div", class_="pagination")
     if not pagination_div:
         return 1

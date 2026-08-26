@@ -1,5 +1,5 @@
 freeproxy_only: true
-maxpages: 150
+maxpages: 200
 
 # IP 黑名单（直接强制剔除）
 blacklist:
@@ -50,61 +50,26 @@ countries:
   - AD # 安道尔 (Andorra)
   - SM # 圣马力诺 (San Marino)
   - VA # 梵蒂冈 (Vatican City)
-  - TR # 土耳其 (Türkiye / Turkey)
-  - UA # 乌克兰 (Ukraine)
   - HU # 匈牙利 (Hungary)
-  - RS # 塞尔维亚 (Serbia)
-  - BA # 波斯尼亚和黑塞哥维那 (Bosnia and Herzegovina)
-  - GE # 格鲁吉亚 (Georgia)
-  - MD # 摩尔多瓦 (Moldova)
   - JP # 日本 (Japan)
-  - IN # 印度 (India)
   - KR # 韩国 (South Korea)
-  - SA # 沙特阿拉伯 (Saudi Arabia)
-  - ID # 印度尼西亚 (Indonesia)
   - TW # 台湾 (Taiwan)
-  - IL # 以色列 (Israel)
-  - AE # 阿联酋 (United Arab Emirates)
+  - ID # 印度尼西亚 (Indonesia)
   - SG # 新加坡 (Singapore)
   - TH # 泰国 (Thailand)
-  - VN # 越南 (Vietnam)
   - MY # 马来西亚 (Malaysia)
   - PH # 菲律宾 (Philippines)
-  - PK # 巴基斯坦 (Pakistan)
-  - BD # 孟加拉国 (Bangladesh)
-  - QA # 卡塔尔 (Qatar)
-  - KW # 科威特 (Kuwait)
-  - KZ # 哈萨克斯坦 (Kazakhstan)
-  - IQ # 伊拉克 (Iraq)
-  - OM # 阿曼 (Oman)
-  - UZ # 乌兹别克斯坦 (Uzbekistan)
   - LK # 斯里兰卡 (Sri Lanka)
-  - BH # 巴林 (Bahrain)
-  - JO # 约旦 (Jordan)
-  - AZ # 阿塞拜疆 (Azerbaijan)
-  - LB # 黎巴嫩 (Lebanon)
-  - TM # 土库曼斯坦 (Turkmenistan)
-  - NP # 尼泊尔 (Nepal)
-  - KH # 柬埔寨 (Cambodia)
-  - MN # 蒙古 (Mongolia)
-  - BN # 文莱 (Brunei)
-  - LA # 老挝 (Laos)
-  - KG # 吉尔吉斯斯坦 (Kyrgyzstan)
-  - TJ # 塔吉克斯坦 (Tajikistan)
-  - AM # 亚美尼亚 (Armenia)
-  - PS # 巴勒斯坦 (Palestine)
   - MV # 马尔代夫 (Maldives)
-  - BT # 不丹 (Bhutan)
-  - TL # 东帝汶 (Timor-Leste)
 
 # 通用协议配置（自动应用到上述每一个国家）
 common_configs:
   - https:
-      speed: 2500
+      speed: 5000
       type: https
   - socks4:
-      speed: 2500
+      speed: 5000
       type: socks4
   - socks5:
-      speed: 2500
+      speed: 5000
       type: socks5
