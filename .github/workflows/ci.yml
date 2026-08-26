@@ -1,17 +1,9 @@
 name: Auto Update
 
 on:
-  # push:
-  #   branches:
-  #     - main
   schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch: # Allow manual trigger
-    # inputs:
-    #   skip_scraper:
-    #     description: 'Skip scraper, run checker only'
-    #     type: boolean
-    #     default: false
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,11 +12,10 @@ jobs:
   scraper:
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    # if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_scraper == 'true') }}
     steps:
       - name: actions-workflow-metrics
         uses: dev-hato/actions-workflow-metrics@v0.0.7
-        
+
       - name: Checkout Repository
         uses: actions/checkout@v6
 
@@ -33,21 +24,13 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install uv dependencies
-        working-directory: ./scraper
+      - name: Install dependencies
         run: |
           uv sync --no-dev
           chmod -R 777 .venv
-        
-        # sudo apt-get update
-        # uv run seleniumbase install chromedriver
-        # 给所有驱动添加执行权限
-        # find .venv -name "uc_driver" -o -name "chromedriver" -o -name "*driver" -type f 2>/dev/null | while read -r driver; do
-        #   chmod +x "$driver"
-        #   echo "Fixed permissions for: $driver"
-        # done
 
-      - run: |
+      - name: Configure hosts
+        run: |
           sudo tee -a /etc/hosts <<EOF
           0.0.0.0 fonts.googleapis.com
           0.0.0.0 fonts.gstatic.com
@@ -56,10 +39,9 @@ jobs:
           0.0.0.0 googletagmanager.com
           0.0.0.0 www.googletagmanager.com
           EOF
-      - name: Run Update Script
-        working-directory: ./scraper
+
+      - name: Run Scraper
         run: uv run main.py
-        # run: xvfb-run --server-args="-screen 0 1280x1024x24" uv run scraper\main.py
 
       - name: Commit Changes
         run: |
@@ -72,45 +54,3 @@ jobs:
             git commit -m "Update configs $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
             git push origin main
           fi
-
-
-  # checker:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
-  #   needs: scraper
-  #   if: ${{ always() && (needs.scraper.result == 'success' || needs.scraper.result == 'skipped') }}
-  #   steps:
-  #     - name: actions-workflow-metrics
-  #       uses: dev-hato/actions-workflow-metrics@v0.0.7
-      
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v6
-  #     - run: |
-  #         git fetch --all
-  #         git reset --hard origin/${{ github.ref_name }}
-
-  #     - name: Setup Bun
-  #       uses: oven-sh/setup-bun@v2
-
-  #     - name: Install bun dependencies
-  #       working-directory: ./checker
-  #       run: bun install
-
-  #     - name: Build Bun Executable
-  #       working-directory: ./checker
-  #       run: bun build --compile --minify --sourcemap --bytecode index.js --outfile ../index-bin
-      
-  #     - name: Bun Post-processing
-  #       run: ./index-bin
-
-  #     - name: Commit Changes
-  #       run: |
-  #         git config user.name "github-actions[bot]"
-  #         git config user.email "github-actions[bot]@users.noreply.github.com"
-  #         git add data/
-  #         if git diff --cached --quiet; then
-  #           echo "No changes to commit"
-  #         else
-  #           git commit -m "Update configs $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
-  #           git push origin main
-  #         fi
