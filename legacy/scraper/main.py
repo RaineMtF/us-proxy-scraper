@@ -7,24 +7,25 @@ import time
 from fetch_other import get_other
 from freeproxy_world_scraper import *
 
+
 def main():
     # get_cn()
 
     with open("../config.yml", "r", encoding="utf-8") as f:
         config_data = yaml.safe_load(f)
-    
+
     print(config_data)
 
     configs = config_data["freeproxy_list"]
     all_results = get_other()
-    
+
     # all_results = set()
-    
+
     for item in configs:
         name, config = next(iter(item.items()))
         print(f"[{name}] 正在抓取配置：{config}")
         try:
-            results = fetch_freeproxy_work_pagerandom(config, config_data['maxpages'])
+            results = fetch_freeproxy_work_pagerandom(config, config_data["maxpages"])
             all_results.update(results)
             print(f"[{name}] 抓取成功，当前共 {len(all_results)} 个不同的节点。")
         except Exception as e:

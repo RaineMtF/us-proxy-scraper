@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from freeproxy_world_scraper import *
 
+
 def verify_proxy(proxy_str):
     """
     检测单个代理是否符合“中国节点”特征
@@ -176,10 +177,10 @@ def fetch_geonode():
 
 def get_cn():
     config = {"country": "CN"}
-    
+
     cn_exist = []
-    if os.path.exists('../data/cn_checked.txt'):
-        with open('../data/cn_checked.txt', 'r', encoding='utf-8') as file:
+    if os.path.exists("../data/cn_checked.txt"):
+        with open("../data/cn_checked.txt", "r", encoding="utf-8") as file:
             # 读取所有行并去除每行末尾的换行符
             cn_exist = [line.strip() for line in file.readlines()]
 
@@ -191,7 +192,9 @@ def get_cn():
     freeproxy_nodes_raw = fetch_freeproxy_work_pagemax(config, 50)
     freeproxy_nodes = [f"{i.type}://{i.ip}:{i.port}" for i in freeproxy_nodes_raw]
 
-    cn_results = list(set(cn_exist + proxyscrape_nodes + geonode_nodes + freeproxy_nodes))
+    cn_results = list(
+        set(cn_exist + proxyscrape_nodes + geonode_nodes + freeproxy_nodes)
+    )
 
     print(f"抓取到 {len(cn_results)} 个中国节点")
     with open("../data/cn_raw.txt", "w", encoding="utf-8") as f:

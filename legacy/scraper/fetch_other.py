@@ -10,6 +10,7 @@ from freeproxy_world_scraper import ProxyNode
 
 import pycountry
 
+
 def filter_chinese_proxies(proxy_list, max_threads=20):
     """
     多线程批量检测代理数组
@@ -48,8 +49,10 @@ def fetch_proxyscrape1():
         print(f"[ProxyScrape] 正在请求数据源")
         response = requests.get(
             "https://raw.githubusercontent.com/ProxyScrape/free-proxy-list/refs/heads/main/proxies/countries/us/socks5/data.json",
-            headers=headers, timeout=15)
-        
+            headers=headers,
+            timeout=15,
+        )
+
         if response.status_code != 200:
             print(f"[ProxyScrape] 请求失败，状态码: {response.status_code}，停止抓取。")
             return []
@@ -58,8 +61,7 @@ def fetch_proxyscrape1():
         if not data_items:
             print("[ProxyScrape] 检测到 data 为空，数据已全部抓取完毕。")
             return []
-        
-        
+
         for item in data_items:
             # if item.get("uptime_percent") < 60:
             #     pass
@@ -76,7 +78,7 @@ def fetch_proxyscrape1():
                 "delay": item.get("responseTime"),
                 "anonymity": item.get("latency_ms"),
             }
-            
+
             proxy_list.add(ProxyNode(proxy_data))
 
     except requests.RequestException as e:
@@ -84,7 +86,6 @@ def fetch_proxyscrape1():
 
     # 利用 set 去除两个源可能重复的节点
     return proxy_list
-
 
 
 def fetch_proxyscrape2():
@@ -101,8 +102,10 @@ def fetch_proxyscrape2():
         print(f"[ProxyScrape] 正在请求数据源")
         response = requests.get(
             "https://raw.githubusercontent.com/ProxyScrape/free-proxy-list/refs/heads/main/proxies/countries/us/socks4/data.json",
-            headers=headers, timeout=15)
-        
+            headers=headers,
+            timeout=15,
+        )
+
         if response.status_code != 200:
             print(f"[ProxyScrape] 请求失败，状态码: {response.status_code}，停止抓取。")
             return []
@@ -111,8 +114,7 @@ def fetch_proxyscrape2():
         if not data_items:
             print("[ProxyScrape] 检测到 data 为空，数据已全部抓取完毕。")
             return []
-        
-        
+
         for item in data_items:
             # if item.get("uptime_percent") < 60:
             #     pass
@@ -129,7 +131,7 @@ def fetch_proxyscrape2():
                 "delay": item.get("responseTime"),
                 "anonymity": item.get("latency_ms"),
             }
-            
+
             proxy_list.add(ProxyNode(proxy_data))
 
     except requests.RequestException as e:
@@ -137,6 +139,7 @@ def fetch_proxyscrape2():
 
     # 利用 set 去除两个源可能重复的节点
     return proxy_list
+
 
 def fetch_geonode():
     """
@@ -172,20 +175,20 @@ def fetch_geonode():
             for item in data_items:
                 if item.get("responseTime", 10000) > 5000:
                     pass
-                
+
                 country_data = pycountry.countries.get(alpha_2=item.get("country"))
                 proxy_data = {
                     "ip": item.get("ip"),
                     "port": item.get("port"),
                     "type": item.get("protocols")[-1],
                     "type_list": item.get("protocols"),
-                    "country": getattr(country_data, 'name', '') or '',
+                    "country": getattr(country_data, "name", "") or "",
                     "country_code": item.get("country"),
                     "city": item.get("city"),
                     "delay": item.get("responseTime"),
                     "anonymity": item.get("anonymityLevel"),
                 }
-                
+
                 proxy_list.add(ProxyNode(proxy_data))
 
             # 页码 + 1 准备下一次请求

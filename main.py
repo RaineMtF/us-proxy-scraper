@@ -88,7 +88,8 @@ class ProxyNode:
         country_code = str(self.all.get("country_code", "")).strip().upper()
         city = str(self.all.get("city", "")).strip()
         url = f"{self.type}://{self.ip}:{self.port}"
-        return f"{country_code} {city} {url}"
+        name = f"{country_code} {city} {self.type.upper()} {self.ip} {self.port}"
+        return f"{url}#{urllib.parse.quote(name)}"
 
 
 # ------------------------------
@@ -100,6 +101,7 @@ def load_scraper_configs(config_data):
     支持 1: countries 列表 + common_configs 模板自动矩阵组合
     支持 2: 历史直接配置的 freeproxy_list 列表
     """
+
     def _normalize_country(raw_val):
         if raw_val is False:
             return "NO"  # 兼容 YAML 将未加引号的 NO 解析为 False 的情况
@@ -284,7 +286,10 @@ def check_anti_bot_status(soup):
 
     # 4. 检查文本特征
     body_text = soup.get_text().lower()
-    if "error code: 1020" in body_text or "checking your browser before accessing" in body_text:
+    if (
+        "error code: 1020" in body_text
+        or "checking your browser before accessing" in body_text
+    ):
         status["is_blocked"] = True
         status["reason"] = "Cloudflare WAF / Verification"
         return status
@@ -306,7 +311,9 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
     anti_bot = check_anti_bot_status(bs4_data)
     if anti_bot["is_blocked"]:
         with CAPTCHA_LOCK:
-            print(f"[Worker {thread_id}] 触发反爬机制 ({anti_bot['reason']})，正在自动点击验证码: {url}")
+            print(
+                f"[Worker {thread_id}] 触发反爬机制 ({anti_bot['reason']})，正在自动点击验证码: {url}"
+            )
             sb.gui_click_captcha()
         try:
             sb.assert_element("table tr, div.pagination", timeout=5)
@@ -369,7 +376,9 @@ def run_cdp_task_queue(tasks, process_task_fn, max_workers=8):
             except Exception as e:
                 duration = time.time() - start_t
                 if duration >= 9.9:
-                    print(f"[Worker {thread_id}] !! 任务强制超时 (10s) 自动终止: {task_item}")
+                    print(
+                        f"[Worker {thread_id}] !! 任务强制超时 (10s) 自动终止: {task_item}"
+                    )
                 else:
                     print(f"[Worker {thread_id}] 任务执行失败: {e}")
                 sb = None
@@ -479,8 +488,15 @@ def _fetch_pagemax_task(sb, task, thread_id):
         print(f"[Worker {thread_id}] 正在探测页码: [{name}] {url}")
         total_pages = fetch_page_with_cdp(sb, url, get_total_pages, thread_id)
         elapsed = time.time() - start_t
-        print(f"[Worker {thread_id}] [{name}] 页码探测成功: 共 {total_pages} 页 (耗时: {elapsed:.1f}s)")
-        return {"name": name, "config": config, "total_pages": total_pages, "success": True}
+        print(
+            f"[Worker {thread_id}] [{name}] 页码探测成功: 共 {total_pages} 页 (耗时: {elapsed:.1f}s)"
+        )
+        return {
+            "name": name,
+            "config": config,
+            "total_pages": total_pages,
+            "success": True,
+        }
     except Exception as e:
         print(f"[Worker {thread_id}] [{name}] 获取最大页码失败: {e}")
         return {"name": name, "config": config, "url": url, "success": False}
@@ -493,7 +509,9 @@ def _fetch_proxies_task(sb, url, thread_id):
         print(f"[Worker {thread_id}] 开始处理页面: {url}")
         proxies = fetch_page_with_cdp(sb, url, extract_proxies, thread_id)
         elapsed = time.time() - start_t
-        print(f"[Worker {thread_id}] 页面抓取成功: {url} (提取 {len(proxies)} 个节点, 耗时 {elapsed:.1f}s)")
+        print(
+            f"[Worker {thread_id}] 页面抓取成功: {url} (提取 {len(proxies)} 个节点, 耗时 {elapsed:.1f}s)"
+        )
         return [ProxyNode(p) for p in proxies]
     except Exception as e:
         print(f"[Worker {thread_id}] 抓取页面异常: {url} -> {e}")
@@ -509,28 +527,40 @@ def batch_fetch_pagemax(configs, max_workers=8):
         tasks.append({"name": name, "config": config, "url": base_url})
 
     worker_count = min(max_workers, len(tasks))
-    print(f"\n[阶段 1/2] 启动 {worker_count} 个并发 Worker 探测 {len(tasks)} 个配置的最大页码...")
-    round1_results = run_cdp_task_queue(tasks, _fetch_pagemax_task, max_workers=max_workers)
+    print(
+        f"\n[阶段 1/2] 启动 {worker_count} 个并发 Worker 探测 {len(tasks)} 个配置的最大页码..."
+    )
+    round1_results = run_cdp_task_queue(
+        tasks, _fetch_pagemax_task, max_workers=max_workers
+    )
 
     successful = {r["name"]: r for r in round1_results if r.get("success")}
     failed_tasks = [t for t in tasks if t["name"] not in successful]
 
     if failed_tasks:
-        print(f"\n[阶段 1/2] 检测到 {len(failed_tasks)} 个配置探测失败，等待 2 秒后进行重试...")
+        print(
+            f"\n[阶段 1/2] 检测到 {len(failed_tasks)} 个配置探测失败，等待 2 秒后进行重试..."
+        )
         time.sleep(2)
-        round2_results = run_cdp_task_queue(failed_tasks, _fetch_pagemax_task, max_workers=max_workers)
+        round2_results = run_cdp_task_queue(
+            failed_tasks, _fetch_pagemax_task, max_workers=max_workers
+        )
         for r in round2_results:
             if r.get("success"):
                 successful[r["name"]] = r
 
-    print(f"[阶段 1/2 完成] 最大页码探测完毕，有效配置: {len(successful)}/{len(tasks)} 个。\n")
+    print(
+        f"[阶段 1/2 完成] 最大页码探测完毕，有效配置: {len(successful)}/{len(tasks)} 个。\n"
+    )
     return list(successful.values())
 
 
 def batch_fetch_proxies(urls, max_workers=8):
     """多线程并发抓取所有目标页面"""
     worker_count = min(max_workers, len(urls))
-    print(f"\n[阶段 2/2] 启动 {worker_count} 个并发 Worker 抓取全部 {len(urls)} 个目标页面...")
+    print(
+        f"\n[阶段 2/2] 启动 {worker_count} 个并发 Worker 抓取全部 {len(urls)} 个目标页面..."
+    )
     raw_results = run_cdp_task_queue(urls, _fetch_proxies_task, max_workers=max_workers)
     all_nodes = set()
     for node_list in raw_results:
@@ -620,10 +650,18 @@ def review_and_filter_proxies(
             try:
                 g_res = geo_reader.city(ip)
                 geo_code = str(g_res.country.iso_code or "").strip().upper()
-                geo_country = str(g_res.country.names.get("en") or g_res.country.name or "").strip()
+                geo_country = str(
+                    g_res.country.names.get("en") or g_res.country.name or ""
+                ).strip()
                 # city 优先 city.names['en']，无则降级取一级行政区 (州/省)
-                geo_city = str(g_res.city.names.get("en") or g_res.city.name or "").strip()
-                if not geo_city and g_res.subdivisions and g_res.subdivisions.most_specific:
+                geo_city = str(
+                    g_res.city.names.get("en") or g_res.city.name or ""
+                ).strip()
+                if (
+                    not geo_city
+                    and g_res.subdivisions
+                    and g_res.subdivisions.most_specific
+                ):
                     sub = g_res.subdivisions.most_specific
                     geo_city = str(sub.names.get("en") or sub.name or "").strip()
             except Exception:
@@ -665,13 +703,14 @@ def review_and_filter_proxies(
 
         if codes_to_check:
             # 必须所有已启用的数据库都查出了非空代码，且每个库的代码都属于 allowed_set 白名单
-            is_all_passed = (
-                len(valid_codes) == len(codes_to_check)
-                and all(c in allowed_set for c in valid_codes)
+            is_all_passed = len(valid_codes) == len(codes_to_check) and all(
+                c in allowed_set for c in valid_codes
             )
         else:
             orig_code = node.all.get("country_code", "").upper()
-            is_all_passed = bool(not allowed_set or (orig_code and orig_code in allowed_set))
+            is_all_passed = bool(
+                not allowed_set or (orig_code and orig_code in allowed_set)
+            )
             if not is_all_passed and orig_code:
                 dropped_country_codes.add(orig_code)
 
@@ -708,7 +747,9 @@ def review_and_filter_proxies(
         f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点。"
     )
     if dropped_country_codes:
-        print(f"[GeoDB] 剔除节点的国家代码汇总 (共 {len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n")
+        print(
+            f"[GeoDB] 剔除节点的国家代码汇总 (共 {len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n"
+        )
     else:
         print(f"[GeoDB] 未剔除任何国家节点。\n")
 
@@ -767,7 +808,9 @@ def main():
 
     # URL 全局去重（保留顺序）
     all_target_urls = list(dict.fromkeys(collected_urls))
-    print(f"\n[URL 汇总] 共生成 {len(collected_urls)} 个页面请求，去重后为 {len(all_target_urls)} 个独立待抓取 URL。")
+    print(
+        f"\n[URL 汇总] 共生成 {len(collected_urls)} 个页面请求，去重后为 {len(all_target_urls)} 个独立待抓取 URL。"
+    )
 
     # 阶段 2：多线程全局并发抓取
     if all_target_urls:
@@ -775,7 +818,9 @@ def main():
         all_results.update(freeproxy_results)
 
     # 阶段 3：多源 IP 归属地三重交叉复核与过滤
-    all_results = review_and_filter_proxies(all_results, allowed_countries, blacklist=blacklist)
+    all_results = review_and_filter_proxies(
+        all_results, allowed_countries, blacklist=blacklist
+    )
 
     # 导出保存
     os.makedirs("data", exist_ok=True)
