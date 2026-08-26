@@ -217,5 +217,17 @@ freeproxy_list:
       country: LI
       speed: 2500
       type: socks5
+  - MX1:
+      country: MX
+      speed: 2500
+      type: https
+  - MX2:
+      country: MX
+      speed: 2500
+      type: socks4
+  - MX3:
+      country: MX
+      speed: 2500
+      type: socks5
 
 # https://www.freeproxy.world/?type={.type}&anonymity={.anonymity}&country={.country}&speed={.speed}&port={.port}

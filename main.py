@@ -1,3 +1,4 @@
+import builtins
 import json
 import os
 import queue
@@ -13,6 +14,23 @@ import requests
 import yaml
 from bs4 import BeautifulSoup
 from seleniumbase import sb_cdp
+
+# ------------------------------
+# 全局线程安全打印锁
+# ------------------------------
+_PRINT_LOCK = threading.Lock()
+_original_print = builtins.print
+
+
+def _thread_safe_print(*args, **kwargs):
+    """线程安全且自动 flush 的 print，避免多线程并发输出交织"""
+    if "flush" not in kwargs:
+        kwargs["flush"] = True
+    with _PRINT_LOCK:
+        _original_print(*args, **kwargs)
+
+
+builtins.print = _thread_safe_print
 
 
 class ProxyNode:
@@ -96,7 +114,7 @@ def fetch_proxyscrape():
 
 
 # ------------------------------
-# FreeProxy World 抓取模块
+# SeleniumBase CDP 通用并发引擎
 # ------------------------------
 CHROMIUM_ARGS = [
     "--disable-gpu",
@@ -126,7 +144,6 @@ CHROME_ARGS = {
 }
 
 CAPTCHA_LOCK = threading.Lock()
-RESULTS_LOCK = threading.Lock()
 
 
 def check_anti_bot_status(soup):
@@ -190,6 +207,110 @@ def check_anti_bot_status(soup):
     return status
 
 
+def fetch_page_with_cdp(sb, url, parser_fn):
+    """
+    使用现有的 sb 实例打开 url，自动处理反爬与验证码，并调用 parser_fn 解析 soup。
+    """
+    sb.open(url)
+    try:
+        sb.assert_element("table tr, div.pagination", timeout=5)
+    except Exception:
+        pass
+
+    bs4_data = sb.get_beautiful_soup()
+    if check_anti_bot_status(bs4_data)["is_blocked"]:
+        with CAPTCHA_LOCK:
+            print(f"[Anti-Bot] 检测到验证码，点击验证码: {url}")
+            sb.gui_click_captcha()
+        try:
+            sb.assert_element("table tr, div.pagination", timeout=5)
+        except Exception:
+            pass
+        bs4_data = sb.get_beautiful_soup()
+
+    return parser_fn(bs4_data)
+
+
+def run_cdp_task_queue(tasks, process_task_fn, max_workers=8):
+    """
+    通用 CDP 线程池任务调度器。
+    :param tasks: 待处理的任务列表
+    :param process_task_fn: 具体的任务处理函数 (sb, task_item) -> result
+    :param max_workers: 最大并发数
+    :return: 结果列表
+    """
+    if not tasks:
+        return []
+
+    task_queue = queue.Queue()
+    for task in tasks:
+        task_queue.put(task)
+
+    results = []
+    results_lock = threading.Lock()
+    actual_workers = min(max_workers, len(tasks))
+
+    def worker():
+        sb = None
+        thread_id = threading.get_ident()
+
+        while True:
+            try:
+                task_item = task_queue.get_nowait()
+            except queue.Empty:
+                break
+
+            if sb is None:
+                try:
+                    sb = sb_cdp.Chrome(**CHROME_ARGS)
+                except Exception as e:
+                    print(f"[Worker {thread_id}] 浏览器初始化失败: {e}")
+                    task_queue.task_done()
+                    continue
+
+            # 10s 强制超时控制
+            timer = threading.Timer(
+                10.0, lambda: sb.driver.stop() if sb and sb.driver else None
+            )
+            timer.start()
+            start_t = time.time()
+
+            try:
+                res = process_task_fn(sb, task_item)
+                if res is not None:
+                    with results_lock:
+                        results.append(res)
+            except Exception as e:
+                duration = time.time() - start_t
+                if duration >= 9.9:
+                    print(f"[Worker {thread_id}] 任务强制超时 (10s): {task_item}")
+                else:
+                    print(f"[Worker {thread_id}] 执行异常: {e}")
+                sb = None
+            finally:
+                timer.cancel()
+                task_queue.task_done()
+
+        if sb:
+            try:
+                sb.driver.stop()
+            except Exception:
+                pass
+
+    threads = []
+    for _ in range(actual_workers):
+        t = threading.Thread(target=worker)
+        t.daemon = True
+        t.start()
+        threads.append(t)
+
+    task_queue.join()
+    return results
+
+
+# ------------------------------
+# FreeProxy World 解析与批量任务
+# ------------------------------
 def extract_proxies(soup):
     """从页面表格中提取代理节点"""
     results = []
@@ -260,132 +381,61 @@ def get_total_pages(soup):
     return max(page_numbers) if page_numbers else 1
 
 
-def _fetch_pagemax(url, max_retries=1):
-    """
-    通过 SeleniumBase CDP 获取目标 URL 的最大页码数。
-    若失败则等待后重试 max_retries 次，重试仍失败则返回 None。
-    """
-    for attempt in range(1 + max_retries):
-        sb_fp = None
-        try:
-            if attempt > 0:
-                print(f"[Freeproxy CDP] 重试获取最大页码 (第 {attempt} 次重试): {url}")
-                time.sleep(2)
-            else:
-                print(f"[Freeproxy CDP] 开始获取最大页码数: {url}")
-
-            sb_fp = sb_cdp.Chrome(url=url, **CHROME_ARGS)
-            bs4_data = sb_fp.get_beautiful_soup()
-            if check_anti_bot_status(bs4_data)["is_blocked"]:
-                sb_fp.gui_click_captcha()
-                bs4_data = sb_fp.get_beautiful_soup()
-            total_pages = get_total_pages(bs4_data)
-            print(f"[Freeproxy CDP] 最大页码数 {url} 为 {total_pages}")
-            return total_pages
-        except Exception as e:
-            print(f"[Freeproxy CDP] 获取最大页码失败 ({url}, attempt={attempt + 1}): {e}")
-        finally:
-            if sb_fp:
-                try:
-                    sb_fp.driver.stop()
-                except Exception:
-                    pass
-
-    print(f"[Freeproxy CDP] 重试耗尽，获取最大页码失败，跳过该配置: {url}")
-    return None
+def _fetch_pagemax_task(sb, task):
+    """Worker 获取单配置最大页码"""
+    name = task["name"]
+    url = task["url"]
+    config = task["config"]
+    try:
+        total_pages = fetch_page_with_cdp(sb, url, get_total_pages)
+        print(f"[{name}] 最大页码探测成功: {total_pages} 页 ({url})")
+        return {"name": name, "config": config, "total_pages": total_pages, "success": True}
+    except Exception as e:
+        print(f"[{name}] 获取最大页码失败: {e}")
+        return {"name": name, "config": config, "url": url, "success": False}
 
 
-def _worker_process(url_queue, results):
-    """多线程 Worker：从队列取页面抓取并提取代理"""
-    sb = None
-    thread_id = threading.get_ident()
-
-    while True:
-        try:
-            url = url_queue.get_nowait()
-        except queue.Empty:
-            break
-
-        if sb is None:
-            try:
-                print(f"[Worker {thread_id}] 正在初始化浏览器...")
-                sb = sb_cdp.Chrome(**CHROME_ARGS)
-            except Exception as e:
-                print(f"[Worker {thread_id}] 浏览器启动失败: {e}")
-                url_queue.task_done()
-                continue
-
-        # 10 秒超时强制中断计时器
-        timer = threading.Timer(
-            10.0, lambda: sb.driver.stop() if sb and sb.driver else None
-        )
-        timer.start()
-
-        task_start_time = time.time()
-        try:
-            print(f"[Worker {thread_id}] 正在处理 (限时10s): {url}")
-            sb.open(url)
-            sb.assert_element("table tr", timeout=5)
-            bs4_data = sb.get_beautiful_soup()
-
-            if check_anti_bot_status(bs4_data)["is_blocked"]:
-                print(f"[Worker {thread_id}] 检测到验证码，等待鼠标锁...")
-                with CAPTCHA_LOCK:
-                    print(f"[Worker {thread_id}] 正在点击验证码...")
-                    sb.gui_click_captcha()
-
-                sb.assert_element("table tr", timeout=5)
-                bs4_data = sb.get_beautiful_soup()
-
-            proxies = extract_proxies(bs4_data)
-            with RESULTS_LOCK:
-                for proxy in proxies:
-                    results.add(ProxyNode(proxy))
-
-            print(
-                f"[Worker {thread_id}] 任务成功: {url} (用时: {time.time() - task_start_time:.1f}s)"
-            )
-        except Exception as e:
-            duration = time.time() - task_start_time
-            if duration >= 9.9:
-                print(f"[Worker {thread_id}] !! 任务强制超时 (10s) 自动终止: {url}")
-            else:
-                print(f"[Worker {thread_id}] 抓取失败 {url}: {e}")
-            sb = None
-        finally:
-            timer.cancel()
-            url_queue.task_done()
-
-    if sb:
-        try:
-            sb.driver.stop()
-        except Exception:
-            pass
+def _fetch_proxies_task(sb, url):
+    """Worker 抓取单个页面的代理节点"""
+    proxies = fetch_page_with_cdp(sb, url, extract_proxies)
+    return [ProxyNode(p) for p in proxies]
 
 
-def _fetch_htmls(urls, max_workers=8):
-    """并发抓取调度器：使用 8 线程并发处理所有 URL 队列"""
-    if not urls:
-        return set()
+def batch_fetch_pagemax(configs, max_workers=8):
+    """8 线程并发探测所有配置的最大页码数，支持重试 1 次"""
+    tasks = []
+    for item in configs:
+        name, config = next(iter(item.items()))
+        base_url = f"https://www.freeproxy.world/?{urllib.parse.urlencode(config)}"
+        tasks.append({"name": name, "config": config, "url": base_url})
 
-    url_queue = queue.Queue()
-    for url in urls:
-        url_queue.put(url)
+    print(f"\n[阶段 1/2] 启动 {min(max_workers, len(tasks))} 线程并发探测各配置最大页码 (共 {len(tasks)} 个配置)...")
+    round1_results = run_cdp_task_queue(tasks, _fetch_pagemax_task, max_workers=max_workers)
 
-    results = set()
-    actual_workers = min(max_workers, len(urls))
-    print(f"\n[调度中心] 启动 {actual_workers} 个并发 worker 抓取全部 {len(urls)} 个目标页面...")
+    successful = {r["name"]: r for r in round1_results if r.get("success")}
+    failed_tasks = [t for t in tasks if t["name"] not in successful]
 
-    threads = []
-    for _ in range(actual_workers):
-        t = threading.Thread(target=_worker_process, args=(url_queue, results))
-        t.daemon = True
-        t.start()
-        threads.append(t)
+    if failed_tasks:
+        print(f"\n[阶段 1/2] 检测到 {len(failed_tasks)} 个配置探测失败，等待 2 秒后进行重试...")
+        time.sleep(2)
+        round2_results = run_cdp_task_queue(failed_tasks, _fetch_pagemax_task, max_workers=max_workers)
+        for r in round2_results:
+            if r.get("success"):
+                successful[r["name"]] = r
 
-    url_queue.join()
-    print(f"[调度中心] 全部页面抓取任务处理完毕。\n")
-    return results
+    print(f"[阶段 1/2] 最大页码探测完成，成功: {len(successful)}/{len(tasks)} 个配置。\n")
+    return list(successful.values())
+
+
+def batch_fetch_proxies(urls, max_workers=8):
+    """8 线程并发抓取所有目标页面"""
+    print(f"\n[阶段 2/2] 启动 {min(max_workers, len(urls))} 线程全局并发抓取全部 {len(urls)} 个目标页面...")
+    raw_results = run_cdp_task_queue(urls, _fetch_proxies_task, max_workers=max_workers)
+    all_nodes = set()
+    for node_list in raw_results:
+        all_nodes.update(node_list)
+    print(f"[阶段 2/2] 页面抓取完成，共获得 {len(all_nodes)} 个节点。\n")
+    return all_nodes
 
 
 # ------------------------------
@@ -394,7 +444,7 @@ def _fetch_htmls(urls, max_workers=8):
 def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region_v4.xdb"):
     """
     使用 ip2region 数据库复核代理节点的真实归属地，覆盖 country, city, country_code，
-    并过滤掉不在 allowed_countries 中的节点。
+    过滤掉不在 allowed_countries 中的节点，并汇总去重输出被删除节点的国家代码。
     """
     if not os.path.exists(db_path):
         print(f"[ip2region] 提示：未找到本地数据库文件 {db_path}，跳过归属地复核。")
@@ -409,6 +459,7 @@ def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region
 
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
     filtered_nodes = set()
+    dropped_country_codes = set()
     total_count = len(proxy_nodes)
     dropped_count = 0
 
@@ -433,6 +484,7 @@ def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region
             target_code = r_code if r_code else node.all.get("country_code", "").upper()
             if allowed_set and target_code and target_code not in allowed_set:
                 dropped_count += 1
+                dropped_country_codes.add(target_code)
                 continue
 
             # 覆盖字段信息（省份代替 city）
@@ -446,13 +498,19 @@ def review_and_filter_proxies(proxy_nodes, allowed_countries, db_path="ip2region
             orig_code = node.all.get("country_code", "").upper()
             if allowed_set and orig_code and orig_code not in allowed_set:
                 dropped_count += 1
+                dropped_country_codes.add(orig_code)
                 continue
 
         filtered_nodes.add(node)
 
     print(
-        f"[ip2region] 复核完成：共处理 {total_count} 个节点，剔除 {dropped_count} 个未在配置列表中的节点，保留 {len(filtered_nodes)} 个节点。\n"
+        f"[ip2region] 复核完成：共处理 {total_count} 个节点，保留 {len(filtered_nodes)} 个节点，剔除 {dropped_count} 个未在配置列表中的节点。"
     )
+    if dropped_country_codes:
+        print(f"[ip2region] 剔除节点的国家代码汇总 ({len(dropped_country_codes)} 个): {sorted(dropped_country_codes)}\n")
+    else:
+        print(f"[ip2region] 未剔除任何国家节点。\n")
+
     return filtered_nodes
 
 
@@ -483,18 +541,16 @@ def main():
         print("[配置] 正在加载 ProxyScrape 初始数据源...")
         all_results.update(fetch_proxyscrape())
 
-    # 阶段 1：单线程逐个获取各配置的最大页码，并聚合生成待抓取 URL
-    collected_urls = []
-    print(f"\n[阶段 1/2] 开始单线程检测各配置的最大页码数 (共 {len(configs)} 个配置)...")
-    for item in configs:
-        name, config = next(iter(item.items()))
-        base_url = f"https://www.freeproxy.world/?{urllib.parse.urlencode(config)}"
-        print(f"[{name}] 正在获取最大页码，配置：{config}")
+    # 阶段 1：8 线程并发探测所有配置的最大页码
+    pagemax_results = batch_fetch_pagemax(configs, max_workers=8)
 
-        valid_pagemax = _fetch_pagemax(base_url, max_retries=1)
-        if valid_pagemax is None or valid_pagemax < 1:
-            print(f"[{name}] 无法获取有效页码，跳过该配置。")
-            continue
+    # 聚合生成待抓取 URL
+    collected_urls = []
+    for item in pagemax_results:
+        name = item["name"]
+        config = item["config"]
+        valid_pagemax = item["total_pages"]
+        base_url = f"https://www.freeproxy.world/?{urllib.parse.urlencode(config)}"
 
         pages_to_fetch = min(valid_pagemax, maxpages)
         pagelist = random.sample(range(1, valid_pagemax + 1), pages_to_fetch)
@@ -507,10 +563,9 @@ def main():
     all_target_urls = list(dict.fromkeys(collected_urls))
     print(f"\n[阶段 1/2 完成] 汇总生成 {len(collected_urls)} 个页面请求，去重后共 {len(all_target_urls)} 个待抓取 URL。")
 
-    # 阶段 2：将所有 URL 统一交给 8 线程 Worker 进行全局并发抓取
+    # 阶段 2：8 线程全局并发抓取所有目标页面
     if all_target_urls:
-        print(f"\n[阶段 2/2] 启动 8 线程全局并发抓取...")
-        freeproxy_results = _fetch_htmls(all_target_urls, max_workers=8)
+        freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=8)
         all_results.update(freeproxy_results)
 
     # 阶段 3：使用 ip2region 复核真实归属地并按配置国家过滤
