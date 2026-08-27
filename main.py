@@ -635,8 +635,18 @@ def review_and_filter_proxies(
     else:
         print(f"[ip2region] 警告: 未找到 {ip2region_path}")
 
-    if not ip2reg_searcher:
-        print("[ip2region] 错误: 主库 ip2region 不可用，无法执行归属地复核流程。")
+    if not dbip_reader:
+        print("[DbIP] 错误: 主库 DbIP-City-lite 不可用，无法执行归属地复核流程。")
+        if geo_reader:
+            try:
+                geo_reader.close()
+            except Exception:
+                pass
+        if dbip_reader:
+            try:
+                dbip_reader.close()
+            except Exception:
+                pass
         return filtered_nodes
 
     print(
@@ -651,24 +661,27 @@ def review_and_filter_proxies(
             blacklisted_count += 1
             continue
 
-        # 2. ip2region 查询（主库）
-        ip2reg_code = ""
-        ip2reg_country = ""
-        ip2reg_city = ""
+        # 2. DbIP-City-lite 查询（主库：取 country_code / country / city）
+        dbip_code = ""
+        dbip_country = ""
+        dbip_city = ""
         try:
-            reg_str = ip2reg_searcher.search(ip)
-            parts = reg_str.split("|")
-            # 格式: 国家|省份|城市|ISP|国家代码
-            if len(parts) >= 5 and parts[4] not in ("", "0"):
-                ip2reg_code = str(parts[4]).strip().upper()
-            ip2reg_country = str(parts[0]).strip() if len(parts) > 0 else ""
-            # city 优先取省份 (parts[1])，为空或 "0" 时回退到城市 (parts[2])
-            if len(parts) > 1 and str(parts[1]).strip() not in ("", "0"):
-                ip2reg_city = str(parts[1]).strip()
-            elif len(parts) > 2 and str(parts[2]).strip() not in ("", "0"):
-                ip2reg_city = str(parts[2]).strip()
+            d_res = dbip_reader.city(ip)
+            dbip_code = str(d_res.country.iso_code or "").strip().upper()
+            dbip_country = str(d_res.country.name or "").strip()
+            _city_name = str(d_res.city.name or "").strip()
+            _sub_name = ""
+            try:
+                _sub_name = str(d_res.subdivisions.most_specific.name or "").strip()
+            except Exception:
+                _sub_name = ""
+            # city 优先取省份/州 (subdivisions)，为空时回退到 city.name
+            if _sub_name and _sub_name not in ("", "0"):
+                dbip_city = _sub_name
+            elif _city_name and _city_name not in ("", "0"):
+                dbip_city = _city_name
             else:
-                ip2reg_city = ""
+                dbip_city = ""
         except Exception:
             pass
 
@@ -681,37 +694,40 @@ def review_and_filter_proxies(
             except Exception:
                 pass
 
-        # 4. DbIP-City-lite 查询（交叉验证 2：仅取 country_code）
-        dbip_code = ""
-        if dbip_reader:
+        # 4. ip2region 查询（交叉验证 2：仅取国家代码）
+        ip2reg_code = ""
+        if ip2reg_searcher:
             try:
-                d_res = dbip_reader.city(ip)
-                dbip_code = str(d_res.country.iso_code or "").strip().upper()
+                reg_str = ip2reg_searcher.search(ip)
+                parts = reg_str.split("|")
+                # 格式: 国家|省份|城市|ISP|国家代码
+                if len(parts) >= 5 and parts[4] not in ("", "0"):
+                    ip2reg_code = str(parts[4]).strip().upper()
             except Exception:
                 pass
 
         # 5. 三重交叉验证判定：
-        # 主库 ip2region 必须解析出非空国家代码且命中白名单；
+        # 主库 DbIP 必须解析出非空国家代码且命中白名单；
         # 交叉库：非空则必须命中白名单，空则忽略。
-        is_all_passed = bool(ip2reg_code) and ip2reg_code in allowed_set
-        for c in (geo_code, dbip_code):
+        is_all_passed = bool(dbip_code) and dbip_code in allowed_set
+        for c in (geo_code, ip2reg_code):
             if c and c not in allowed_set:
                 is_all_passed = False
                 dropped_country_codes.add(c)
 
         if not is_all_passed:
             dropped_count += 1
-            if ip2reg_code and ip2reg_code not in allowed_set:
-                dropped_country_codes.add(ip2reg_code)
+            if dbip_code and dbip_code not in allowed_set:
+                dropped_country_codes.add(dbip_code)
             continue
 
-        # 6. 全部验证通过：按 ip2region 数据覆盖写入
-        if ip2reg_country:
-            node.all["country"] = ip2reg_country
-        if ip2reg_code:
-            node.all["country_code"] = ip2reg_code
-        if ip2reg_city or ip2reg_country:
-            node.all["city"] = ip2reg_city
+        # 6. 全部验证通过：按 DbIP 数据覆盖写入
+        if dbip_country:
+            node.all["country"] = dbip_country
+        if dbip_code:
+            node.all["country_code"] = dbip_code
+        if dbip_city or dbip_country:
+            node.all["city"] = dbip_city
 
         filtered_nodes.add(node)
 
