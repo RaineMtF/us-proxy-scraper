@@ -662,10 +662,13 @@ def review_and_filter_proxies(
             if len(parts) >= 5 and parts[4] not in ("", "0"):
                 ip2reg_code = str(parts[4]).strip().upper()
             ip2reg_country = str(parts[0]).strip() if len(parts) > 0 else ""
-            # city 优先城市 (parts[2])，无则降级取省份 (parts[1])
-            ip2reg_city = str(parts[2]).strip() if len(parts) > 2 and parts[2] else ""
-            if not ip2reg_city and len(parts) > 1:
+            # city 优先取省份 (parts[1])，为空或 "0" 时回退到城市 (parts[2])
+            if len(parts) > 1 and str(parts[1]).strip() not in ("", "0"):
                 ip2reg_city = str(parts[1]).strip()
+            elif len(parts) > 2 and str(parts[2]).strip() not in ("", "0"):
+                ip2reg_city = str(parts[2]).strip()
+            else:
+                ip2reg_city = ""
         except Exception:
             pass
 
@@ -688,26 +691,18 @@ def review_and_filter_proxies(
                 pass
 
         # 5. 三重交叉验证判定：
-        # 如果某个库存在，则其解析出的国家代码必须命中白名单。
-        # 同时 ip2region 主库必须解析出非空的国家代码。
-        codes_to_check = [ip2reg_code]
-        if geo_reader:
-            codes_to_check.append(geo_code)
-        if dbip_reader:
-            codes_to_check.append(dbip_code)
-
-        valid_codes = [c for c in codes_to_check if c]
-
-        # 必须所有已启用的数据库都查出了非空代码，且每个库的代码都属于 allowed_set 白名单
-        is_all_passed = len(valid_codes) == len(codes_to_check) and all(
-            c in allowed_set for c in valid_codes
-        )
+        # 主库 ip2region 必须解析出非空国家代码且命中白名单；
+        # 交叉库：非空则必须命中白名单，空则忽略。
+        is_all_passed = bool(ip2reg_code) and ip2reg_code in allowed_set
+        for c in (geo_code, dbip_code):
+            if c and c not in allowed_set:
+                is_all_passed = False
+                dropped_country_codes.add(c)
 
         if not is_all_passed:
             dropped_count += 1
-            for c in valid_codes:
-                if c not in allowed_set:
-                    dropped_country_codes.add(c)
+            if ip2reg_code and ip2reg_code not in allowed_set:
+                dropped_country_codes.add(ip2reg_code)
             continue
 
         # 6. 全部验证通过：按 ip2region 数据覆盖写入
