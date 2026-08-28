@@ -297,30 +297,69 @@ def check_anti_bot_status(soup):
     return status
 
 
-def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
-    """
-    使用现有的 sb 实例打开 url，自动处理反爬与验证码，并调用 parser_fn 解析 soup。
-    """
-    sb.open(url)
+def _set_js_disabled(sb, disabled):
+    """通过 CDP 命令切换页面 JS 执行开关。"""
+    try:
+        sb.execute_cdp_cmd(
+            "Emulation.setScriptExecutionDisabled", {"value": disabled}
+        )
+    except Exception:
+        pass
+
+
+def _wait_and_parse(sb):
+    """等待页面核心元素加载并返回 BeautifulSoup 对象。"""
     try:
         sb.assert_element("table tr, div.pagination", timeout=5)
     except Exception:
         pass
+    return sb.get_beautiful_soup()
 
-    bs4_data = sb.get_beautiful_soup()
+
+def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
+    """
+    使用现有的 sb 实例打开 url，分级反爬策略：
+      Phase 1: 禁用 JS（最快） → 检查是否被拦截
+      Phase 2: 启用 JS 并重新加载 → 检查是否被拦截
+      Phase 3: 自动点击验证码 → 检查是否被拦截
+      Phase 4: 跳过该页面
+    """
+    # ── Phase 1: 禁用 JS，以最快速度加载页面 ──
+    _set_js_disabled(sb, True)
+    sb.open(url)
+    bs4_data = _wait_and_parse(sb)
     anti_bot = check_anti_bot_status(bs4_data)
-    if anti_bot["is_blocked"]:
-        with CAPTCHA_LOCK:
-            print(
-                f"[Worker {thread_id}] 触发反爬机制 ({anti_bot['reason']})，正在自动点击验证码: {url}"
-            )
-            sb.gui_click_captcha()
-        try:
-            sb.assert_element("table tr, div.pagination", timeout=5)
-        except Exception:
-            pass
-        bs4_data = sb.get_beautiful_soup()
 
+    if not anti_bot["is_blocked"]:
+        _set_js_disabled(sb, False)  # 恢复默认，避免影响后续请求
+        return parser_fn(bs4_data)
+
+    # ── Phase 2: 启用 JS 后重新加载 ──
+    print(
+        f"[Worker {thread_id}] 无 JS 被拦截 ({anti_bot['reason']})，启用 JS 重试: {url}"
+    )
+    _set_js_disabled(sb, False)
+    sb.open(url)
+    bs4_data = _wait_and_parse(sb)
+    anti_bot = check_anti_bot_status(bs4_data)
+
+    if not anti_bot["is_blocked"]:
+        return parser_fn(bs4_data)
+
+    # ── Phase 3: 自动点击验证码 ──
+    with CAPTCHA_LOCK:
+        print(
+            f"[Worker {thread_id}] 仍被拦截 ({anti_bot['reason']})，尝试自动点击验证码: {url}"
+        )
+        sb.gui_click_captcha()
+    bs4_data = _wait_and_parse(sb)
+    anti_bot = check_anti_bot_status(bs4_data)
+
+    if not anti_bot["is_blocked"]:
+        return parser_fn(bs4_data)
+
+    # ── Phase 4: 所有手段均失败，跳过 ──
+    print(f"[Worker {thread_id}] 所有反爬手段均失败，跳过: {url}")
     return parser_fn(bs4_data)
 
 
