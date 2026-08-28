@@ -1,5 +1,5 @@
 freeproxy_only: true
-maxpages: 200
+maxpages: 100
 
 # IP 黑名单（直接强制剔除）
 blacklist:
@@ -64,12 +64,15 @@ countries:
 
 # 通用协议配置（自动应用到上述每一个国家）
 common_configs:
+  - http:
+      speed: 2000
+      type: http
   - https:
-      speed: 5000
+      speed: 10000
       type: https
   - socks4:
-      speed: 5000
+      speed: 10000
       type: socks4
   - socks5:
-      speed: 5000
+      speed: 10000
       type: socks5
