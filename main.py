@@ -392,8 +392,8 @@ def run_cdp_task_queue(tasks, process_task_fn, max_workers=16):
             try:
                 # sb.driver.quit()
                 # sb.reconnect()
-                sb.quit()
-                # sb.driver.stop()
+                # sb.quit()
+                sb.driver.stop()
             except Exception:
                 pass
 
