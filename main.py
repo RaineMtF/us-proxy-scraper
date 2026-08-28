@@ -203,32 +203,32 @@ def fetch_proxyscrape():
 # ------------------------------
 # SeleniumBase CDP 通用并发引擎
 # ------------------------------
-CHROMIUM_ARGS = [
-    "--disable-gpu",
-    "--disable-dev-shm-usage",
-    "--no-sandbox",
-    "--disable-extensions",
-    "--disable-setuid-sandbox",
-    "--mute-audio",
-    "--disable-notifications",
-    "--disable-web-security",
-    "--no-first-run",
-    "--no-zygote",
-    # "--headless=new",
-    "--blink-settings=imagesEnabled=false",
-]
+# CHROMIUM_ARGS = [
+#     "--disable-gpu",
+#     "--disable-dev-shm-usage",
+#     "--no-sandbox",
+#     "--disable-extensions",
+#     "--disable-setuid-sandbox",
+#     "--mute-audio",
+#     "--disable-notifications",
+#     "--disable-web-security",
+#     "--no-first-run",
+#     "--no-zygote",
+#     # "--headless=new",
+#     "--blink-settings=imagesEnabled=false",
+# ]
 
 CHROME_ARGS = {
     "uc": True,
-    "headless": False,
+    # "headless": False,
     "xvfb": True,
-    "xvfb_metrics": "1920x1080",
+    "xvfb_metrics": "1920,1080",
     "page_load_strategy": "eager",
     "block_images": True,
     "locale": "en",
     "skip_js_waits": True,
     "ad_block_on": True,
-    "chromium_args": ",".join(CHROMIUM_ARGS),
+    # "chromium_args": ",".join(CHROMIUM_ARGS),
     "use_chromium": False,
     "browser": "chrome",
 }
