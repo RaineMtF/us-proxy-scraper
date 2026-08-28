@@ -203,20 +203,20 @@ def fetch_proxyscrape():
 # ------------------------------
 # SeleniumBase CDP 通用并发引擎
 # ------------------------------
-# CHROMIUM_ARGS = [
-#     "--disable-gpu",
-#     "--disable-dev-shm-usage",
-#     "--no-sandbox",
-#     "--disable-extensions",
-#     "--disable-setuid-sandbox",
-#     "--mute-audio",
-#     "--disable-notifications",
-#     "--disable-web-security",
-#     "--no-first-run",
-#     "--no-zygote",
-#     "--headless=new",
-#     "--blink-settings=imagesEnabled=false",
-# ]
+CHROMIUM_ARGS = [
+    "--disable-gpu",
+    "--disable-dev-shm-usage",
+    "--no-sandbox",
+    "--disable-extensions",
+    "--disable-setuid-sandbox",
+    "--mute-audio",
+    "--disable-notifications",
+    "--disable-web-security",
+    "--no-first-run",
+    "--no-zygote",
+    # "--headless=new",
+    "--blink-settings=imagesEnabled=false",
+]
 
 CHROME_ARGS = {
     "uc": True,
@@ -228,9 +228,9 @@ CHROME_ARGS = {
     "locale": "en",
     "skip_js_waits": True,
     "ad_block_on": True,
-    # "chromium_args": ",".join(CHROMIUM_ARGS),
-    # "use_chromium": True,
-    "browser": "firefox",
+    "chromium_args": ",".join(CHROMIUM_ARGS),
+    "use_chromium": False,
+    "browser": "chrome",
 }
 
 CAPTCHA_LOCK = threading.Lock()
@@ -329,7 +329,7 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
     """
     # ── Phase 1: 禁用 JS，以最快速度加载页面 ──
     _set_js_disabled(sb, True)
-    sb.open(url)
+    sb.activate_cdp_mode(url)
     bs4_data = _wait_and_parse(sb)
     anti_bot = check_anti_bot_status(bs4_data)
 
@@ -342,7 +342,7 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
         f"[Worker {thread_id}] 无 JS 被拦截 ({anti_bot['reason']})，启用 JS 重试: {url}"
     )
     _set_js_disabled(sb, False)
-    sb.open(url)
+    sb.activate_cdp_mode(url)
     bs4_data = _wait_and_parse(sb)
     anti_bot = check_anti_bot_status(bs4_data)
 
