@@ -228,6 +228,7 @@ CHROME_ARGS = {
     "skip_js_waits": True,
     "ad_block_on": True,
     "chromium_args": ",".join(CHROMIUM_ARGS),
+    "use_chromium": True,
 }
 
 CAPTCHA_LOCK = threading.Lock()
