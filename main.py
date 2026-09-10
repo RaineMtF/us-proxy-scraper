@@ -645,7 +645,10 @@ def review_and_filter_proxies(
     """
     blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
+    if "US" in allowed_set:
+        allowed_set.add("USA")
     filtered_nodes = set()
+    us_nodes = set()
     dropped_country_codes = set()
     total_count = len(proxy_nodes)
     dropped_count = 0
@@ -692,7 +695,7 @@ def review_and_filter_proxies(
                 dbip_reader.close()
             except Exception:
                 pass
-        return filtered_nodes
+        return filtered_nodes, us_nodes
 
     print(
         f"[阶段 3/3] 开始对 {total_count} 个节点执行三重数据库交叉复核 (白名单国家: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
@@ -705,6 +708,10 @@ def review_and_filter_proxies(
         if blacklist_set and ip in blacklist_set:
             blacklisted_count += 1
             continue
+
+        # 0. 记录上游 scraper 抓取的原始国家代码（大小写不敏感判断 US / USA）
+        upstream_code = str(node.all.get("country_code", "")).strip().upper()
+        is_upstream_us = upstream_code in ("US", "USA")
 
         # 2. DbIP-City-lite 查询（主库：取 country_code / country / city）
         dbip_code = ""
@@ -729,6 +736,7 @@ def review_and_filter_proxies(
                 dbip_city = ""
         except Exception:
             pass
+        is_dbip_us = dbip_code in ("US", "USA")
 
         # 3. GeoLite2-City 查询（交叉验证 1：仅取 country_code）
         geo_code = ""
@@ -738,6 +746,7 @@ def review_and_filter_proxies(
                 geo_code = str(g_res.country.iso_code or "").strip().upper()
             except Exception:
                 pass
+        is_geo_us = geo_code in ("US", "USA")
 
         # 4. ip2region 查询（交叉验证 2：仅取国家代码）
         ip2reg_code = ""
@@ -748,8 +757,14 @@ def review_and_filter_proxies(
                 # 格式: 国家|省份|城市|ISP|国家代码
                 if len(parts) >= 5 and parts[4] not in ("", "0"):
                     ip2reg_code = str(parts[4]).strip().upper()
+                elif len(parts) >= 1 and parts[0].strip().upper() in ("US", "USA"):
+                    ip2reg_code = parts[0].strip().upper()
             except Exception:
                 pass
+        is_ip2reg_us = ip2reg_code in ("US", "USA")
+
+        # 判定四源是否均为美国 (上游 + ip2region + GeoLite2-City + DbIP-City-lite)
+        is_all_us = is_upstream_us and is_dbip_us and is_geo_us and is_ip2reg_us
 
         # 5. 三重交叉验证判定：
         # 主库 DbIP 必须解析出非空国家代码且命中白名单；
@@ -770,11 +785,13 @@ def review_and_filter_proxies(
         if dbip_country:
             node.all["country"] = dbip_country
         if dbip_code:
-            node.all["country_code"] = dbip_code
+            node.all["country_code"] = "US" if dbip_code in ("US", "USA") else dbip_code
         if dbip_city or dbip_country:
             node.all["city"] = dbip_city
 
         filtered_nodes.add(node)
+        if is_all_us:
+            us_nodes.add(node)
 
     # 关闭 readers
     if geo_reader:
@@ -789,7 +806,7 @@ def review_and_filter_proxies(
             pass
 
     print(
-        f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点。"
+        f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点 (其中全美标记 US 节点: {len(us_nodes)} 个)。"
     )
     if dropped_country_codes:
         print(
@@ -798,7 +815,7 @@ def review_and_filter_proxies(
     else:
         print(f"[GeoDB] 未剔除任何国家节点。\n")
 
-    return filtered_nodes
+    return filtered_nodes, us_nodes
 
 
 # ------------------------------
@@ -863,7 +880,7 @@ def main():
         all_results.update(freeproxy_results)
 
     # 阶段 3：多源 IP 归属地三重交叉复核与过滤
-    all_results = review_and_filter_proxies(
+    all_results, us_results = review_and_filter_proxies(
         all_results, allowed_countries, blacklist=blacklist
     )
 
@@ -878,11 +895,19 @@ def main():
         for result in all_results:
             f.write(repr(result) + "\n")
 
+    us_output = [result.all for result in us_results]
+    with open("data/us.json", "w", encoding="utf-8") as f:
+        json.dump(us_output, f, indent=4, ensure_ascii=False)
+
+    with open("data/us.txt", "w", encoding="utf-8") as f:
+        for result in us_results:
+            f.write(repr(result) + "\n")
+
     total_duration = time.time() - start_all_time
     print(f"==================================================")
     print(f" 全部任务执行完毕！(总耗时: {total_duration:.1f}s)")
-    print(f" 最终导出有效代理节点: {len(output)} 个")
-    print(f" 保存路径: data/raw.json 与 data/raw.txt")
+    print(f" 最终导出有效代理节点: {len(output)} 个 (其中全美核验 US 节点: {len(us_output)} 个)")
+    print(f" 保存路径: data/raw.json, data/raw.txt, data/us.json, data/us.txt")
     print(f"==================================================")
 
 
