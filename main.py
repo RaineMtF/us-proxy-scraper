@@ -66,7 +66,13 @@ def _patch_pyautogui_syntax():
                 try:
                     with open(f, "r", encoding="utf-8", errors="ignore") as fp:
                         content = fp.read()
-                    if "'\\e':" in content:
+                    if content is not None and len(content) < 100:
+                        # 若文件被意外清空，通过 pip 强制重装恢复
+                        import subprocess
+                        subprocess.run([sys.executable, "-m", "pip", "install", "--force-reinstall", "--no-deps", "pyautogui"], capture_output=True)
+                        with open(f, "r", encoding="utf-8", errors="ignore") as fp:
+                            content = fp.read()
+                    if content and "'\\e':" in content:
                         with open(f, "w", encoding="utf-8") as fp:
                             fp.write(content.replace("'\\e':", "'\\\\e':"))
                 except Exception:

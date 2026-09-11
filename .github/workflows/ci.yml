@@ -34,7 +34,7 @@ jobs:
           uv sync --no-dev
           chmod -R 777 .venv
           sudo apt-get install xvfb
-          python3 -c "import glob, os; [open(f, 'w').write(open(f).read().replace(r\"'\\e':\", r\"'\\\\e':\")) for f in glob.glob('.venv/**/_pyautogui_x11.py', recursive=True) if os.path.exists(f)]" || true
+          python3 -c "import glob; [open(f, 'w').write(c.replace(r\"'\\e':\", r\"'\\\\e':\")) for f in glob.glob('.venv/**/_pyautogui_x11.py', recursive=True) if (c := open(f).read()) and r\"'\\e':\" in c]" || true
 
       - name: Download Geolocation Databases
         env:
