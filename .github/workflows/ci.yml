@@ -34,6 +34,7 @@ jobs:
           uv sync --no-dev
           chmod -R 777 .venv
           sudo apt-get install xvfb
+          python3 -c "import glob, os; [open(f, 'w').write(open(f).read().replace(r\"'\\e':\", r\"'\\\\e':\")) for f in glob.glob('.venv/**/_pyautogui_x11.py', recursive=True) if os.path.exists(f)]" || true
 
       - name: Download Geolocation Databases
         env:
@@ -59,6 +60,7 @@ jobs:
       - name: Run Scraper
         env:
           PYTHONUNBUFFERED: "1"
+          PYTHONWARNINGS: "ignore::SyntaxWarning"
         run: uv run main.py
 
       - name: Commit Changes

@@ -1,3 +1,4 @@
+import asyncio
 import builtins
 import gzip
 import json
@@ -10,6 +11,71 @@ import sys
 import threading
 import time
 import urllib.parse
+import warnings
+
+# ------------------------------
+# 忽略第三方库引发的语法/废弃警告 (包括 pyautogui 在 Python 3.12+ 中的 \e 无效转义序列)
+# ------------------------------
+warnings.filterwarnings("ignore", category=SyntaxWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+
+# ------------------------------
+# 全局未捕获底层/析构异常过滤器 (解决 BaseEventLoop.__del__ 与底层 fd: -1 退出警告)
+# ------------------------------
+def _custom_unraisablehook(unraisable):
+    exc_type = unraisable.exc_type
+    exc_value = unraisable.exc_value
+    err_msg = str(unraisable.err_msg or "")
+    val_str = str(exc_value or "")
+
+    # 过滤 asyncio BaseEventLoop 在析构 (__del__) 或进程退出时由于底层 pipe/socket 已提前关闭引发的异常
+    if exc_type in (ValueError, RuntimeError, ResourceWarning, OSError):
+        if any(
+            k in val_str
+            for k in (
+                "Invalid file descriptor",
+                "Event loop is closed",
+                "closed pipe",
+                "Bad file descriptor",
+                "I/O operation on closed pipe",
+            )
+        ):
+            return
+        if "BaseEventLoop.__del__" in err_msg:
+            return
+
+    if sys.__unraisablehook__:
+        try:
+            sys.__unraisablehook__(unraisable)
+        except Exception:
+            pass
+
+
+sys.unraisablehook = _custom_unraisablehook
+
+
+def _patch_pyautogui_syntax():
+    """检测并就地修正 _pyautogui_x11.py 中 '\\e' 无效转义序列语法警告"""
+    try:
+        import glob
+
+        for path in sys.path:
+            pattern = os.path.join(path, "pyautogui", "_pyautogui_x11.py")
+            for f in glob.glob(pattern):
+                try:
+                    with open(f, "r", encoding="utf-8", errors="ignore") as fp:
+                        content = fp.read()
+                    if "'\\e':" in content:
+                        with open(f, "w", encoding="utf-8") as fp:
+                            fp.write(content.replace("'\\e':", "'\\\\e':"))
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+
+_patch_pyautogui_syntax()
 
 import geoip2.database
 import ip2region.searcher as xdb
@@ -319,6 +385,26 @@ def _wait_and_parse(sb):
     return sb.get_beautiful_soup()
 
 
+def _safe_close_sb(sb):
+    """安全关闭 SeleniumBase CDP 实例并清理关联的 asyncio 事件循环"""
+    if not sb:
+        return
+    try:
+        if hasattr(sb, "driver") and sb.driver:
+            sb.driver.stop()
+        elif hasattr(sb, "quit"):
+            sb.quit()
+    except Exception:
+        pass
+
+    try:
+        loop = getattr(sb, "loop", None)
+        if loop and not loop.is_closed():
+            loop.close()
+    except Exception:
+        pass
+
+
 def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
     """
     使用现有的 sb 实例打开 url，分级反爬策略：
@@ -354,6 +440,7 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
         print(
             f"[Worker {thread_id}] 仍被拦截 ({anti_bot['reason']})，尝试自动点击验证码: {url}"
         )
+        _patch_pyautogui_syntax()
         sb.gui_click_captcha()
     bs4_data = _wait_and_parse(sb)
     anti_bot = check_anti_bot_status(bs4_data)
@@ -361,9 +448,12 @@ def fetch_page_with_cdp(sb, url, parser_fn, thread_id=""):
     if not anti_bot["is_blocked"]:
         return parser_fn(bs4_data)
 
-    # ── Phase 4: 所有手段均失败，跳过 ──
-    print(f"[Worker {thread_id}] 所有反爬手段均失败，跳过: {url}")
-    return parser_fn(bs4_data)
+    # ── Phase 4: 所有手段均失败，抛出异常触发上层重试 ──
+    print(f"[Worker {thread_id}] 所有反爬手段均失败被拦截 ({anti_bot['reason']}): {url}")
+    raise RuntimeError(f"反爬拦截未通过: {anti_bot['reason']}")
+
+
+_BROWSER_INIT_LOCK = threading.Lock()
 
 
 def run_cdp_task_queue(tasks, process_task_fn, max_workers=16):
@@ -388,54 +478,70 @@ def run_cdp_task_queue(tasks, process_task_fn, max_workers=16):
         sb = None
         thread_id = str(threading.get_ident())[-4:]
 
-        while True:
-            try:
-                task_item = task_queue.get_nowait()
-            except queue.Empty:
-                break
-
-            if sb is None:
+        try:
+            while True:
                 try:
-                    print(f"[Worker {thread_id}] 正在初始化 Chrome 浏览器内核...")
-                    sb = sb_cdp.Chrome(**CHROME_ARGS)
+                    task_item = task_queue.get_nowait()
+                except queue.Empty:
+                    break
+
+                # 浏览器启动失败自动重试机制 (加锁串行化初始化，彻底杜绝并发抢占 X11/Xvfb 显示服务和端口引发的 Errno 111)
+                if sb is None:
+                    max_init_retries = 3
+                    for attempt in range(1, max_init_retries + 1):
+                        try:
+                            print(
+                                f"[Worker {thread_id}] 正在初始化 Chrome 浏览器内核 (尝试 {attempt}/{max_init_retries})..."
+                            )
+                            with _BROWSER_INIT_LOCK:
+                                sb = sb_cdp.Chrome(**CHROME_ARGS)
+                                time.sleep(0.1)
+                            break
+                        except Exception as e:
+                            print(
+                                f"[Worker {thread_id}] Chrome 启动失败 (尝试 {attempt}/{max_init_retries}): {e}"
+                            )
+                            _safe_close_sb(sb)
+                            sb = None
+                            if attempt < max_init_retries:
+                                time.sleep(1.5 * attempt)
+
+                    if sb is None:
+                        print(
+                            f"[Worker {thread_id}] Chrome 连续 {max_init_retries} 次启动均失败，Worker 退出并将任务放回队列"
+                        )
+                        task_queue.put(task_item)
+                        task_queue.task_done()
+                        break
+
+                start_t = time.time()
+
+                try:
+                    res = process_task_fn(sb, task_item, thread_id)
+                    if res is not None:
+                        with results_lock:
+                            results.append(res)
                 except Exception as e:
-                    print(f"[Worker {thread_id}] Chrome 启动失败: {e}")
+                    duration = time.time() - start_t
+                    if duration >= 9.9:
+                        print(
+                            f"[Worker {thread_id}] !! 任务强制超时 (10s) 自动终止: {task_item}"
+                        )
+                    else:
+                        print(f"[Worker {thread_id}] 任务执行失败: {e}")
+                    _safe_close_sb(sb)
+                    sb = None
+                finally:
+                    with counter_lock:
+                        completed_counter[0] += 1
                     task_queue.task_done()
-                    continue
-
-            # 10s 强制超时控制
-            # timer = threading.Timer(
-            #     10.0, lambda: sb.driver.stop() if sb and sb.driver else None
-            # )
-            # timer.start()
-            start_t = time.time()
-
+        finally:
+            _safe_close_sb(sb)
+            sb = None
             try:
-                res = process_task_fn(sb, task_item, thread_id)
-                if res is not None:
-                    with results_lock:
-                        results.append(res)
-            except Exception as e:
-                duration = time.time() - start_t
-                if duration >= 9.9:
-                    print(
-                        f"[Worker {thread_id}] !! 任务强制超时 (10s) 自动终止: {task_item}"
-                    )
-                else:
-                    print(f"[Worker {thread_id}] 任务执行失败: {e}")
-                sb = None
-            finally:
-                # timer.cancel()
-                with counter_lock:
-                    completed_counter[0] += 1
-                task_queue.task_done()
-
-        if sb:
-            try:
-                # sb.driver.quit()
-                # sb.reconnect()
-                # sb.quit()
-                sb.driver.stop()
+                loop = asyncio.get_event_loop_policy().get_event_loop()
+                if loop and not loop.is_closed():
+                    loop.close()
             except Exception:
                 pass
 
@@ -444,9 +550,12 @@ def run_cdp_task_queue(tasks, process_task_fn, max_workers=16):
         t = threading.Thread(target=worker)
         t.daemon = True
         t.start()
+        time.sleep(0.05)
         threads.append(t)
 
     task_queue.join()
+    for t in threads:
+        t.join(timeout=5)
     return results
 
 
@@ -559,13 +668,18 @@ def _fetch_proxies_task(sb, url, thread_id):
         print(f"[Worker {thread_id}] 开始处理页面: {url}")
         proxies = fetch_page_with_cdp(sb, url, extract_proxies, thread_id)
         elapsed = time.time() - start_t
+        if not proxies:
+            print(
+                f"[Worker {thread_id}] 页面未提取到有效代理 (可能加载不全或反爬拦截): {url}"
+            )
+            return {"url": url, "nodes": [], "success": False}
         print(
             f"[Worker {thread_id}] 页面抓取成功: {url} (提取 {len(proxies)} 个节点, 耗时 {elapsed:.1f}s)"
         )
-        return [ProxyNode(p) for p in proxies]
+        return {"url": url, "nodes": [ProxyNode(p) for p in proxies], "success": True}
     except Exception as e:
         print(f"[Worker {thread_id}] 抓取页面异常: {url} -> {e}")
-        return []
+        return {"url": url, "nodes": [], "success": False}
 
 
 def batch_fetch_pagemax(configs, max_workers=16):
@@ -606,15 +720,43 @@ def batch_fetch_pagemax(configs, max_workers=16):
 
 
 def batch_fetch_proxies(urls, max_workers=16):
-    """多线程并发抓取所有目标页面"""
+    """多线程并发抓取所有目标页面，支持失败重试 1 次"""
     worker_count = min(max_workers, len(urls))
     print(
         f"\n[阶段 2/2] 启动 {worker_count} 个并发 Worker 抓取全部 {len(urls)} 个目标页面..."
     )
-    raw_results = run_cdp_task_queue(urls, _fetch_proxies_task, max_workers=max_workers)
+    round1_results = run_cdp_task_queue(
+        urls, _fetch_proxies_task, max_workers=max_workers
+    )
+
+    successful_urls = {r["url"] for r in round1_results if r.get("success")}
     all_nodes = set()
-    for node_list in raw_results:
-        all_nodes.update(node_list)
+    for r in round1_results:
+        if r.get("success"):
+            all_nodes.update(r.get("nodes", []))
+
+    failed_urls = [u for u in urls if u not in successful_urls]
+    if failed_urls:
+        print(
+            f"\n[阶段 2/2] 检测到 {len(failed_urls)} 个页面抓取失败，等待 2 秒后进行重试 1 次..."
+        )
+        time.sleep(2)
+        round2_results = run_cdp_task_queue(
+            failed_urls, _fetch_proxies_task, max_workers=max_workers
+        )
+        for r in round2_results:
+            if r.get("success"):
+                all_nodes.update(r.get("nodes", []))
+                successful_urls.add(r["url"])
+
+        still_failed = [u for u in failed_urls if u not in successful_urls]
+        if still_failed:
+            print(
+                f"[阶段 2/2] 重试后仍有 {len(still_failed)} 个页面抓取失败，已跳过。\n"
+            )
+        else:
+            print(f"[阶段 2/2] 重试完成，所有失败页面均成功抓取！\n")
+
     print(f"[阶段 2/2 完成] 目标页面抓取完毕，共提取到 {len(all_nodes)} 个代理节点。\n")
     return all_nodes
 
