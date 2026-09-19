@@ -58,7 +58,7 @@ countries:
   - ID # 印度尼西亚 (Indonesia)
   - SG # 新加坡 (Singapore)
   - TH # 泰国 (Thailand)
-  - MY # 马来西亚 (Malaysia)
+  # - MY # 马来西亚 (Malaysia)
   - PH # 菲律宾 (Philippines)
   - LK # 斯里兰卡 (Sri Lanka)
   - MV # 马尔代夫 (Maldives)

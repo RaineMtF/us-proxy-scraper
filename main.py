@@ -1032,7 +1032,16 @@ def main():
         all_results, allowed_countries, blacklist=blacklist
     )
 
-    # 导出保存
+    # 导出保存 (输出前按 IP 的 a.b.c.d 依次 a b c d 升序排序)
+    def ip_sort_key(node):
+        try:
+            return tuple(int(x) for x in str(node.ip).split("."))
+        except Exception:
+            return (9999, 9999, 9999, 9999)
+
+    all_results = sorted(all_results, key=ip_sort_key)
+    us_results = sorted(us_results, key=ip_sort_key)
+
     os.makedirs("data", exist_ok=True)
 
     output = [result.all for result in all_results]
