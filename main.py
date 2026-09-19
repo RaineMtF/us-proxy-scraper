@@ -171,7 +171,8 @@ def load_scraper_configs(config_data):
     """
     解析配置数据。
     支持 1: countries 列表 + common_configs 模板自动矩阵组合
-    支持 2: 历史直接配置的 freeproxy_list 列表
+    支持 2: configs 额外独立配置列表 (无协议/速度等限制，直接生效)
+    支持 3: 历史直接配置的 freeproxy_list 列表
     """
 
     def _normalize_country(raw_val):
@@ -185,6 +186,7 @@ def load_scraper_configs(config_data):
     countries = config_data.get("countries", [])
     common_configs = config_data.get("common_configs", [])
 
+    # 1. 解析 countries 列表与 common_configs 模板自动矩阵组合
     if countries and common_configs:
         for country in countries:
             c = _normalize_country(country)
@@ -202,11 +204,43 @@ def load_scraper_configs(config_data):
                         {f"{c}_{item}": {"country": c, "type": item, "speed": 2500}}
                     )
 
-    # 兼容直接配置 freeproxy_list 的情况
+    # 2. 解析额外独立配置列表 configs (例如特定国家单独无限制抓取)
+    extra_configs = config_data.get("configs", [])
+    if extra_configs:
+        for idx, item in enumerate(extra_configs, start=1):
+            if isinstance(item, dict):
+                # 形式 A: - TW: {country: TW} 或 - TW_all: {country: TW}
+                if len(item) == 1 and isinstance(next(iter(item.values())), dict):
+                    name, cfg = next(iter(item.items()))
+                    cfg_copy = dict(cfg)
+                    if "country" in cfg_copy:
+                        cfg_copy["country"] = _normalize_country(cfg_copy["country"])
+                    configs.append({name: cfg_copy})
+                else:
+                    # 形式 B: - country: TW (直接键值对)
+                    cfg_copy = dict(item)
+                    if "country" in cfg_copy:
+                        cfg_copy["country"] = _normalize_country(cfg_copy["country"])
+                    c = cfg_copy.get("country", "")
+                    t = str(cfg_copy.get("type", "")).strip()
+                    if c and t:
+                        name = f"{c}_{t}"
+                    elif c:
+                        name = c
+                    else:
+                        name = f"config_{idx}"
+                    configs.append({name: cfg_copy})
+            elif isinstance(item, str):
+                # 形式 C: - TW (纯字符串形式)
+                c = _normalize_country(item)
+                if c:
+                    configs.append({c: {"country": c}})
+
+    # 3. 兼容直接配置 freeproxy_list 的情况
     if not configs and "freeproxy_list" in config_data:
         configs = config_data["freeproxy_list"]
 
-    # 提取所有允许的目标国家白名单
+    # 4. 提取所有允许的目标国家白名单
     allowed_countries = set()
     for item in configs:
         for _, cfg in item.items():

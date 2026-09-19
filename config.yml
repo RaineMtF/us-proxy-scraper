@@ -54,7 +54,7 @@ countries:
   - HU # 匈牙利 (Hungary)
   # - JP # 日本 (Japan)
   - KR # 韩国 (South Korea)
-  - TW # 台湾 (Taiwan)
+  # - TW # 台湾 (Taiwan)
   - ID # 印度尼西亚 (Indonesia)
   - SG # 新加坡 (Singapore)
   - TH # 泰国 (Thailand)
@@ -77,3 +77,8 @@ common_configs:
   # - socks5:
   #     speed: 5000
   #     type: socks5
+
+# 额外独立配置列表（不与 common_configs 遍历组合，无额外限制）
+configs:
+  - TW:
+      country: TW
