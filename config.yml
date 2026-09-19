@@ -65,15 +65,15 @@ countries:
 
 # 通用协议配置（自动应用到上述每一个国家）
 common_configs:
-  # - http:
-  #     speed: 2000
-  #     type: http
+  - http:
+      speed: 5000
+      type: http
   - https:
-      speed: 10000
+      speed: 5000
       type: https
   - socks4:
-      speed: 10000
+      speed: 5000
       type: socks4
   - socks5:
-      speed: 10000
+      speed: 5000
       type: socks5
