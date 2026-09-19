@@ -3,12 +3,12 @@ maxpages: 200
 
 # IP 黑名单（直接强制剔除）
 blacklist:
-  - 38.55.125.67
-  - 38.28.193.84
+  # - 38.55.125.67
+  # - 38.28.193.84
 
 # 目标国家列表（ISO 2字母代码）
 countries:
-  # - US # 美国 (United States)
+  - US # 美国 (United States)
   - DE # 德国 (Germany)
   - GB # 英国 (United Kingdom)
   - FR # 法国 (France)
@@ -52,28 +52,28 @@ countries:
   - SM # 圣马力诺 (San Marino)
   - VA # 梵蒂冈 (Vatican City)
   - HU # 匈牙利 (Hungary)
-  # - JP # 日本 (Japan)
+  - JP # 日本 (Japan)
   - KR # 韩国 (South Korea)
   - TW # 台湾 (Taiwan)
   - ID # 印度尼西亚 (Indonesia)
   - SG # 新加坡 (Singapore)
   - TH # 泰国 (Thailand)
-  # - MY # 马来西亚 (Malaysia)
+  - MY # 马来西亚 (Malaysia)
   - PH # 菲律宾 (Philippines)
   - LK # 斯里兰卡 (Sri Lanka)
   - MV # 马尔代夫 (Maldives)
 
 # 通用协议配置（自动应用到上述每一个国家）
 common_configs:
-  - http:
-      speed: 5000
-      type: http
+  # - http:
+  #     speed: 5000
+  #     type: http
   - https:
-      speed: 5000
+      speed: 10000
       type: https
-  - socks4:
-      speed: 5000
-      type: socks4
-  - socks5:
-      speed: 5000
-      type: socks5
+  # - socks4:
+  #     speed: 5000
+  #     type: socks4
+  # - socks5:
+  #     speed: 5000
+  #     type: socks5
