@@ -22,7 +22,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lombardy",
-        "delay": "2245",
+        "delay": "2386",
         "anonymity": "4"
     },
     {
@@ -35,7 +35,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1789",
+        "delay": "1883",
         "anonymity": "4"
     },
     {
@@ -48,7 +48,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2292",
+        "delay": "2240",
         "anonymity": "4"
     },
     {
@@ -61,7 +61,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2126",
+        "delay": "1997",
         "anonymity": "4"
     },
     {
@@ -74,7 +74,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1994",
+        "delay": "1874",
         "anonymity": "4"
     },
     {
@@ -87,7 +87,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2249",
+        "delay": "2079",
         "anonymity": "4"
     },
     {
@@ -100,7 +100,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2008",
+        "delay": "1933",
         "anonymity": "4"
     },
     {
@@ -113,7 +113,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1168",
+        "delay": "1116",
         "anonymity": "4"
     },
     {
@@ -126,7 +126,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1599",
+        "delay": "1833",
         "anonymity": "4"
     },
     {
@@ -139,7 +139,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2135",
+        "delay": "2077",
         "anonymity": "4"
     },
     {
@@ -152,7 +152,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "1898",
+        "delay": "1917",
         "anonymity": "4"
     },
     {
@@ -165,7 +165,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "Victoria",
-        "delay": "2168",
+        "delay": "1961",
         "anonymity": "4"
     },
     {
@@ -178,7 +178,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "2025",
+        "delay": "2036",
         "anonymity": "4"
     },
     {
@@ -191,7 +191,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1808",
+        "delay": "1875",
         "anonymity": "4"
     },
     {
@@ -204,7 +204,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lazio",
-        "delay": "2151",
+        "delay": "2051",
         "anonymity": "4"
     },
     {
@@ -230,7 +230,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Campania",
-        "delay": "1992",
+        "delay": "1994",
         "anonymity": "4"
     },
     {
@@ -243,7 +243,20 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "2476",
+        "delay": "2309",
+        "anonymity": "4"
+    },
+    {
+        "ip": "8.134.144.10",
+        "port": "3129",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "China",
+        "country_code": "CN",
+        "city": "Guangdong",
+        "delay": "6386",
         "anonymity": "4"
     },
     {
@@ -256,7 +269,7 @@
         "country": "Philippines",
         "country_code": "PH",
         "city": "National Capital Region",
-        "delay": "1618",
+        "delay": "1620",
         "anonymity": "4"
     },
     {
@@ -269,7 +282,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "2043",
+        "delay": "1996",
         "anonymity": "4"
     },
     {
@@ -282,7 +295,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2144",
+        "delay": "2881",
         "anonymity": "4"
     },
     {
@@ -295,7 +308,7 @@
         "country": "China",
         "country_code": "CN",
         "city": "Guangdong",
-        "delay": "6714",
+        "delay": "9328",
         "anonymity": "4"
     },
     {
@@ -308,7 +321,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Osaka",
-        "delay": "1097",
+        "delay": "1337",
         "anonymity": "4"
     },
     {
@@ -321,7 +334,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lombardy",
-        "delay": "1754",
+        "delay": "1719",
         "anonymity": "4"
     },
     {
@@ -334,7 +347,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "984",
+        "delay": "1404",
         "anonymity": "4"
     },
     {
@@ -347,7 +360,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "1791",
+        "delay": "1543",
         "anonymity": "4"
     },
     {
@@ -360,7 +373,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1548",
+        "delay": "1525",
         "anonymity": "4"
     },
     {
@@ -373,7 +386,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1663",
+        "delay": "1628",
         "anonymity": "4"
     },
     {
@@ -386,7 +399,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "2011",
+        "delay": "2063",
         "anonymity": "4"
     },
     {
@@ -412,20 +425,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Jihočeský kraj",
-        "delay": "1994",
-        "anonymity": "4"
-    },
-    {
-        "ip": "31.171.154.66",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Albania",
-        "country_code": "AL",
-        "city": "Tirana",
-        "delay": "4170",
+        "delay": "2314",
         "anonymity": "4"
     },
     {
@@ -451,7 +451,7 @@
         "country": "Albania",
         "country_code": "AL",
         "city": "Tirana",
-        "delay": "2083",
+        "delay": "1956",
         "anonymity": "4"
     },
     {
@@ -464,7 +464,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "1231",
+        "delay": "1193",
         "anonymity": "4"
     },
     {
@@ -490,7 +490,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "8151",
+        "delay": "1572",
         "anonymity": "4"
     },
     {
@@ -503,7 +503,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "2020",
+        "delay": "2153",
         "anonymity": "4"
     },
     {
@@ -516,7 +516,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "1877",
+        "delay": "2111",
         "anonymity": "4"
     },
     {
@@ -529,7 +529,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1811",
+        "delay": "2022",
         "anonymity": "4"
     },
     {
@@ -542,7 +542,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1785",
+        "delay": "1849",
         "anonymity": "4"
     },
     {
@@ -555,7 +555,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "2727",
+        "delay": "2062",
         "anonymity": "4"
     },
     {
@@ -568,7 +568,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "South Karelia",
-        "delay": "2784",
+        "delay": "2065",
         "anonymity": "4"
     },
     {
@@ -581,7 +581,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "2473",
+        "delay": "2531",
         "anonymity": "4"
     },
     {
@@ -594,7 +594,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "1786",
+        "delay": "1980",
         "anonymity": "4"
     },
     {
@@ -607,7 +607,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "1780",
+        "delay": "1846",
         "anonymity": "4"
     },
     {
@@ -620,7 +620,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Łódź Voivodeship",
-        "delay": "1891",
+        "delay": "1698",
         "anonymity": "4"
     },
     {
@@ -672,7 +672,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "2286",
+        "delay": "1416",
         "anonymity": "4"
     },
     {
@@ -711,7 +711,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1254",
+        "delay": "1313",
         "anonymity": "4"
     },
     {
@@ -750,7 +750,20 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Zurich",
-        "delay": "2038",
+        "delay": "1554",
+        "anonymity": "4"
+    },
+    {
+        "ip": "37.120.233.18",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "2582",
         "anonymity": "4"
     },
     {
@@ -764,19 +777,6 @@
         "country_code": "GB",
         "city": "England",
         "delay": "2017",
-        "anonymity": "4"
-    },
-    {
-        "ip": "37.120.233.18",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "2804",
         "anonymity": "4"
     },
     {
@@ -802,7 +802,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2528",
+        "delay": "2199",
         "anonymity": "4"
     },
     {
@@ -828,7 +828,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1845",
+        "delay": "1561",
         "anonymity": "4"
     },
     {
@@ -841,20 +841,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lazio",
-        "delay": "2423",
-        "anonymity": "4"
-    },
-    {
-        "ip": "37.221.113.130",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1644",
+        "delay": "2312",
         "anonymity": "4"
     },
     {
@@ -871,6 +858,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "37.221.113.130",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1577",
+        "anonymity": "4"
+    },
+    {
         "ip": "37.221.113.146",
         "port": "443",
         "type": "https",
@@ -880,7 +880,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1581",
+        "delay": "1710",
         "anonymity": "4"
     },
     {
@@ -893,7 +893,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "3702",
+        "delay": "1900",
         "anonymity": "4"
     },
     {
@@ -932,7 +932,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1590",
+        "delay": "1871",
         "anonymity": "4"
     },
     {
@@ -945,7 +945,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Seoul",
-        "delay": "1647",
+        "delay": "1826",
         "anonymity": "4"
     },
     {
@@ -958,7 +958,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "2023",
+        "delay": "1914",
         "anonymity": "4"
     },
     {
@@ -971,7 +971,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Seoul",
-        "delay": "1642",
+        "delay": "1584",
         "anonymity": "4"
     },
     {
@@ -984,7 +984,7 @@
         "country": "Malaysia",
         "country_code": "MY",
         "city": "Selangor",
-        "delay": "2543",
+        "delay": "2393",
         "anonymity": "4"
     },
     {
@@ -997,7 +997,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Baden-Wurttemberg",
-        "delay": "2059",
+        "delay": "2122",
         "anonymity": "4"
     },
     {
@@ -1010,20 +1010,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1845",
-        "anonymity": "4"
-    },
-    {
-        "ip": "45.91.210.78",
-        "port": "1443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "The Netherlands",
-        "country_code": "NL",
-        "city": "North Holland",
-        "delay": "3260",
+        "delay": "1898",
         "anonymity": "4"
     },
     {
@@ -1036,7 +1023,20 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1950",
+        "delay": "2556",
+        "anonymity": "4"
+    },
+    {
+        "ip": "45.91.210.78",
+        "port": "1443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "The Netherlands",
+        "country_code": "NL",
+        "city": "North Holland",
+        "delay": "3498",
         "anonymity": "4"
     },
     {
@@ -1049,20 +1049,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "2062",
-        "anonymity": "4"
-    },
-    {
-        "ip": "45.128.27.169",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "The Netherlands",
-        "country_code": "NL",
-        "city": "North Holland",
-        "delay": "2043",
+        "delay": "1761",
         "anonymity": "4"
     },
     {
@@ -1075,7 +1062,20 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3470",
+        "delay": "2850",
+        "anonymity": "4"
+    },
+    {
+        "ip": "45.128.27.169",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "The Netherlands",
+        "country_code": "NL",
+        "city": "North Holland",
+        "delay": "2180",
         "anonymity": "4"
     },
     {
@@ -1088,7 +1088,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Solothurn",
-        "delay": "1936",
+        "delay": "2526",
         "anonymity": "4"
     },
     {
@@ -1114,7 +1114,7 @@
         "country": "Iceland",
         "country_code": "IS",
         "city": "Southern Peninsula",
-        "delay": "1717",
+        "delay": "1664",
         "anonymity": "4"
     },
     {
@@ -1127,7 +1127,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3286",
+        "delay": "3278",
         "anonymity": "4"
     },
     {
@@ -1140,7 +1140,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "4087",
+        "delay": "2364",
         "anonymity": "4"
     },
     {
@@ -1153,7 +1153,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Madrid",
-        "delay": "1433",
+        "delay": "1455",
         "anonymity": "4"
     },
     {
@@ -1166,7 +1166,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1826",
+        "delay": "1861",
         "anonymity": "4"
     },
     {
@@ -1179,7 +1179,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3244",
+        "delay": "3430",
         "anonymity": "4"
     },
     {
@@ -1192,7 +1192,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "2056",
+        "delay": "2187",
         "anonymity": "4"
     },
     {
@@ -1205,7 +1205,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3343",
+        "delay": "2479",
         "anonymity": "4"
     },
     {
@@ -1218,7 +1218,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3476",
+        "delay": "3179",
         "anonymity": "4"
     },
     {
@@ -1231,7 +1231,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3117",
+        "delay": "3147",
         "anonymity": "4"
     },
     {
@@ -1244,7 +1244,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1906",
+        "delay": "2084",
         "anonymity": "4"
     },
     {
@@ -1257,7 +1257,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1722",
+        "delay": "1902",
         "anonymity": "4"
     },
     {
@@ -1270,7 +1270,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1992",
+        "delay": "1937",
         "anonymity": "4"
     },
     {
@@ -1283,7 +1283,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Budapest",
-        "delay": "2211",
+        "delay": "2257",
         "anonymity": "4"
     },
     {
@@ -1296,7 +1296,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hamburg",
-        "delay": "5489",
+        "delay": "4668",
         "anonymity": "4"
     },
     {
@@ -1309,7 +1309,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hamburg",
-        "delay": "3105",
+        "delay": "4014",
         "anonymity": "4"
     },
     {
@@ -1322,7 +1322,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2061",
+        "delay": "2064",
         "anonymity": "4"
     },
     {
@@ -1348,7 +1348,7 @@
         "country": "Cyprus",
         "country_code": "CY",
         "city": "Nicosia",
-        "delay": "1693",
+        "delay": "1759",
         "anonymity": "4"
     },
     {
@@ -1361,7 +1361,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Pardubice Region",
-        "delay": "2150",
+        "delay": "2048",
         "anonymity": "4"
     },
     {
@@ -1374,7 +1374,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucureşti",
-        "delay": "2251",
+        "delay": "1993",
         "anonymity": "4"
     },
     {
@@ -1387,7 +1387,7 @@
         "country": "Sweden",
         "country_code": "SE",
         "city": "Stockholm",
-        "delay": "2062",
+        "delay": "2478",
         "anonymity": "4"
     },
     {
@@ -1400,7 +1400,7 @@
         "country": "Thailand",
         "country_code": "TH",
         "city": "Bangkok",
-        "delay": "8385",
+        "delay": "3025",
         "anonymity": "4"
     },
     {
@@ -1413,7 +1413,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "1781",
+        "delay": "1772",
         "anonymity": "4"
     },
     {
@@ -1439,7 +1439,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "2145",
+        "delay": "2222",
         "anonymity": "4"
     },
     {
@@ -1452,7 +1452,7 @@
         "country": "Malaysia",
         "country_code": "MY",
         "city": "Kuala Lumpur",
-        "delay": "2170",
+        "delay": "2108",
         "anonymity": "4"
     },
     {
@@ -1465,7 +1465,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1487",
+        "delay": "1549",
         "anonymity": "4"
     },
     {
@@ -1478,7 +1478,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "2001",
+        "delay": "2102",
         "anonymity": "4"
     },
     {
@@ -1491,7 +1491,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "1874",
+        "delay": "2024",
         "anonymity": "4"
     },
     {
@@ -1504,7 +1504,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1840",
+        "delay": "1691",
         "anonymity": "4"
     },
     {
@@ -1517,7 +1517,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Downtown Core)",
-        "delay": "3274",
+        "delay": "4200",
         "anonymity": "4"
     },
     {
@@ -1530,7 +1530,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "1771",
+        "delay": "1502",
         "anonymity": "4"
     },
     {
@@ -1543,7 +1543,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1998",
+        "delay": "1921",
         "anonymity": "4"
     },
     {
@@ -1556,7 +1556,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1862",
+        "delay": "1994",
         "anonymity": "4"
     },
     {
@@ -1569,7 +1569,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1638",
+        "delay": "1939",
         "anonymity": "4"
     },
     {
@@ -1582,7 +1582,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "1823",
+        "delay": "1689",
         "anonymity": "4"
     },
     {
@@ -1595,7 +1595,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "1706",
+        "delay": "1690",
         "anonymity": "4"
     },
     {
@@ -1608,7 +1608,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1837",
+        "delay": "2159",
         "anonymity": "4"
     },
     {
@@ -1621,20 +1621,7 @@
         "country": "Ireland",
         "country_code": "IE",
         "city": "Leinster",
-        "delay": "1694",
-        "anonymity": "4"
-    },
-    {
-        "ip": "58.120.141.74",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "South Korea",
-        "country_code": "KR",
-        "city": "Seoul",
-        "delay": "1506",
+        "delay": "1978",
         "anonymity": "4"
     },
     {
@@ -1651,6 +1638,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "58.120.141.74",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "South Korea",
+        "country_code": "KR",
+        "city": "Seoul",
+        "delay": "1506",
+        "anonymity": "4"
+    },
+    {
         "ip": "62.210.27.111",
         "port": "443",
         "type": "https",
@@ -1660,7 +1660,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1644",
+        "delay": "1733",
         "anonymity": "4"
     },
     {
@@ -1673,7 +1673,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1886",
+        "delay": "1615",
         "anonymity": "4"
     },
     {
@@ -1686,7 +1686,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1525",
+        "delay": "1577",
         "anonymity": "4"
     },
     {
@@ -1699,7 +1699,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "1855",
+        "delay": "1835",
         "anonymity": "4"
     },
     {
@@ -1712,7 +1712,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "1927",
+        "delay": "1876",
         "anonymity": "4"
     },
     {
@@ -1725,7 +1725,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "1645",
+        "delay": "2487",
         "anonymity": "4"
     },
     {
@@ -1738,7 +1738,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Pioneer)",
-        "delay": "1559",
+        "delay": "1860",
         "anonymity": "4"
     },
     {
@@ -1751,7 +1751,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Pioneer)",
-        "delay": "1921",
+        "delay": "1622",
         "anonymity": "4"
     },
     {
@@ -1764,7 +1764,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "1796",
+        "delay": "1488",
         "anonymity": "4"
     },
     {
@@ -1777,7 +1777,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "991",
+        "delay": "857",
         "anonymity": "4"
     },
     {
@@ -1790,7 +1790,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2043",
+        "delay": "2183",
         "anonymity": "4"
     },
     {
@@ -1803,7 +1803,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1429",
+        "delay": "1424",
         "anonymity": "4"
     },
     {
@@ -1816,7 +1816,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "1674",
+        "delay": "1746",
         "anonymity": "4"
     },
     {
@@ -1829,7 +1829,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Madrid",
-        "delay": "3055",
+        "delay": "2093",
         "anonymity": "4"
     },
     {
@@ -1842,20 +1842,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1661",
-        "anonymity": "4"
-    },
-    {
-        "ip": "79.127.156.177",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Germany",
-        "country_code": "DE",
-        "city": "Hesse",
-        "delay": "1466",
+        "delay": "1910",
         "anonymity": "4"
     },
     {
@@ -1868,7 +1855,20 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1699",
+        "delay": "1380",
+        "anonymity": "4"
+    },
+    {
+        "ip": "79.127.156.177",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Germany",
+        "country_code": "DE",
+        "city": "Hesse",
+        "delay": "1897",
         "anonymity": "4"
     },
     {
@@ -1894,7 +1894,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "2165",
+        "delay": "2115",
         "anonymity": "4"
     },
     {
@@ -1907,7 +1907,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "2125",
+        "delay": "1964",
         "anonymity": "4"
     },
     {
@@ -1920,7 +1920,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "2042",
+        "delay": "1971",
         "anonymity": "4"
     },
     {
@@ -1933,7 +1933,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "2137",
+        "delay": "2531",
         "anonymity": "4"
     },
     {
@@ -1946,7 +1946,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "2047",
+        "delay": "1967",
         "anonymity": "4"
     },
     {
@@ -1959,7 +1959,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1973",
+        "delay": "1791",
         "anonymity": "4"
     },
     {
@@ -1972,7 +1972,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "2661",
+        "delay": "8834",
         "anonymity": "4"
     },
     {
@@ -1985,7 +1985,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "7162",
+        "delay": "2428",
         "anonymity": "4"
     },
     {
@@ -1998,7 +1998,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "2568",
+        "delay": "2352",
         "anonymity": "4"
     },
     {
@@ -2011,7 +2011,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "8396",
+        "delay": "7228",
         "anonymity": "4"
     },
     {
@@ -2024,7 +2024,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "7937",
+        "delay": "9358",
         "anonymity": "4"
     },
     {
@@ -2037,7 +2037,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "7736",
+        "delay": "7347",
         "anonymity": "4"
     },
     {
@@ -2050,7 +2050,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "7752",
+        "delay": "7726",
         "anonymity": "4"
     },
     {
@@ -2063,7 +2063,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Kujawsko-Pomorskie",
-        "delay": "2016",
+        "delay": "2548",
         "anonymity": "4"
     },
     {
@@ -2076,7 +2076,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "2074",
+        "delay": "2041",
         "anonymity": "4"
     },
     {
@@ -2089,7 +2089,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Catalonia",
-        "delay": "2255",
+        "delay": "2327",
         "anonymity": "4"
     },
     {
@@ -2102,7 +2102,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1480",
+        "delay": "1484",
         "anonymity": "4"
     },
     {
@@ -2115,7 +2115,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "2217",
+        "delay": "2042",
         "anonymity": "4"
     },
     {
@@ -2128,7 +2128,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Budapest",
-        "delay": "2181",
+        "delay": "2031",
         "anonymity": "4"
     },
     {
@@ -2141,7 +2141,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Pays de la Loire",
-        "delay": "2119",
+        "delay": "1926",
         "anonymity": "4"
     },
     {
@@ -2154,7 +2154,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1778",
+        "delay": "1973",
         "anonymity": "4"
     },
     {
@@ -2167,7 +2167,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "2048",
+        "delay": "1881",
         "anonymity": "4"
     },
     {
@@ -2180,7 +2180,33 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1863",
+        "delay": "1847",
+        "anonymity": "4"
+    },
+    {
+        "ip": "82.64.46.151",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "France",
+        "country_code": "FR",
+        "city": "Occitanie",
+        "delay": "2117",
+        "anonymity": "4"
+    },
+    {
+        "ip": "82.64.46.151",
+        "port": "8013",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "France",
+        "country_code": "FR",
+        "city": "Occitanie",
+        "delay": "1885",
         "anonymity": "4"
     },
     {
@@ -2193,7 +2219,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Occitanie",
-        "delay": "1817",
+        "delay": "2051",
         "anonymity": "4"
     },
     {
@@ -2210,32 +2236,6 @@
         "anonymity": "4"
     },
     {
-        "ip": "82.64.46.151",
-        "port": "8013",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "France",
-        "country_code": "FR",
-        "city": "Occitanie",
-        "delay": "1999",
-        "anonymity": "4"
-    },
-    {
-        "ip": "82.64.46.151",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "France",
-        "country_code": "FR",
-        "city": "Occitanie",
-        "delay": "1682",
-        "anonymity": "4"
-    },
-    {
         "ip": "82.64.67.179",
         "port": "443",
         "type": "https",
@@ -2245,7 +2245,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1907",
+        "delay": "1949",
         "anonymity": "4"
     },
     {
@@ -2258,7 +2258,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1522",
+        "delay": "1599",
         "anonymity": "4"
     },
     {
@@ -2271,7 +2271,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Occitanie",
-        "delay": "1396",
+        "delay": "1515",
         "anonymity": "4"
     },
     {
@@ -2284,7 +2284,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "New Aquitaine",
-        "delay": "1545",
+        "delay": "1684",
         "anonymity": "4"
     },
     {
@@ -2297,7 +2297,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1996",
+        "delay": "2103",
         "anonymity": "4"
     },
     {
@@ -2310,7 +2310,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1706",
+        "delay": "1765",
         "anonymity": "4"
     },
     {
@@ -2323,7 +2323,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Madrid",
-        "delay": "1808",
+        "delay": "1557",
         "anonymity": "4"
     },
     {
@@ -2336,7 +2336,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1685",
+        "delay": "1809",
         "anonymity": "4"
     },
     {
@@ -2349,7 +2349,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Queenstown Estate)",
-        "delay": "1615",
+        "delay": "1835",
         "anonymity": "4"
     },
     {
@@ -2362,7 +2362,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Queenstown Estate)",
-        "delay": "1701",
+        "delay": "1626",
         "anonymity": "4"
     },
     {
@@ -2375,7 +2375,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Madrid",
-        "delay": "2225",
+        "delay": "1760",
         "anonymity": "4"
     },
     {
@@ -2388,7 +2388,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Akershus",
-        "delay": "2402",
+        "delay": "2088",
         "anonymity": "4"
     },
     {
@@ -2401,7 +2401,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Podlasie",
-        "delay": "2404",
+        "delay": "2497",
         "anonymity": "4"
     },
     {
@@ -2414,7 +2414,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Piedmont",
-        "delay": "1885",
+        "delay": "1910",
         "anonymity": "4"
     },
     {
@@ -2427,7 +2427,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Grand Est",
-        "delay": "2040",
+        "delay": "1913",
         "anonymity": "4"
     },
     {
@@ -2440,7 +2440,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Rhône-Alpes",
-        "delay": "1998",
+        "delay": "2222",
         "anonymity": "4"
     },
     {
@@ -2453,7 +2453,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Emilia-Romagna",
-        "delay": "2187",
+        "delay": "2020",
         "anonymity": "4"
     },
     {
@@ -2466,7 +2466,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1385",
+        "delay": "1471",
         "anonymity": "4"
     },
     {
@@ -2479,7 +2479,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1622",
+        "delay": "1865",
         "anonymity": "4"
     },
     {
@@ -2492,7 +2492,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "2858",
+        "delay": "1603",
         "anonymity": "4"
     },
     {
@@ -2505,7 +2505,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1616",
+        "delay": "1504",
         "anonymity": "4"
     },
     {
@@ -2518,7 +2518,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1592",
+        "delay": "1544",
         "anonymity": "4"
     },
     {
@@ -2531,7 +2531,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1501",
+        "delay": "1495",
         "anonymity": "4"
     },
     {
@@ -2544,7 +2544,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1842",
+        "delay": "1463",
         "anonymity": "4"
     },
     {
@@ -2557,7 +2557,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1566",
+        "delay": "1487",
         "anonymity": "4"
     },
     {
@@ -2570,7 +2570,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1880",
+        "delay": "1539",
         "anonymity": "4"
     },
     {
@@ -2583,7 +2583,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1599",
+        "delay": "1496",
         "anonymity": "4"
     },
     {
@@ -2596,7 +2596,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2359",
+        "delay": "1467",
         "anonymity": "4"
     },
     {
@@ -2609,7 +2609,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1428",
+        "delay": "1682",
         "anonymity": "4"
     },
     {
@@ -2622,7 +2622,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1433",
+        "delay": "1464",
         "anonymity": "4"
     },
     {
@@ -2635,7 +2635,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2705",
+        "delay": "2820",
         "anonymity": "4"
     },
     {
@@ -2648,7 +2648,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Aargau",
-        "delay": "2084",
+        "delay": "2282",
         "anonymity": "4"
     },
     {
@@ -2700,7 +2700,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1389",
+        "delay": "1248",
         "anonymity": "4"
     },
     {
@@ -2713,7 +2713,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Iași County",
-        "delay": "2211",
+        "delay": "2025",
         "anonymity": "4"
     },
     {
@@ -2739,7 +2739,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "State of Berlin",
-        "delay": "1553",
+        "delay": "1779",
         "anonymity": "4"
     },
     {
@@ -2752,7 +2752,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "State of Berlin",
-        "delay": "1667",
+        "delay": "1610",
         "anonymity": "4"
     },
     {
@@ -2765,7 +2765,7 @@
         "country": "Denmark",
         "country_code": "DK",
         "city": "Capital Region",
-        "delay": "2050",
+        "delay": "1982",
         "anonymity": "4"
     },
     {
@@ -2778,7 +2778,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Basel-Landschaft",
-        "delay": "1812",
+        "delay": "2377",
         "anonymity": "4"
     },
     {
@@ -2791,7 +2791,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1594",
+        "delay": "1753",
         "anonymity": "4"
     },
     {
@@ -2804,7 +2804,7 @@
         "country": "Latvia",
         "country_code": "LV",
         "city": "Riga",
-        "delay": "1828",
+        "delay": "1925",
         "anonymity": "4"
     },
     {
@@ -2817,7 +2817,7 @@
         "country": "Greece",
         "country_code": "GR",
         "city": "Attica",
-        "delay": "2027",
+        "delay": "2011",
         "anonymity": "4"
     },
     {
@@ -2830,7 +2830,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "Overijssel",
-        "delay": "1457",
+        "delay": "2371",
         "anonymity": "4"
     },
     {
@@ -2843,7 +2843,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1606",
+        "delay": "1608",
         "anonymity": "4"
     },
     {
@@ -2869,7 +2869,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Zurich",
-        "delay": "2575",
+        "delay": "1324",
         "anonymity": "4"
     },
     {
@@ -2882,7 +2882,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1753",
+        "delay": "1712",
         "anonymity": "4"
     },
     {
@@ -2895,7 +2895,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1996",
+        "delay": "2086",
         "anonymity": "4"
     },
     {
@@ -2908,7 +2908,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "1413",
+        "delay": "1400",
         "anonymity": "4"
     },
     {
@@ -2921,7 +2921,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1488",
+        "delay": "1532",
         "anonymity": "4"
     },
     {
@@ -2934,7 +2934,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Auvergne-Rhône-Alpes",
-        "delay": "1600",
+        "delay": "1686",
         "anonymity": "4"
     },
     {
@@ -2947,7 +2947,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Prague",
-        "delay": "2311",
+        "delay": "2590",
         "anonymity": "4"
     },
     {
@@ -2960,7 +2960,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lombardy",
-        "delay": "2411",
+        "delay": "2430",
         "anonymity": "4"
     },
     {
@@ -2973,7 +2973,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Campania",
-        "delay": "2317",
+        "delay": "3278",
         "anonymity": "4"
     },
     {
@@ -2986,7 +2986,7 @@
         "country": "Lithuania",
         "country_code": "LT",
         "city": "Siauliai",
-        "delay": "2362",
+        "delay": "2337",
         "anonymity": "4"
     },
     {
@@ -2999,7 +2999,7 @@
         "country": "Montenegro",
         "country_code": "ME",
         "city": "Podgorica",
-        "delay": "5359",
+        "delay": "6395",
         "anonymity": "4"
     },
     {
@@ -3012,7 +3012,7 @@
         "country": "Bulgaria",
         "country_code": "BG",
         "city": "Sofia-grad",
-        "delay": "3781",
+        "delay": "4720",
         "anonymity": "4"
     },
     {
@@ -3025,7 +3025,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Tuscany",
-        "delay": "1875",
+        "delay": "2075",
         "anonymity": "4"
     },
     {
@@ -3038,7 +3038,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Silesia",
-        "delay": "3243",
+        "delay": "3432",
         "anonymity": "4"
     },
     {
@@ -3051,20 +3051,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Silesia",
-        "delay": "4704",
-        "anonymity": "4"
-    },
-    {
-        "ip": "95.153.31.66",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Estonia",
-        "country_code": "EE",
-        "city": "Harjumaa",
-        "delay": "1929",
+        "delay": "3418",
         "anonymity": "4"
     },
     {
@@ -3081,8 +3068,8 @@
         "anonymity": "4"
     },
     {
-        "ip": "95.153.32.2",
-        "port": "9443",
+        "ip": "95.153.31.66",
+        "port": "443",
         "type": "https",
         "type_list": [
             "https"
@@ -3090,7 +3077,7 @@
         "country": "Estonia",
         "country_code": "EE",
         "city": "Harjumaa",
-        "delay": "2129",
+        "delay": "1929",
         "anonymity": "4"
     },
     {
@@ -3107,6 +3094,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "95.153.32.2",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Estonia",
+        "country_code": "EE",
+        "city": "Harjumaa",
+        "delay": "2043",
+        "anonymity": "4"
+    },
+    {
         "ip": "103.22.182.254",
         "port": "9443",
         "type": "https",
@@ -3116,7 +3116,7 @@
         "country": "Thailand",
         "country_code": "TH",
         "city": "Nonthaburi",
-        "delay": "1990",
+        "delay": "1699",
         "anonymity": "4"
     },
     {
@@ -3129,7 +3129,7 @@
         "country": "Thailand",
         "country_code": "TH",
         "city": "Bangkok",
-        "delay": "2760",
+        "delay": "2053",
         "anonymity": "4"
     },
     {
@@ -3142,7 +3142,7 @@
         "country": "Thailand",
         "country_code": "TH",
         "city": "Bangkok",
-        "delay": "1988",
+        "delay": "2123",
         "anonymity": "4"
     },
     {
@@ -3155,7 +3155,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "Queensland",
-        "delay": "1405",
+        "delay": "1490",
         "anonymity": "4"
     },
     {
@@ -3168,7 +3168,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "1353",
+        "delay": "1556",
         "anonymity": "4"
     },
     {
@@ -3194,7 +3194,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "East Java",
-        "delay": "1785",
+        "delay": "1715",
         "anonymity": "4"
     },
     {
@@ -3207,20 +3207,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "East Java",
-        "delay": "1708",
-        "anonymity": "4"
-    },
-    {
-        "ip": "103.87.68.50",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Indonesia",
-        "country_code": "ID",
-        "city": "West Java",
-        "delay": "2506",
+        "delay": "1729",
         "anonymity": "4"
     },
     {
@@ -3234,6 +3221,19 @@
         "country_code": "ID",
         "city": "West Java",
         "delay": "2136",
+        "anonymity": "4"
+    },
+    {
+        "ip": "103.87.68.50",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Indonesia",
+        "country_code": "ID",
+        "city": "West Java",
+        "delay": "2525",
         "anonymity": "4"
     },
     {
@@ -3311,7 +3311,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "Victoria",
-        "delay": "2448",
+        "delay": "1079",
         "anonymity": "4"
     },
     {
@@ -3350,7 +3350,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "2129",
+        "delay": "1364",
         "anonymity": "4"
     },
     {
@@ -3363,7 +3363,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1395",
+        "delay": "1445",
         "anonymity": "4"
     },
     {
@@ -3376,20 +3376,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "West Java",
-        "delay": "3857",
-        "anonymity": "4"
-    },
-    {
-        "ip": "106.104.177.158",
-        "port": "60808",
-        "type": "http",
-        "type_list": [
-            "http"
-        ],
-        "country": "Taiwan",
-        "country_code": "TW",
-        "city": "Taiwan",
-        "delay": "4783",
+        "delay": "2128",
         "anonymity": "4"
     },
     {
@@ -3402,7 +3389,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "1786",
+        "delay": "1751",
         "anonymity": "4"
     },
     {
@@ -3415,7 +3402,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Tuscany",
-        "delay": "2048",
+        "delay": "2161",
         "anonymity": "4"
     },
     {
@@ -3428,7 +3415,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "2550",
+        "delay": "2392",
         "anonymity": "4"
     },
     {
@@ -3441,20 +3428,7 @@
         "country": "Latvia",
         "country_code": "LV",
         "city": "Riga",
-        "delay": "2858",
-        "anonymity": "4"
-    },
-    {
-        "ip": "109.248.149.34",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Latvia",
-        "country_code": "LV",
-        "city": "Riga",
-        "delay": "2521",
+        "delay": "1795",
         "anonymity": "4"
     },
     {
@@ -3471,6 +3445,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "109.248.149.34",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Latvia",
+        "country_code": "LV",
+        "city": "Riga",
+        "delay": "2521",
+        "anonymity": "4"
+    },
+    {
         "ip": "113.23.216.128",
         "port": "9088",
         "type": "https",
@@ -3480,7 +3467,7 @@
         "country": "Malaysia",
         "country_code": "MY",
         "city": "Selangor",
-        "delay": "2396",
+        "delay": "2580",
         "anonymity": "4"
     },
     {
@@ -3493,7 +3480,7 @@
         "country": "Malaysia",
         "country_code": "MY",
         "city": "Selangor",
-        "delay": "2597",
+        "delay": "2141",
         "anonymity": "4"
     },
     {
@@ -3506,7 +3493,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "1450",
+        "delay": "1427",
         "anonymity": "4"
     },
     {
@@ -3519,7 +3506,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1552",
+        "delay": "1831",
         "anonymity": "4"
     },
     {
@@ -3532,7 +3519,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "Central Java",
-        "delay": "5164",
+        "delay": "2478",
         "anonymity": "4"
     },
     {
@@ -3545,7 +3532,7 @@
         "country": "China",
         "country_code": "CN",
         "city": "Jiangsu",
-        "delay": "2188",
+        "delay": "3722",
         "anonymity": "4"
     },
     {
@@ -3558,7 +3545,7 @@
         "country": "China",
         "country_code": "CN",
         "city": "Jiangsu",
-        "delay": "2569",
+        "delay": "3575",
         "anonymity": "4"
     },
     {
@@ -3571,7 +3558,7 @@
         "country": "China",
         "country_code": "CN",
         "city": "Jiangsu",
-        "delay": "1716",
+        "delay": "2361",
         "anonymity": "4"
     },
     {
@@ -3584,7 +3571,7 @@
         "country": "China",
         "country_code": "CN",
         "city": "Jiangsu",
-        "delay": "3793",
+        "delay": "7206",
         "anonymity": "4"
     },
     {
@@ -3597,7 +3584,7 @@
         "country": "New Zealand",
         "country_code": "NZ",
         "city": "Auckland",
-        "delay": "1834",
+        "delay": "1814",
         "anonymity": "4"
     },
     {
@@ -3610,7 +3597,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Seoul",
-        "delay": "1861",
+        "delay": "1786",
         "anonymity": "4"
     },
     {
@@ -3623,7 +3610,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1802",
+        "delay": "1899",
         "anonymity": "4"
     },
     {
@@ -3636,7 +3623,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Pioneer)",
-        "delay": "2322",
+        "delay": "2379",
         "anonymity": "4"
     },
     {
@@ -3649,20 +3636,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Ontario",
-        "delay": "1494",
-        "anonymity": "4"
-    },
-    {
-        "ip": "129.227.44.190",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Indonesia",
-        "country_code": "ID",
-        "city": "Jakarta",
-        "delay": "1837",
+        "delay": "1582",
         "anonymity": "4"
     },
     {
@@ -3679,6 +3653,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "129.227.44.190",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Indonesia",
+        "country_code": "ID",
+        "city": "Jakarta",
+        "delay": "1837",
+        "anonymity": "4"
+    },
+    {
         "ip": "130.61.177.252",
         "port": "443",
         "type": "https",
@@ -3688,7 +3675,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "2098",
+        "delay": "1741",
         "anonymity": "4"
     },
     {
@@ -3714,7 +3701,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1425",
+        "delay": "1405",
         "anonymity": "4"
     },
     {
@@ -3740,7 +3727,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Catalonia",
-        "delay": "1935",
+        "delay": "1886",
         "anonymity": "4"
     },
     {
@@ -3753,7 +3740,7 @@
         "country": "New Zealand",
         "country_code": "NZ",
         "city": "Canterbury",
-        "delay": "2663",
+        "delay": "2077",
         "anonymity": "4"
     },
     {
@@ -3766,7 +3753,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "1398",
+        "delay": "1761",
         "anonymity": "4"
     },
     {
@@ -3779,20 +3766,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Seoul",
-        "delay": "1868",
-        "anonymity": "4"
-    },
-    {
-        "ip": "133.9.6.9",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Japan",
-        "country_code": "JP",
-        "city": "Tokyo",
-        "delay": "6472",
+        "delay": "1624",
         "anonymity": "4"
     },
     {
@@ -3805,7 +3779,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1404",
+        "delay": "1216",
         "anonymity": "4"
     },
     {
@@ -3818,7 +3792,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Osaka",
-        "delay": "1626",
+        "delay": "1711",
         "anonymity": "4"
     },
     {
@@ -3831,7 +3805,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1509",
+        "delay": "1928",
         "anonymity": "4"
     },
     {
@@ -3844,7 +3818,7 @@
         "country": "Albania",
         "country_code": "AL",
         "city": "Tirana",
-        "delay": "2147",
+        "delay": "2244",
         "anonymity": "4"
     },
     {
@@ -3857,7 +3831,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bremen",
-        "delay": "1769",
+        "delay": "2102",
         "anonymity": "4"
     },
     {
@@ -3870,20 +3844,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1853",
-        "anonymity": "4"
-    },
-    {
-        "ip": "138.199.31.129",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1286",
+        "delay": "2092",
         "anonymity": "4"
     },
     {
@@ -3897,6 +3858,19 @@
         "country_code": "GB",
         "city": "England",
         "delay": "1680",
+        "anonymity": "4"
+    },
+    {
+        "ip": "138.199.31.129",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1438",
         "anonymity": "4"
     },
     {
@@ -3922,7 +3896,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1429",
+        "delay": "893",
         "anonymity": "4"
     },
     {
@@ -3935,7 +3909,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1269",
+        "delay": "1520",
         "anonymity": "4"
     },
     {
@@ -3961,7 +3935,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1399",
+        "delay": "1469",
         "anonymity": "4"
     },
     {
@@ -3974,7 +3948,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "2075",
+        "delay": "2124",
         "anonymity": "4"
     },
     {
@@ -3987,7 +3961,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Chiba",
-        "delay": "1913",
+        "delay": "1269",
         "anonymity": "4"
     },
     {
@@ -4000,20 +3974,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "1575",
-        "anonymity": "4"
-    },
-    {
-        "ip": "141.98.19.221",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Thailand",
-        "country_code": "TH",
-        "city": "Nonthaburi",
-        "delay": "1824",
+        "delay": "1468",
         "anonymity": "4"
     },
     {
@@ -4030,6 +3991,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "141.98.19.221",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Thailand",
+        "country_code": "TH",
+        "city": "Nonthaburi",
+        "delay": "1824",
+        "anonymity": "4"
+    },
+    {
         "ip": "141.164.39.178",
         "port": "443",
         "type": "https",
@@ -4039,7 +4013,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Seoul",
-        "delay": "2325",
+        "delay": "2397",
         "anonymity": "4"
     },
     {
@@ -4052,7 +4026,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1513",
+        "delay": "1886",
         "anonymity": "4"
     },
     {
@@ -4078,7 +4052,7 @@
         "country": "Belgium",
         "country_code": "BE",
         "city": "Flanders",
-        "delay": "1732",
+        "delay": "1239",
         "anonymity": "4"
     },
     {
@@ -4091,7 +4065,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Zurich",
-        "delay": "1880",
+        "delay": "1606",
         "anonymity": "4"
     },
     {
@@ -4104,7 +4078,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Zurich",
-        "delay": "2043",
+        "delay": "1974",
         "anonymity": "4"
     },
     {
@@ -4117,7 +4091,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1652",
+        "delay": "1670",
         "anonymity": "4"
     },
     {
@@ -4130,20 +4104,7 @@
         "country": "Belgium",
         "country_code": "BE",
         "city": "Flanders",
-        "delay": "1584",
-        "anonymity": "4"
-    },
-    {
-        "ip": "146.70.203.18",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Hungary",
-        "country_code": "HU",
-        "city": "Budapest",
-        "delay": "1618",
+        "delay": "3212",
         "anonymity": "4"
     },
     {
@@ -4160,6 +4121,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "146.70.203.18",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Hungary",
+        "country_code": "HU",
+        "city": "Budapest",
+        "delay": "1618",
+        "anonymity": "4"
+    },
+    {
         "ip": "146.70.219.226",
         "port": "443",
         "type": "https",
@@ -4169,7 +4143,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1485",
+        "delay": "2307",
         "anonymity": "4"
     },
     {
@@ -4182,7 +4156,7 @@
         "country": "Norway",
         "country_code": "NO",
         "city": "Oslo",
-        "delay": "1665",
+        "delay": "1683",
         "anonymity": "4"
     },
     {
@@ -4195,7 +4169,7 @@
         "country": "Sweden",
         "country_code": "SE",
         "city": "Skåne",
-        "delay": "2397",
+        "delay": "1354",
         "anonymity": "4"
     },
     {
@@ -4221,7 +4195,7 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Vienna",
-        "delay": "2593",
+        "delay": "3049",
         "anonymity": "4"
     },
     {
@@ -4234,7 +4208,7 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Vienna",
-        "delay": "2008",
+        "delay": "1847",
         "anonymity": "4"
     },
     {
@@ -4299,7 +4273,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1712",
+        "delay": "1857",
         "anonymity": "4"
     },
     {
@@ -4312,7 +4286,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Nouvelle-Aquitaine",
-        "delay": "3006",
+        "delay": "2879",
         "anonymity": "4"
     },
     {
@@ -4325,7 +4299,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Nouvelle-Aquitaine",
-        "delay": "2674",
+        "delay": "2716",
         "anonymity": "4"
     },
     {
@@ -4377,7 +4351,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Zurich",
-        "delay": "2320",
+        "delay": "1641",
         "anonymity": "4"
     },
     {
@@ -4395,19 +4369,6 @@
     },
     {
         "ip": "149.88.96.12",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Ireland",
-        "country_code": "IE",
-        "city": "Leinster",
-        "delay": "1324",
-        "anonymity": "4"
-    },
-    {
-        "ip": "149.88.96.12",
         "port": "443",
         "type": "https",
         "type_list": [
@@ -4417,6 +4378,19 @@
         "country_code": "IE",
         "city": "Leinster",
         "delay": "1942",
+        "anonymity": "4"
+    },
+    {
+        "ip": "149.88.96.12",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Ireland",
+        "country_code": "IE",
+        "city": "Leinster",
+        "delay": "1324",
         "anonymity": "4"
     },
     {
@@ -4442,7 +4416,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Ontario",
-        "delay": "745",
+        "delay": "539",
         "anonymity": "4"
     },
     {
@@ -4481,7 +4455,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "1378",
+        "delay": "1367",
         "anonymity": "4"
     },
     {
@@ -4494,7 +4468,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore",
-        "delay": "1626",
+        "delay": "1636",
         "anonymity": "4"
     },
     {
@@ -4520,7 +4494,7 @@
         "country": "Slovakia",
         "country_code": "SK",
         "city": "Bratislava Region",
-        "delay": "1417",
+        "delay": "1523",
         "anonymity": "4"
     },
     {
@@ -4559,7 +4533,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "2140",
+        "delay": "2691",
         "anonymity": "4"
     },
     {
@@ -4572,7 +4546,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1844",
+        "delay": "1747",
         "anonymity": "4"
     },
     {
@@ -4585,7 +4559,7 @@
         "country": "Thailand",
         "country_code": "TH",
         "city": "Bangkok",
-        "delay": "5268",
+        "delay": "2577",
         "anonymity": "4"
     },
     {
@@ -4598,7 +4572,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "1910",
+        "delay": "1596",
         "anonymity": "4"
     },
     {
@@ -4611,7 +4585,7 @@
         "country": "Poland",
         "country_code": "PL",
         "city": "Mazovia",
-        "delay": "1587",
+        "delay": "1691",
         "anonymity": "4"
     },
     {
@@ -4624,7 +4598,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1420",
+        "delay": "1457",
         "anonymity": "4"
     },
     {
@@ -4637,7 +4611,7 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "2370",
+        "delay": "2662",
         "anonymity": "4"
     },
     {
@@ -4650,7 +4624,7 @@
         "country": "Slovenia",
         "country_code": "SI",
         "city": "Urban Municipality of Maribor",
-        "delay": "3023",
+        "delay": "3089",
         "anonymity": "4"
     },
     {
@@ -4663,7 +4637,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Osaka",
-        "delay": "1922",
+        "delay": "1788",
         "anonymity": "4"
     },
     {
@@ -4702,7 +4676,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "1856",
+        "delay": "1817",
         "anonymity": "4"
     },
     {
@@ -4715,7 +4689,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "2384",
+        "delay": "2386",
         "anonymity": "4"
     },
     {
@@ -4728,7 +4702,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "2617",
+        "delay": "2330",
         "anonymity": "4"
     },
     {
@@ -4741,7 +4715,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Brandenburg",
-        "delay": "1516",
+        "delay": "1569",
         "anonymity": "4"
     },
     {
@@ -4754,7 +4728,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Brandenburg",
-        "delay": "1600",
+        "delay": "1745",
         "anonymity": "4"
     },
     {
@@ -4767,7 +4741,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Brandenburg",
-        "delay": "1719",
+        "delay": "1729",
         "anonymity": "4"
     },
     {
@@ -4780,7 +4754,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Brandenburg",
-        "delay": "1686",
+        "delay": "1651",
         "anonymity": "4"
     },
     {
@@ -4793,7 +4767,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Brandenburg",
-        "delay": "1589",
+        "delay": "1646",
         "anonymity": "4"
     },
     {
@@ -4806,7 +4780,7 @@
         "country": "Slovakia",
         "country_code": "SK",
         "city": "Bratislava",
-        "delay": "1825",
+        "delay": "1756",
         "anonymity": "4"
     },
     {
@@ -4819,7 +4793,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "1568",
+        "delay": "1562",
         "anonymity": "4"
     },
     {
@@ -4832,7 +4806,20 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "1682",
+        "delay": "1528",
+        "anonymity": "4"
+    },
+    {
+        "ip": "159.195.110.240",
+        "port": "8080",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Austria",
+        "country_code": "AT",
+        "city": "Vienna",
+        "delay": "2145",
         "anonymity": "4"
     },
     {
@@ -4845,7 +4832,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Ontario",
-        "delay": "1610",
+        "delay": "1508",
         "anonymity": "4"
     },
     {
@@ -4858,7 +4845,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Osaka",
-        "delay": "1992",
+        "delay": "1890",
         "anonymity": "4"
     },
     {
@@ -4871,20 +4858,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Osaka",
-        "delay": "1793",
-        "anonymity": "4"
-    },
-    {
-        "ip": "161.129.60.66",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "The Netherlands",
-        "country_code": "NL",
-        "city": "North Holland",
-        "delay": "1834",
+        "delay": "1653",
         "anonymity": "4"
     },
     {
@@ -4901,6 +4875,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "161.129.60.66",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "The Netherlands",
+        "country_code": "NL",
+        "city": "North Holland",
+        "delay": "1834",
+        "anonymity": "4"
+    },
+    {
         "ip": "162.55.97.61",
         "port": "443",
         "type": "https",
@@ -4910,7 +4897,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "2178",
+        "delay": "2057",
         "anonymity": "4"
     },
     {
@@ -4923,7 +4910,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1932",
+        "delay": "1769",
         "anonymity": "4"
     },
     {
@@ -4936,7 +4923,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "2417",
+        "delay": "7629",
         "anonymity": "4"
     },
     {
@@ -4949,7 +4936,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Grand Est",
-        "delay": "1999",
+        "delay": "1968",
         "anonymity": "4"
     },
     {
@@ -4962,7 +4949,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Pioneer)",
-        "delay": "2455",
+        "delay": "2443",
         "anonymity": "4"
     },
     {
@@ -4975,7 +4962,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1470",
+        "delay": "1508",
         "anonymity": "4"
     },
     {
@@ -4988,7 +4975,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "2941",
+        "delay": "1829",
         "anonymity": "4"
     },
     {
@@ -5001,7 +4988,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "7547",
+        "delay": "2398",
         "anonymity": "4"
     },
     {
@@ -5014,7 +5001,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Ontario",
-        "delay": "1395",
+        "delay": "1279",
         "anonymity": "4"
     },
     {
@@ -5027,7 +5014,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Tokyo",
-        "delay": "1957",
+        "delay": "1736",
         "anonymity": "4"
     },
     {
@@ -5040,7 +5027,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1440",
+        "delay": "1562",
         "anonymity": "4"
     },
     {
@@ -5053,7 +5040,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Saxony",
-        "delay": "1916",
+        "delay": "1868",
         "anonymity": "4"
     },
     {
@@ -5066,7 +5053,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1587",
+        "delay": "1602",
         "anonymity": "4"
     },
     {
@@ -5079,7 +5066,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Prague",
-        "delay": "2181",
+        "delay": "2093",
         "anonymity": "4"
     },
     {
@@ -5092,7 +5079,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Hauts-de-France",
-        "delay": "2414",
+        "delay": "2362",
         "anonymity": "4"
     },
     {
@@ -5105,7 +5092,7 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Styria",
-        "delay": "2076",
+        "delay": "2105",
         "anonymity": "4"
     },
     {
@@ -5118,7 +5105,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Rhône-Alpes",
-        "delay": "6690",
+        "delay": "5945",
         "anonymity": "4"
     },
     {
@@ -5131,7 +5118,33 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Okinawa",
-        "delay": "1965",
+        "delay": "2019",
+        "anonymity": "4"
+    },
+    {
+        "ip": "180.166.128.182",
+        "port": "24001",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "China",
+        "country_code": "CN",
+        "city": "Shanghai",
+        "delay": "2329",
+        "anonymity": "4"
+    },
+    {
+        "ip": "180.166.128.182",
+        "port": "13010",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "China",
+        "country_code": "CN",
+        "city": "Shanghai",
+        "delay": "1972",
         "anonymity": "4"
     },
     {
@@ -5148,32 +5161,6 @@
         "anonymity": "4"
     },
     {
-        "ip": "180.166.128.182",
-        "port": "13010",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "China",
-        "country_code": "CN",
-        "city": "Shanghai",
-        "delay": "1695",
-        "anonymity": "4"
-    },
-    {
-        "ip": "180.166.128.182",
-        "port": "24001",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "China",
-        "country_code": "CN",
-        "city": "Shanghai",
-        "delay": "4837",
-        "anonymity": "4"
-    },
-    {
         "ip": "185.15.75.140",
         "port": "443",
         "type": "https",
@@ -5183,7 +5170,7 @@
         "country": "Denmark",
         "country_code": "DK",
         "city": "Zealand",
-        "delay": "2019",
+        "delay": "1803",
         "anonymity": "4"
     },
     {
@@ -5196,7 +5183,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1871",
+        "delay": "1839",
         "anonymity": "4"
     },
     {
@@ -5209,7 +5196,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Plzeň Region",
-        "delay": "2069",
+        "delay": "1790",
         "anonymity": "4"
     },
     {
@@ -5222,7 +5209,20 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Emilia-Romagna",
-        "delay": "1651",
+        "delay": "1734",
+        "anonymity": "4"
+    },
+    {
+        "ip": "185.104.184.130",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Germany",
+        "country_code": "DE",
+        "city": "Bavaria",
+        "delay": "1866",
         "anonymity": "4"
     },
     {
@@ -5235,20 +5235,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "2059",
-        "anonymity": "4"
-    },
-    {
-        "ip": "185.104.184.130",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Germany",
-        "country_code": "DE",
-        "city": "Bavaria",
-        "delay": "1431",
+        "delay": "1819",
         "anonymity": "4"
     },
     {
@@ -5261,7 +5248,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "Drenthe",
-        "delay": "1991",
+        "delay": "3368",
         "anonymity": "4"
     },
     {
@@ -5287,7 +5274,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2656",
+        "delay": "1554",
         "anonymity": "4"
     },
     {
@@ -5305,6 +5292,19 @@
     },
     {
         "ip": "185.164.138.156",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1176",
+        "anonymity": "4"
+    },
+    {
+        "ip": "185.164.138.156",
         "port": "9443",
         "type": "https",
         "type_list": [
@@ -5314,32 +5314,6 @@
         "country_code": "GB",
         "city": "England",
         "delay": "1609",
-        "anonymity": "4"
-    },
-    {
-        "ip": "185.164.138.156",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1134",
-        "anonymity": "4"
-    },
-    {
-        "ip": "185.164.138.162",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1970",
         "anonymity": "4"
     },
     {
@@ -5356,6 +5330,32 @@
         "anonymity": "4"
     },
     {
+        "ip": "185.164.138.162",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1476",
+        "anonymity": "4"
+    },
+    {
+        "ip": "185.165.170.1",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Iceland",
+        "country_code": "IS",
+        "city": "Capital Region",
+        "delay": "1747",
+        "anonymity": "4"
+    },
+    {
         "ip": "185.165.170.1",
         "port": "9443",
         "type": "https",
@@ -5369,19 +5369,6 @@
         "anonymity": "4"
     },
     {
-        "ip": "185.165.170.1",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Iceland",
-        "country_code": "IS",
-        "city": "Capital Region",
-        "delay": "1953",
-        "anonymity": "4"
-    },
-    {
         "ip": "185.187.43.38",
         "port": "8090",
         "type": "https",
@@ -5391,7 +5378,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Apulia",
-        "delay": "3757",
+        "delay": "2850",
         "anonymity": "4"
     },
     {
@@ -5404,7 +5391,7 @@
         "country": "Bulgaria",
         "country_code": "BG",
         "city": "Sofia-grad",
-        "delay": "2027",
+        "delay": "2147",
         "anonymity": "4"
     },
     {
@@ -5474,19 +5461,6 @@
     },
     {
         "ip": "185.221.132.242",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Luxembourg",
-        "country_code": "LU",
-        "city": "Luxembourg",
-        "delay": "1324",
-        "anonymity": "4"
-    },
-    {
-        "ip": "185.221.132.242",
         "port": "443",
         "type": "https",
         "type_list": [
@@ -5496,6 +5470,32 @@
         "country_code": "LU",
         "city": "Luxembourg",
         "delay": "1608",
+        "anonymity": "4"
+    },
+    {
+        "ip": "185.221.132.242",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Luxembourg",
+        "country_code": "LU",
+        "city": "Luxembourg",
+        "delay": "1301",
+        "anonymity": "4"
+    },
+    {
+        "ip": "185.225.28.50",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "North Macedonia",
+        "country_code": "MK",
+        "city": "Grad Skopje",
+        "delay": "1845",
         "anonymity": "4"
     },
     {
@@ -5512,19 +5512,6 @@
         "anonymity": "4"
     },
     {
-        "ip": "185.225.28.50",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "North Macedonia",
-        "country_code": "MK",
-        "city": "Grad Skopje",
-        "delay": "2583",
-        "anonymity": "4"
-    },
-    {
         "ip": "185.232.70.11",
         "port": "443",
         "type": "https",
@@ -5534,7 +5521,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Baden-Wurttemberg",
-        "delay": "1596",
+        "delay": "1619",
         "anonymity": "4"
     },
     {
@@ -5547,7 +5534,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "Drenthe",
-        "delay": "1506",
+        "delay": "1574",
         "anonymity": "4"
     },
     {
@@ -5560,7 +5547,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "Drenthe",
-        "delay": "1529",
+        "delay": "1436",
         "anonymity": "4"
     },
     {
@@ -5573,7 +5560,7 @@
         "country": "Denmark",
         "country_code": "DK",
         "city": "Capital Region",
-        "delay": "1495",
+        "delay": "1476",
         "anonymity": "4"
     },
     {
@@ -5599,7 +5586,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lombardy",
-        "delay": "1858",
+        "delay": "2029",
         "anonymity": "4"
     },
     {
@@ -5612,7 +5599,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1470",
+        "delay": "1449",
         "anonymity": "4"
     },
     {
@@ -5625,7 +5612,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "1776",
+        "delay": "1659",
         "anonymity": "4"
     },
     {
@@ -5651,7 +5638,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "1975",
+        "delay": "1947",
         "anonymity": "4"
     },
     {
@@ -5664,7 +5651,7 @@
         "country": "The Netherlands",
         "country_code": "NL",
         "city": "North Holland",
-        "delay": "3366",
+        "delay": "3598",
         "anonymity": "4"
     },
     {
@@ -5677,7 +5664,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "2102",
+        "delay": "2601",
         "anonymity": "4"
     },
     {
@@ -5690,7 +5677,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1866",
+        "delay": "1992",
         "anonymity": "4"
     },
     {
@@ -5703,7 +5690,7 @@
         "country": "Slovenia",
         "country_code": "SI",
         "city": "Dolenjske Toplice",
-        "delay": "1935",
+        "delay": "1711",
         "anonymity": "4"
     },
     {
@@ -5716,7 +5703,7 @@
         "country": "Slovakia",
         "country_code": "SK",
         "city": "Presov",
-        "delay": "3719",
+        "delay": "3725",
         "anonymity": "4"
     },
     {
@@ -5729,7 +5716,7 @@
         "country": "Slovakia",
         "country_code": "SK",
         "city": "Presov",
-        "delay": "1988",
+        "delay": "1837",
         "anonymity": "4"
     },
     {
@@ -5755,7 +5742,7 @@
         "country": "Portugal",
         "country_code": "PT",
         "city": "Lisbon",
-        "delay": "2851",
+        "delay": "2215",
         "anonymity": "4"
     },
     {
@@ -5781,7 +5768,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2118",
+        "delay": "1959",
         "anonymity": "4"
     },
     {
@@ -5794,7 +5781,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2246",
+        "delay": "1851",
         "anonymity": "4"
     },
     {
@@ -5807,7 +5794,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2271",
+        "delay": "1888",
         "anonymity": "4"
     },
     {
@@ -5820,7 +5807,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2157",
+        "delay": "1809",
         "anonymity": "4"
     },
     {
@@ -5833,7 +5820,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2225",
+        "delay": "1854",
         "anonymity": "4"
     },
     {
@@ -5846,7 +5833,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2305",
+        "delay": "1953",
         "anonymity": "4"
     },
     {
@@ -5859,7 +5846,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2261",
+        "delay": "1965",
         "anonymity": "4"
     },
     {
@@ -5872,7 +5859,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "1993",
+        "delay": "1880",
         "anonymity": "4"
     },
     {
@@ -5885,7 +5872,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2292",
+        "delay": "2069",
         "anonymity": "4"
     },
     {
@@ -5898,7 +5885,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "1932",
+        "delay": "1941",
         "anonymity": "4"
     },
     {
@@ -5911,7 +5898,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "3208",
+        "delay": "1889",
         "anonymity": "4"
     },
     {
@@ -5924,7 +5911,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2006",
+        "delay": "1919",
         "anonymity": "4"
     },
     {
@@ -5937,7 +5924,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "1975",
+        "delay": "2132",
         "anonymity": "4"
     },
     {
@@ -5950,7 +5937,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2125",
+        "delay": "1648",
         "anonymity": "4"
     },
     {
@@ -5963,7 +5950,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2040",
+        "delay": "2019",
         "anonymity": "4"
     },
     {
@@ -5976,7 +5963,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2091",
+        "delay": "1831",
         "anonymity": "4"
     },
     {
@@ -5989,7 +5976,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2409",
+        "delay": "2038",
         "anonymity": "4"
     },
     {
@@ -6002,7 +5989,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2320",
+        "delay": "2066",
         "anonymity": "4"
     },
     {
@@ -6015,7 +6002,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "3390",
+        "delay": "1846",
         "anonymity": "4"
     },
     {
@@ -6028,7 +6015,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2245",
+        "delay": "1866",
         "anonymity": "4"
     },
     {
@@ -6041,7 +6028,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2287",
+        "delay": "2206",
         "anonymity": "4"
     },
     {
@@ -6054,7 +6041,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2009",
+        "delay": "2033",
         "anonymity": "4"
     },
     {
@@ -6067,7 +6054,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2375",
+        "delay": "1914",
         "anonymity": "4"
     },
     {
@@ -6080,7 +6067,7 @@
         "country": "Romania",
         "country_code": "RO",
         "city": "Bucharest",
-        "delay": "2038",
+        "delay": "1600",
         "anonymity": "4"
     },
     {
@@ -6093,7 +6080,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Budapest",
-        "delay": "2043",
+        "delay": "2149",
         "anonymity": "4"
     },
     {
@@ -6106,7 +6093,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Budapest",
-        "delay": "2086",
+        "delay": "2114",
         "anonymity": "4"
     },
     {
@@ -6119,7 +6106,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Budapest",
-        "delay": "3436",
+        "delay": "1919",
         "anonymity": "4"
     },
     {
@@ -6132,7 +6119,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Lower Saxony",
-        "delay": "2500",
+        "delay": "2710",
         "anonymity": "4"
     },
     {
@@ -6145,7 +6132,7 @@
         "country": "Hungary",
         "country_code": "HU",
         "city": "Baranya",
-        "delay": "3361",
+        "delay": "2291",
         "anonymity": "4"
     },
     {
@@ -6158,7 +6145,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1737",
+        "delay": "1748",
         "anonymity": "4"
     },
     {
@@ -6171,7 +6158,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "North Rhine-Westphalia",
-        "delay": "2621",
+        "delay": "2096",
         "anonymity": "4"
     },
     {
@@ -6184,7 +6171,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1879",
+        "delay": "2003",
         "anonymity": "4"
     },
     {
@@ -6197,20 +6184,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "2008",
-        "anonymity": "4"
-    },
-    {
-        "ip": "194.195.87.167",
-        "port": "8081",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1750",
+        "delay": "1852",
         "anonymity": "4"
     },
     {
@@ -6223,7 +6197,20 @@
         "country": "United Kingdom",
         "country_code": "GB",
         "city": "England",
-        "delay": "1940",
+        "delay": "1932",
+        "anonymity": "4"
+    },
+    {
+        "ip": "194.195.87.167",
+        "port": "8081",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1646",
         "anonymity": "4"
     },
     {
@@ -6236,7 +6223,7 @@
         "country": "Italy",
         "country_code": "IT",
         "city": "Lombardy",
-        "delay": "1891",
+        "delay": "1965",
         "anonymity": "4"
     },
     {
@@ -6249,7 +6236,7 @@
         "country": "Slovenia",
         "country_code": "SI",
         "city": "Ljubljana",
-        "delay": "2635",
+        "delay": "3140",
         "anonymity": "4"
     },
     {
@@ -6262,7 +6249,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Occitanie",
-        "delay": "2288",
+        "delay": "2179",
         "anonymity": "4"
     },
     {
@@ -6275,7 +6262,7 @@
         "country": "Portugal",
         "country_code": "PT",
         "city": "Lisbon",
-        "delay": "2110",
+        "delay": "2177",
         "anonymity": "4"
     },
     {
@@ -6288,7 +6275,7 @@
         "country": "Slovakia",
         "country_code": "SK",
         "city": "Bratislava Region",
-        "delay": "2077",
+        "delay": "2380",
         "anonymity": "4"
     },
     {
@@ -6301,7 +6288,7 @@
         "country": "Czechia",
         "country_code": "CZ",
         "city": "Jihočeský kraj",
-        "delay": "1720",
+        "delay": "2033",
         "anonymity": "4"
     },
     {
@@ -6332,7 +6319,7 @@
     },
     {
         "ip": "195.192.209.130",
-        "port": "9443",
+        "port": "443",
         "type": "https",
         "type_list": [
             "https"
@@ -6340,7 +6327,7 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Salzburg",
-        "delay": "2021",
+        "delay": "2264",
         "anonymity": "4"
     },
     {
@@ -6353,12 +6340,12 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Salzburg",
-        "delay": "3089",
+        "delay": "2170",
         "anonymity": "4"
     },
     {
         "ip": "195.192.209.130",
-        "port": "443",
+        "port": "9443",
         "type": "https",
         "type_list": [
             "https"
@@ -6366,7 +6353,7 @@
         "country": "Austria",
         "country_code": "AT",
         "city": "Salzburg",
-        "delay": "2134",
+        "delay": "1908",
         "anonymity": "4"
     },
     {
@@ -6379,7 +6366,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "7124",
+        "delay": "2403",
         "anonymity": "4"
     },
     {
@@ -6392,7 +6379,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "1993",
+        "delay": "2274",
         "anonymity": "4"
     },
     {
@@ -6405,7 +6392,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Bavaria",
-        "delay": "2078",
+        "delay": "2036",
         "anonymity": "4"
     },
     {
@@ -6418,7 +6405,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "Quebec",
-        "delay": "1493",
+        "delay": "1414",
         "anonymity": "4"
     },
     {
@@ -6431,7 +6418,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "Jakarta",
-        "delay": "2230",
+        "delay": "2468",
         "anonymity": "4"
     },
     {
@@ -6444,7 +6431,7 @@
         "country": "Indonesia",
         "country_code": "ID",
         "city": "Jakarta",
-        "delay": "4994",
+        "delay": "2362",
         "anonymity": "4"
     },
     {
@@ -6457,7 +6444,7 @@
         "country": "Philippines",
         "country_code": "PH",
         "city": "National Capital Region",
-        "delay": "6935",
+        "delay": "6772",
         "anonymity": "4"
     },
     {
@@ -6470,7 +6457,7 @@
         "country": "Philippines",
         "country_code": "PH",
         "city": "National Capital Region",
-        "delay": "6936",
+        "delay": "6888",
         "anonymity": "4"
     },
     {
@@ -6483,7 +6470,7 @@
         "country": "Philippines",
         "country_code": "PH",
         "city": "National Capital Region",
-        "delay": "6885",
+        "delay": "6761",
         "anonymity": "4"
     },
     {
@@ -6523,7 +6510,7 @@
         "country": "North Macedonia",
         "country_code": "MK",
         "city": "Grad Skopje",
-        "delay": "1965",
+        "delay": "1790",
         "anonymity": "4"
     },
     {
@@ -6536,7 +6523,7 @@
         "country": "North Macedonia",
         "country_code": "MK",
         "city": "Grad Skopje",
-        "delay": "1952",
+        "delay": "1964",
         "anonymity": "4"
     },
     {
@@ -6549,7 +6536,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "1493",
+        "delay": "1668",
         "anonymity": "4"
     },
     {
@@ -6562,7 +6549,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "Victoria",
-        "delay": "1930",
+        "delay": "2091",
         "anonymity": "4"
     },
     {
@@ -6575,7 +6562,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Hesse",
-        "delay": "3098",
+        "delay": "2147",
         "anonymity": "4"
     },
     {
@@ -6588,7 +6575,7 @@
         "country": "Canada",
         "country_code": "CA",
         "city": "British Columbia",
-        "delay": "1033",
+        "delay": "1310",
         "anonymity": "4"
     },
     {
@@ -6601,7 +6588,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "2048",
+        "delay": "2162",
         "anonymity": "4"
     },
     {
@@ -6614,7 +6601,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "2022",
+        "delay": "1860",
         "anonymity": "4"
     },
     {
@@ -6627,7 +6614,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "1835",
+        "delay": "1910",
         "anonymity": "4"
     },
     {
@@ -6640,7 +6627,7 @@
         "country": "Australia",
         "country_code": "AU",
         "city": "New South Wales",
-        "delay": "2020",
+        "delay": "1850",
         "anonymity": "4"
     },
     {
@@ -6666,20 +6653,7 @@
         "country": "Malaysia",
         "country_code": "MY",
         "city": "Kuala Lumpur",
-        "delay": "3064",
-        "anonymity": "4"
-    },
-    {
-        "ip": "210.61.216.63",
-        "port": "60808",
-        "type": "http",
-        "type_list": [
-            "http"
-        ],
-        "country": "Taiwan",
-        "country_code": "TW",
-        "city": "Taiwan",
-        "delay": "7929",
+        "delay": "2730",
         "anonymity": "4"
     },
     {
@@ -6692,7 +6666,7 @@
         "country": "South Korea",
         "country_code": "KR",
         "city": "Gyeonggi-do",
-        "delay": "1882",
+        "delay": "1828",
         "anonymity": "4"
     },
     {
@@ -6705,7 +6679,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Hiroshima",
-        "delay": "1857",
+        "delay": "1831",
         "anonymity": "4"
     },
     {
@@ -6718,7 +6692,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Hiroshima",
-        "delay": "1833",
+        "delay": "1759",
         "anonymity": "4"
     },
     {
@@ -6731,7 +6705,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Hiroshima",
-        "delay": "1884",
+        "delay": "1895",
         "anonymity": "4"
     },
     {
@@ -6744,7 +6718,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Hiroshima",
-        "delay": "2014",
+        "delay": "1871",
         "anonymity": "4"
     },
     {
@@ -6757,7 +6731,7 @@
         "country": "Japan",
         "country_code": "JP",
         "city": "Hiroshima",
-        "delay": "1802",
+        "delay": "1812",
         "anonymity": "4"
     },
     {
@@ -6770,20 +6744,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "2169",
-        "anonymity": "4"
-    },
-    {
-        "ip": "212.102.63.92",
-        "port": "9443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "United Kingdom",
-        "country_code": "GB",
-        "city": "England",
-        "delay": "1207",
+        "delay": "2289",
         "anonymity": "4"
     },
     {
@@ -6800,6 +6761,19 @@
         "anonymity": "4"
     },
     {
+        "ip": "212.102.63.92",
+        "port": "9443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "city": "England",
+        "delay": "1254",
+        "anonymity": "4"
+    },
+    {
         "ip": "212.243.240.120",
         "port": "443",
         "type": "https",
@@ -6809,7 +6783,7 @@
         "country": "Switzerland",
         "country_code": "CH",
         "city": "Aargau",
-        "delay": "1927",
+        "delay": "1914",
         "anonymity": "4"
     },
     {
@@ -6822,7 +6796,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Loyang)",
-        "delay": "1750",
+        "delay": "1803",
         "anonymity": "4"
     },
     {
@@ -6835,7 +6809,7 @@
         "country": "Singapore",
         "country_code": "SG",
         "city": "Singapore (Loyang)",
-        "delay": "2206",
+        "delay": "2079",
         "anonymity": "4"
     },
     {
@@ -6848,7 +6822,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Catalonia",
-        "delay": "2214",
+        "delay": "1932",
         "anonymity": "4"
     },
     {
@@ -6900,20 +6874,7 @@
         "country": "Croatia",
         "country_code": "HR",
         "city": "City of Zagreb",
-        "delay": "2235",
-        "anonymity": "4"
-    },
-    {
-        "ip": "213.177.229.161",
-        "port": "443",
-        "type": "https",
-        "type_list": [
-            "https"
-        ],
-        "country": "Germany",
-        "country_code": "DE",
-        "city": "State of Berlin",
-        "delay": "1934",
+        "delay": "2508",
         "anonymity": "4"
     },
     {
@@ -6926,7 +6887,20 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "State of Berlin",
-        "delay": "1854",
+        "delay": "1843",
+        "anonymity": "4"
+    },
+    {
+        "ip": "213.177.229.161",
+        "port": "443",
+        "type": "https",
+        "type_list": [
+            "https"
+        ],
+        "country": "Germany",
+        "country_code": "DE",
+        "city": "State of Berlin",
+        "delay": "1620",
         "anonymity": "4"
     },
     {
@@ -6952,7 +6926,7 @@
         "country": "Cyprus",
         "country_code": "CY",
         "city": "Nicosia",
-        "delay": "3201",
+        "delay": "2439",
         "anonymity": "4"
     },
     {
@@ -6965,7 +6939,7 @@
         "country": "Finland",
         "country_code": "FI",
         "city": "Uusimaa",
-        "delay": "2111",
+        "delay": "2609",
         "anonymity": "4"
     },
     {
@@ -6978,7 +6952,7 @@
         "country": "Spain",
         "country_code": "ES",
         "city": "Andalusia",
-        "delay": "1872",
+        "delay": "1831",
         "anonymity": "4"
     },
     {
@@ -6991,7 +6965,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "Lower Saxony",
-        "delay": "2549",
+        "delay": "2079",
         "anonymity": "4"
     },
     {
@@ -7004,7 +6978,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "State of Berlin",
-        "delay": "1916",
+        "delay": "2093",
         "anonymity": "4"
     },
     {
@@ -7017,7 +6991,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Pays de la Loire",
-        "delay": "1514",
+        "delay": "1553",
         "anonymity": "4"
     },
     {
@@ -7030,7 +7004,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "State of Berlin",
-        "delay": "1540",
+        "delay": "3057",
         "anonymity": "4"
     },
     {
@@ -7043,7 +7017,7 @@
         "country": "Germany",
         "country_code": "DE",
         "city": "North Rhine-Westphalia",
-        "delay": "2316",
+        "delay": "1890",
         "anonymity": "4"
     },
     {
@@ -7056,7 +7030,7 @@
         "country": "France",
         "country_code": "FR",
         "city": "Île-de-France",
-        "delay": "1844",
+        "delay": "1821",
         "anonymity": "4"
     },
     {
@@ -7069,7 +7043,20 @@
         "country": "Sweden",
         "country_code": "SE",
         "city": "Jönköping",
-        "delay": "1649",
+        "delay": "1550",
+        "anonymity": "4"
+    },
+    {
+        "ip": "220.128.223.136",
+        "port": "8082",
+        "type": "http",
+        "type_list": [
+            "http"
+        ],
+        "country": "Taiwan",
+        "country_code": "TW",
+        "city": "Taiwan",
+        "delay": "1479",
         "anonymity": "4"
     },
     {
@@ -7087,6 +7074,19 @@
     },
     {
         "ip": "220.128.223.136",
+        "port": "8085",
+        "type": "http",
+        "type_list": [
+            "http"
+        ],
+        "country": "Taiwan",
+        "country_code": "TW",
+        "city": "Taiwan",
+        "delay": "1500",
+        "anonymity": "4"
+    },
+    {
+        "ip": "220.128.223.136",
         "port": "8081",
         "type": "http",
         "type_list": [
@@ -7095,7 +7095,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "1665",
+        "delay": "2132",
         "anonymity": "4"
     },
     {
@@ -7121,7 +7121,7 @@
         "country": "Taiwan",
         "country_code": "TW",
         "city": "Taiwan",
-        "delay": "2451",
+        "delay": "7848",
         "anonymity": "4"
     },
     {
@@ -7136,5 +7136,18 @@
         "city": "Taiwan",
         "delay": "2399",
         "anonymity": "4"
+    },
+    {
+        "ip": "220.135.222.226",
+        "port": "3128",
+        "type": "http",
+        "type_list": [
+            "http"
+        ],
+        "country": "Taiwan",
+        "country_code": "TW",
+        "city": "Taiwan",
+        "delay": "10394",
+        "anonymity": "1"
     }
 ]
