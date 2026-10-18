@@ -1,5 +1,6 @@
 import asyncio
 import builtins
+from datetime import datetime, timedelta
 import gzip
 import json
 import os
@@ -125,24 +126,59 @@ builtins.print = _thread_safe_print
 
 
 class ProxyNode:
-    """代理节点数据模型，支持基于 (ip, port, type) 的哈希去重与标准 URI 格式化"""
+    """代理节点数据模型，支持基于 (ip, port, type) 的哈希去重、时间戳生命周期追踪与标准 URI 格式化"""
 
     def __init__(self, data):
+        data = dict(data) if isinstance(data, dict) else {}
         self.ip = str(data.get("ip", "")).strip()
         self.port = str(data.get("port", "")).strip()
         self.type = str(data.get("type", "")).strip().lower()
-        self.all = {
-            "ip": self.ip,
-            "port": self.port,
-            "type": self.type,
-            "type_list": data.get("type_list", [self.type]),
-            "country": str(data.get("country", "")).strip(),
-            "country_code": str(data.get("country_code", "")).strip().upper(),
-            "city": str(data.get("city", "")).strip(),
-            "delay": str(data.get("delay", "")).strip(),
-            "anonymity": str(data.get("anonymity", "")).strip(),
-        }
-        self.all.update(data)
+
+        # 规范化 type_list
+        raw_types = data.get("type_list")
+        if not raw_types or not isinstance(raw_types, list):
+            raw_types = [self.type] if self.type else []
+        norm_types = []
+        for t in raw_types:
+            t_str = str(t).strip().lower()
+            if t_str and t_str not in norm_types:
+                norm_types.append(t_str)
+        if self.type and self.type not in norm_types:
+            norm_types.append(self.type)
+
+        first_added = str(
+            data.get("first_added") or data.get("first_seen") or ""
+        ).strip()
+        last_added = str(
+            data.get("last_added") or data.get("last_seen") or ""
+        ).strip()
+
+        self.all = dict(data)
+        self.all.update(
+            {
+                "ip": self.ip,
+                "port": self.port,
+                "type": self.type,
+                "type_list": norm_types,
+                "country": str(data.get("country", "")).strip(),
+                "country_code": str(data.get("country_code", "")).strip().upper(),
+                "city": str(data.get("city", "")).strip(),
+                "delay": str(data.get("delay", "")).strip(),
+                "anonymity": str(data.get("anonymity", "")).strip(),
+            }
+        )
+        if first_added:
+            self.all["first_added"] = first_added
+        if last_added:
+            self.all["last_added"] = last_added
+
+    @property
+    def first_added(self):
+        return self.all.get("first_added", "")
+
+    @property
+    def last_added(self):
+        return self.all.get("last_added", "")
 
     def __hash__(self):
         return hash((self.ip, self.port, self.type))
@@ -814,23 +850,22 @@ def review_and_filter_proxies(
     ip2region_path="ip2region_v4.xdb",
 ):
     """
-    使用三大数据库进行多重交叉验证：
-    1. ip2region_v4.xdb（主数据源：决定最终写入的 country, country_code, city）
+    使用数据库进行多重交叉验证：
+    1. DbIP-City-lite（主数据源：决定最终写入的 country, country_code, city）
     2. GeoLite2-City（交叉验证 1：仅取 country_code 做白名单校验）
-    3. DbIP-City-lite（交叉验证 2：仅取 country_code 做白名单校验）
+    3. ip2region_v4.xdb（交叉验证 2：仅取 country_code 做白名单校验）
 
     规则：
     - 优先检查 IP 黑名单；
     - 所有已启用的数据库解析出的 country_code 必须全部非空且都位于 allowed_countries 白名单中；
     - 任意一个数据库不符合即视为不合格并剔除；
-    - 最终节点属性按照 ip2region 的数据格式化储存（country / country_code / city）。
+    - 最终节点属性按照 DbIP 的数据格式化储存（country / country_code / city）。
     """
     blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
     allowed_set = {c.strip().upper() for c in allowed_countries if c and c.strip()}
     if "US" in allowed_set:
         allowed_set.add("USA")
     filtered_nodes = set()
-    us_nodes = set()
     dropped_country_codes = set()
     total_count = len(proxy_nodes)
     dropped_count = 0
@@ -866,18 +901,25 @@ def review_and_filter_proxies(
         print(f"[ip2region] 警告: 未找到 {ip2region_path}")
 
     if not dbip_reader:
-        print("[DbIP] 错误: 主库 DbIP-City-lite 不可用，无法执行归属地复核流程。")
+        print("[DbIP] 警告: 未找到主库 DbIP-City-lite，执行备用白名单与黑名单基础核验。")
+        for node in proxy_nodes:
+            ip = node.ip
+            if blacklist_set and ip in blacklist_set:
+                blacklisted_count += 1
+                continue
+            upstream_code = str(node.all.get("country_code", "")).strip().upper()
+            if allowed_set and upstream_code and upstream_code not in allowed_set:
+                dropped_count += 1
+                dropped_country_codes.add(upstream_code)
+                continue
+            filtered_nodes.add(node)
+        print(f"[阶段 3/3 完成] 备用核验完毕：共保留 {len(filtered_nodes)} 个节点。")
         if geo_reader:
             try:
                 geo_reader.close()
             except Exception:
                 pass
-        if dbip_reader:
-            try:
-                dbip_reader.close()
-            except Exception:
-                pass
-        return filtered_nodes, us_nodes
+        return filtered_nodes
 
     print(
         f"[阶段 3/3] 开始对 {total_count} 个节点执行三重数据库交叉复核 (白名单国家: {len(allowed_set)} 个, 黑名单 IP: {len(blacklist_set)} 个)..."
@@ -890,10 +932,6 @@ def review_and_filter_proxies(
         if blacklist_set and ip in blacklist_set:
             blacklisted_count += 1
             continue
-
-        # 0. 记录上游 scraper 抓取的原始国家代码（大小写不敏感判断 US / USA）
-        upstream_code = str(node.all.get("country_code", "")).strip().upper()
-        is_upstream_us = upstream_code in ("US", "USA")
 
         # 2. DbIP-City-lite 查询（主库：取 country_code / country / city）
         dbip_code = ""
@@ -918,7 +956,6 @@ def review_and_filter_proxies(
                 dbip_city = ""
         except Exception:
             pass
-        is_dbip_us = dbip_code in ("US", "USA")
 
         # 3. GeoLite2-City 查询（交叉验证 1：仅取 country_code）
         geo_code = ""
@@ -928,7 +965,6 @@ def review_and_filter_proxies(
                 geo_code = str(g_res.country.iso_code or "").strip().upper()
             except Exception:
                 pass
-        is_geo_us = geo_code in ("US", "USA")
 
         # 4. ip2region 查询（交叉验证 2：仅取国家代码）
         ip2reg_code = ""
@@ -943,10 +979,6 @@ def review_and_filter_proxies(
                     ip2reg_code = parts[0].strip().upper()
             except Exception:
                 pass
-        is_ip2reg_us = ip2reg_code in ("US", "USA")
-
-        # 判定四源是否均为美国 (上游 + ip2region + GeoLite2-City + DbIP-City-lite)
-        is_all_us = is_upstream_us and is_dbip_us and is_geo_us and is_ip2reg_us
 
         # 5. 三重交叉验证判定：
         # 主库 DbIP 必须解析出非空国家代码且命中白名单；
@@ -972,8 +1004,6 @@ def review_and_filter_proxies(
             node.all["city"] = dbip_city
 
         filtered_nodes.add(node)
-        if is_all_us:
-            us_nodes.add(node)
 
     # 关闭 readers
     if geo_reader:
@@ -988,7 +1018,7 @@ def review_and_filter_proxies(
             pass
 
     print(
-        f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点 (其中全美标记 US 节点: {len(us_nodes)} 个)。"
+        f"[阶段 3/3 完成] 三重交叉复核完毕：共检验 {total_count} 个节点，黑名单拦截 {blacklisted_count} 个，剔除 {dropped_count} 个不合格节点，最终保留 {len(filtered_nodes)} 个节点。"
     )
     if dropped_country_codes:
         print(
@@ -997,7 +1027,196 @@ def review_and_filter_proxies(
     else:
         print(f"[GeoDB] 未剔除任何国家节点。\n")
 
-    return filtered_nodes, us_nodes
+    return filtered_nodes
+
+
+# ------------------------------
+# 历史数据加载、去重合并与过期清理模块
+# ------------------------------
+def is_older_than_days(date_str, now_dt, max_days=30):
+    """判断日期字符串距今是否超过 max_days 天"""
+    if not date_str:
+        return False
+    try:
+        dt = datetime.fromisoformat(str(date_str).strip())
+        return (now_dt - dt) > timedelta(days=max_days)
+    except Exception:
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%Y/%m/%d %H:%M:%S"):
+            try:
+                dt = datetime.strptime(str(date_str).strip(), fmt)
+                return (now_dt - dt) > timedelta(days=max_days)
+            except Exception:
+                pass
+    return False
+
+
+def load_raw_proxies(filepath="data/raw.json", default_time_str=None):
+    """
+    启动时读取历史 raw.json 数据。
+    若存在缺失首次或最后添加时间戳的旧节点，自动为其补充默认时间戳。
+    返回字典: { (ip, port, type): ProxyNode }
+    """
+    if not os.path.exists(filepath):
+        print(f"[历史数据] 未检测到历史文件 {filepath}，本次启动将作为首次抓取运行。")
+        return {}
+
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"[历史数据] 读取 {filepath} 失败: {e}，将作为首次抓取运行。")
+        return {}
+
+    if not isinstance(data, list):
+        print(f"[历史数据] 文件 {filepath} 格式非 JSON 列表，忽略。")
+        return {}
+
+    historical_map = {}
+    missing_time_count = 0
+    now_str = default_time_str or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    for item in data:
+        if not isinstance(item, dict):
+            continue
+        ip = str(item.get("ip", "")).strip()
+        port = str(item.get("port", "")).strip()
+        p_type = str(item.get("type", "")).strip().lower()
+        if not ip or not port or not p_type:
+            continue
+
+        first_added = str(
+            item.get("first_added") or item.get("first_seen") or ""
+        ).strip()
+        last_added = str(
+            item.get("last_added") or item.get("last_seen") or ""
+        ).strip()
+
+        if not first_added or not last_added:
+            missing_time_count += 1
+            if not first_added:
+                first_added = now_str
+            if not last_added:
+                last_added = now_str
+            item["first_added"] = first_added
+            item["last_added"] = last_added
+
+        node = ProxyNode(item)
+        key = (node.ip, node.port, node.type)
+        historical_map[key] = node
+
+    print(
+        f"[历史数据] 成功从 {filepath} 载入 {len(historical_map)} 个历史节点"
+        + (f" (已为 {missing_time_count} 个旧格式节点补齐初次与最后时间戳)" if missing_time_count else "")
+        + "。"
+    )
+    return historical_map
+
+
+def merge_and_prune_proxies(
+    historical_map,
+    new_nodes,
+    allowed_countries,
+    blacklist=None,
+    now_dt=None,
+    max_age_days=30,
+):
+    """
+    合并历史节点与本轮新核验节点，并执行完善去重与超期删除：
+    1. 节点去重与时间戳更新：
+       - 若节点已在历史库中且本轮再次抓取到：保留原 first_added，更新 last_added 为当前时间，更新最新 delay/city/type_list 等属性；
+       - 若节点为全新节点：first_added 与 last_added 均记为当前时间；
+       - 若节点仅在历史库但本轮未抓取到：保留原 first_added 与 last_added。
+    2. 黑名单过滤：剔除所有 IP 在 blacklist 中的节点。
+    3. 国家白名单过滤：剔除 country_code 不在 allowed_countries 中的节点。
+    4. 30天（1个月）过期清理：若节点的 last_added 距今远于 30 天，则彻底清理删除。
+    """
+    if now_dt is None:
+        now_dt = datetime.now()
+    now_str = now_dt.strftime("%Y-%m-%d %H:%M:%S")
+
+    blacklist_set = {str(ip).strip() for ip in (blacklist or []) if str(ip).strip()}
+    allowed_set = {c.strip().upper() for c in (allowed_countries or []) if c and c.strip()}
+    if "US" in allowed_set:
+        allowed_set.add("USA")
+
+    merged_map = dict(historical_map)
+    new_added_count = 0
+    updated_count = 0
+
+    for node in new_nodes:
+        key = (node.ip, node.port, node.type)
+        if key in merged_map:
+            # 历史已有：保留原 first_added，更新 last_added 为当前时间
+            old_node = merged_map[key]
+            first_added = str(
+                old_node.all.get("first_added")
+                or old_node.all.get("first_seen")
+                or now_str
+            ).strip()
+            node.all["first_added"] = first_added
+            node.all["last_added"] = now_str
+
+            # 合并协议列表 type_list
+            old_types = old_node.all.get("type_list", [])
+            new_types = node.all.get("type_list", [])
+            combined_types = list(dict.fromkeys(old_types + new_types))
+            if combined_types:
+                node.all["type_list"] = combined_types
+
+            # 若新节点解析的城市为空，而历史节点有解析城市，则继承历史城市
+            if not node.all.get("city") and old_node.all.get("city"):
+                node.all["city"] = old_node.all["city"]
+
+            merged_map[key] = node
+            updated_count += 1
+        else:
+            # 全新添加的节点
+            node.all["first_added"] = now_str
+            node.all["last_added"] = now_str
+            merged_map[key] = node
+            new_added_count += 1
+
+    # 执行过滤与过期清理
+    final_nodes = []
+    expired_count = 0
+    blacklisted_count = 0
+    country_dropped_count = 0
+
+    for key, node in merged_map.items():
+        ip = node.ip
+        # 1. 黑名单过滤
+        if blacklist_set and ip in blacklist_set:
+            blacklisted_count += 1
+            continue
+
+        # 2. 国家白名单过滤
+        code = str(node.all.get("country_code", "")).strip().upper()
+        if allowed_set and (not code or code not in allowed_set):
+            country_dropped_count += 1
+            continue
+
+        # 3. 30天（1个月）过期清理
+        last_added_str = str(
+            node.all.get("last_added")
+            or node.all.get("last_seen")
+            or ""
+        ).strip()
+        if is_older_than_days(last_added_str, now_dt, max_days=max_age_days):
+            expired_count += 1
+            continue
+
+        final_nodes.append(node)
+
+    print(f"\n[节点合并与去重总结]")
+    print(f" - 历史基线节点数: {len(historical_map)} 个")
+    print(f" - 本轮新增节点数: {new_added_count} 个")
+    print(f" - 本轮更新/复现节点数: {updated_count} 个")
+    print(f" - 黑名单拦截剔除: {blacklisted_count} 个")
+    print(f" - 国家白名单拦截剔除: {country_dropped_count} 个")
+    print(f" - 超过 {max_age_days} 天未遇到/过期清理: {expired_count} 个")
+    print(f" - 最终合并保留有效节点数: {len(final_nodes)} 个\n")
+
+    return final_nodes
 
 
 # ------------------------------
@@ -1005,6 +1224,9 @@ def review_and_filter_proxies(
 # ------------------------------
 def main():
     start_all_time = time.time()
+    now_dt = datetime.now()
+    now_str = now_dt.strftime("%Y-%m-%d %H:%M:%S")
+
     config_path = "config.yml"
     with open(config_path, "r", encoding="utf-8") as f:
         config_data = yaml.safe_load(f)
@@ -1018,6 +1240,7 @@ def main():
 
     print(f"==================================================")
     print(f" US-Proxy-Scraper 自动化抓取任务启动")
+    print(f" - 执行时间: {now_str}")
     print(f" - freeproxy_only: {freeproxy_only}")
     print(f" - maxpages: {maxpages}")
     print(f" - 黑名单 IP 数量: {len(blacklist)} 个")
@@ -1025,13 +1248,16 @@ def main():
     print(f" - 生成抓取配置数: {len(configs)} 个")
     print(f"==================================================\n")
 
-    all_results = set()
+    # 阶段 0：启动时首先从 data 读取上一次的 raw.json 历史数据
+    historical_proxies = load_raw_proxies("data/raw.json", default_time_str=now_str)
+
+    scraped_results = set()
 
     if freeproxy_only:
         print("[配置] 已开启 freeproxy_only，仅抓取 FreeProxy World 数据源。")
     else:
         print("[配置] 正在加载 ProxyScrape 初始数据源...")
-        all_results.update(fetch_proxyscrape())
+        scraped_results.update(fetch_proxyscrape())
 
     # 阶段 1：并发探测最大页码
     pagemax_results = batch_fetch_pagemax(configs, max_workers=16)
@@ -1059,22 +1285,33 @@ def main():
     # 阶段 2：多线程全局并发抓取
     if all_target_urls:
         freeproxy_results = batch_fetch_proxies(all_target_urls, max_workers=16)
-        all_results.update(freeproxy_results)
+        scraped_results.update(freeproxy_results)
 
-    # 阶段 3：多源 IP 归属地三重交叉复核与过滤
-    all_results, us_results = review_and_filter_proxies(
-        all_results, allowed_countries, blacklist=blacklist
+    # 阶段 3：多源 IP 归属地三重交叉复核与过滤 (核验本轮新抓取节点)
+    verified_new_nodes = review_and_filter_proxies(
+        scraped_results, allowed_countries, blacklist=blacklist
     )
 
-    # 导出保存 (输出前按 IP 的 a.b.c.d 依次 a b c d 升序排序)
+    # 阶段 4：合并历史节点与新抓取节点，完善去重，清理超过1个月未遇到的过期节点
+    all_results = merge_and_prune_proxies(
+        historical_proxies,
+        verified_new_nodes,
+        allowed_countries,
+        blacklist=blacklist,
+        now_dt=now_dt,
+        max_age_days=30,
+    )
+
+    # 导出保存 (输出前按 IP 的 a.b.c.d 升序、端口升序排序)
     def ip_sort_key(node):
         try:
-            return tuple(int(x) for x in str(node.ip).split("."))
+            ip_parts = tuple(int(x) for x in str(node.ip).split("."))
         except Exception:
-            return (9999, 9999, 9999, 9999)
+            ip_parts = (9999, 9999, 9999, 9999)
+        port_num = int(node.port) if str(node.port).isdigit() else 99999
+        return (ip_parts, port_num, str(node.type))
 
     all_results = sorted(all_results, key=ip_sort_key)
-    us_results = sorted(us_results, key=ip_sort_key)
 
     os.makedirs("data", exist_ok=True)
 
@@ -1086,19 +1323,11 @@ def main():
         for result in all_results:
             f.write(repr(result) + "\n")
 
-    us_output = [result.all for result in us_results]
-    with open("data/us.json", "w", encoding="utf-8") as f:
-        json.dump(us_output, f, indent=4, ensure_ascii=False)
-
-    with open("data/us.txt", "w", encoding="utf-8") as f:
-        for result in us_results:
-            f.write(repr(result) + "\n")
-
     total_duration = time.time() - start_all_time
     print(f"==================================================")
     print(f" 全部任务执行完毕！(总耗时: {total_duration:.1f}s)")
-    print(f" 最终导出有效代理节点: {len(output)} 个 (其中全美核验 US 节点: {len(us_output)} 个)")
-    print(f" 保存路径: data/raw.json, data/raw.txt, data/us.json, data/us.txt")
+    print(f" 最终导出有效代理节点: {len(output)} 个")
+    print(f" 保存路径: data/raw.json, data/raw.txt")
     print(f"==================================================")
 
 
