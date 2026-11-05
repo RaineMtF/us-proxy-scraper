@@ -1,6 +1,9 @@
 freeproxy_only: true
 maxpages: 200
 
+# 强制将所有节点协议覆写为 https（避免客户端与核心协议兼容性问题）
+override_to_https: true
+
 # IP 黑名单（直接强制剔除）
 blacklist:
   - 127.0.0.1
@@ -8,7 +11,7 @@ blacklist:
 # 目标国家列表（ISO 2字母代码）
 countries:
   - CN # 中国台湾
-  # - US # 美国 (United States)
+  - US # 美国 (United States)
   - DE # 德国 (Germany)
   - GB # 英国 (United Kingdom)
   - FR # 法国 (France)
@@ -71,16 +74,16 @@ common_configs:
   - https:
       # speed: 20000
       type: https
-  # - socks4:
+  - socks4:
   #     speed: 5000
-  #     type: socks4
-  # - socks5:
+      type: socks4
+  - socks5:
   #     speed: 5000
-  #     type: socks5
+      type: socks5
 
 # 额外独立配置列表（不与 common_configs 遍历组合，无额外限制）
-configs:
-  - TW:
-      country: TW
-  - JP:
-      country: JP
+# configs:
+#   - TW:
+#       country: TW
+#   - JP:
+#       country: JP
